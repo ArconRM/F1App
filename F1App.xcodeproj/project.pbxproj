@@ -37,6 +37,16 @@
 			);
 			target = 162532FB2CEFBF8D00F9397F /* F1App */;
 		};
+		16CC77632CF10AC0007CC2CF /* Exceptions for "F1AppTests" folder in "F1App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets/2024.json,
+				"Assets/constructors-championship.json",
+				Assets/current.json,
+				"Assets/drivers-championship.json",
+			);
+			target = 162532FB2CEFBF8D00F9397F /* F1App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -50,6 +60,9 @@
 		};
 		162533152CEFBF8E00F9397F /* F1AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				16CC77632CF10AC0007CC2CF /* Exceptions for "F1AppTests" folder in "F1App" target */,
+			);
 			path = F1AppTests;
 			sourceTree = "<group>";
 		};
