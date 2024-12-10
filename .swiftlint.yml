@@ -1,0 +1,11 @@
+disabled_rules:
+  - cyclomatic_complexity
+  - line_length
+  - function_body_length
+  - type_body_length
+
+included:
+  - F1App
+  
+excluded:
+  - Pods

@@ -13,18 +13,4 @@ public struct Team: Codable {
     public var country: String
     public var constructorsChampionships: Int
     public var driversChampionships: Int
-    
-    init(
-        teamId: String,
-        teamName: String,
-        country: String,
-        constructorsChampionships: Int,
-        driversChampionships: Int
-    ) {
-        self.teamId = teamId
-        self.teamName = teamName
-        self.country = country
-        self.constructorsChampionships = constructorsChampionships
-        self.driversChampionships = driversChampionships
-    }
 }

@@ -1,5 +1,5 @@
 //
-//  F1AppTests.swift
+//  F1AppNetworkingTests.swift
 //  F1AppTests
 //
 //  Created by Artemiy MIROTVORTSEV on 21.11.2024.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import F1App
 
-final class F1AppTests: XCTestCase {
+final class F1AppNetworkingTests: XCTestCase {
     let networkManager = RacesNetworkManagerImpl(urlSource: F1ConnectUrlSource())
     
     func testExample() {

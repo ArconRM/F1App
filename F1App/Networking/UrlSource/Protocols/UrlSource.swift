@@ -9,7 +9,7 @@ import Foundation
 
 public protocol UrlSource {
     var baseUrl: String { get }
-    
+
     func getCurrentSeasonRacesUrl() -> String
     func getNextSeasonRaceUrl() -> String
 }

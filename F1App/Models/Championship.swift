@@ -12,16 +12,4 @@ public struct Championship: Codable {
     public var championshipName: String
     public var url: String?
     public var year: Int
-    
-    init(
-        championshipId: String,
-        championshipName: String,
-        url: String?,
-        year: Int
-    ) {
-        self.championshipId = championshipId
-        self.championshipName = championshipName
-        self.url = url
-        self.year = year
-    }
 }

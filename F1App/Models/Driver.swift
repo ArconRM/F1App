@@ -16,24 +16,4 @@ public struct Driver: Codable {
     public var number: String?
     public var shortName: String
     public var url: String?
-    
-    init(
-        driverId: String,
-        name: String,
-        surname: String,
-        country: String,
-        birthDate: Date,
-        number: String?,
-        shortName: String,
-        url: String?
-    ) {
-        self.driverId = driverId
-        self.name = name
-        self.surname = surname
-        self.country = country
-        self.birthDate = birthDate
-        self.number = number
-        self.shortName = shortName
-        self.url = url
-    }
 }

@@ -9,9 +9,9 @@ import Foundation
 
 public enum NetworkError: Error, LocalizedError {
     case urlError
-    case fetchError
-    case unexpectedError
-    
+    case fetchError(String)
+    case unexpectedError(String)
+
     public var errorDescription: String? {
         switch self {
         case .urlError:
@@ -22,15 +22,15 @@ public enum NetworkError: Error, LocalizedError {
             return "Неожиданная ошибка"
         }
     }
-    
+
     public var failureReason: String? {
         switch self {
         case .urlError:
             return "Вызвался запрос по кривой ссылке."
-        case .fetchError:
-            return "Не удалось получить данные с сайта."
-        case .unexpectedError:
-            return "Неожиданная ошибка при получении данных с сайта."
+        case .fetchError(let error):
+            return "Не удалось получить данные с сайта. Ошибка: \(error)."
+        case .unexpectedError(let error):
+            return "Неожиданная ошибка при получении данных с сайта. Ошибка: \(error)."
         }
     }
 }
