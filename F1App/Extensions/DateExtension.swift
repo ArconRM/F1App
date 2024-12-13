@@ -27,7 +27,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
 //        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "d\(divider)MMMM\(divider)h:mm"
+        dateFormatter.dateFormat = "d\(divider)MMMM\(divider)HH:mm"
         return dateFormatter.string(from: self)
     }
 

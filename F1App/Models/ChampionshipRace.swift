@@ -35,36 +35,38 @@ public struct ChampionshipRace {
     public var qualyDatetime: Date?
 
     public static var mock: ChampionshipRace {
-        let raceDatetime = "2024-03-02 15:00:00 +0000"
-        let qualyDatetime = "2024-03-01 16:00:00 +0000"
         let fp1Datetime = "2024-02-29 11:30:00 +0000"
         let fp2Datetime = "2024-02-29 15:00:00 +0000"
         let fp3Datetime = "2024-03-01 12:30:00 +0000"
+        let sprintQualyDatetime = "2024-03-01 12:30:00 +0000"
+        let sprintRaceDatetime = "2024-03-01 16:30:00 +0000"
+        let qualyDatetime = "2024-03-01 16:00:00 +0000"
+        let raceDatetime = "2024-03-02 15:00:00 +0000"
 
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
 
-        return ChampionshipRace(
-            raceId: "bahrein_2024",
-            raceName: "Gulf Air Bahrain Grand Prix 2024",
-            laps: 57,
-            round: 1,
-            url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
-            circuitId: "bahrein",
-            circuitName: "Bahrein International Circuit",
-            winnerId: "max_verstappen",
-            winnerName: "Max",
-            teamWinnerId: "red_bull",
-            teamWinnerName: "Red Bull Racing",
-            fp1Datetime: dateFormatter.date(from: fp1Datetime),
-            fp2Datetime: dateFormatter.date(from: fp2Datetime),
-            fp3Datetime: nil,
-            sprintQualyDatetime: dateFormatter.date(from: fp3Datetime),
-            sprintRaceDatetime: dateFormatter.date(from: fp3Datetime),
-            raceDatetime: dateFormatter.date(from: raceDatetime),
-            qualyDatetime: dateFormatter.date(from: qualyDatetime)
-        )
+//        return ChampionshipRace(
+//            raceId: "bahrein_2024",
+//            raceName: "Gulf Air Bahrain Grand Prix 2024",
+//            laps: 57,
+//            round: 1,
+//            url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
+//            circuitId: "bahrein",
+//            circuitName: "Bahrein International Circuit",
+//            winnerId: "max_verstappen",
+//            winnerName: "Max",
+//            teamWinnerId: "red_bull",
+//            teamWinnerName: "Red Bull Racing",
+//            fp1Datetime: dateFormatter.date(from: fp1Datetime),
+//            fp2Datetime: dateFormatter.date(from: fp2Datetime),
+//            fp3Datetime: nil,
+//            sprintQualyDatetime: dateFormatter.date(from: sprintQualyDatetime),
+//            sprintRaceDatetime: dateFormatter.date(from: sprintRaceDatetime),
+//            raceDatetime: dateFormatter.date(from: raceDatetime),
+//            qualyDatetime: dateFormatter.date(from: qualyDatetime)
+//        )
         
         return ChampionshipRace(
             raceId: "bahrein_2024",

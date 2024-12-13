@@ -74,7 +74,7 @@ class RaceCardView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         stackView.spacing = 4
         
         let staticLabel = createLabel(fontSize: 14, color: .black)
@@ -118,6 +118,8 @@ class RaceCardView: UIView {
     private let fp1DateStackView = createStackView(with: "Практика 1:")
     private let fp2DateStackView = createStackView(with: "Практика 2:")
     private let fp3DateStackView = createStackView(with: "Практика 3:")
+    private let sprintQualyDateStackView = createStackView(with: "Спринт-квалификация:")
+    private let sprintRaceDateStackView = createStackView(with: "Спринт:")
     private let qualyDateStackView = createStackView(with: "Квалификация:")
     private let raceDateStackView = createStackView(with: "Гонка:")
     
@@ -140,6 +142,14 @@ class RaceCardView: UIView {
             fp3Label.text = race.fp3Datetime?.getDayMonthTimeWordString() ?? "-"
         }
         
+        if let sprintQualyLabel = sprintQualyDateStackView.arrangedSubviews[1] as? UILabel {
+            sprintQualyLabel.text = race.sprintQualyDatetime?.getDayMonthTimeWordString() ?? "-"
+        }
+        
+        if let sprintRaceLabel = sprintRaceDateStackView.arrangedSubviews[1] as? UILabel {
+            sprintRaceLabel.text = race.sprintRaceDatetime?.getDayMonthTimeWordString() ?? "-"
+        }
+        
         if let qualyLabel = qualyDateStackView.arrangedSubviews[1] as? UILabel {
             qualyLabel.text = race.qualyDatetime?.getDayMonthTimeWordString() ?? "-"
         }
@@ -151,6 +161,8 @@ class RaceCardView: UIView {
         addSubview(fp1DateStackView)
         addSubview(fp2DateStackView)
         addSubview(fp3DateStackView)
+        addSubview(sprintQualyDateStackView)
+        addSubview(sprintRaceDateStackView)
         addSubview(qualyDateStackView)
         addSubview(raceDateStackView)
         
@@ -171,7 +183,15 @@ class RaceCardView: UIView {
             fp3DateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             fp3DateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            qualyDateStackView.topAnchor.constraint(equalTo: fp3DateStackView.bottomAnchor, constant: 8),
+            sprintQualyDateStackView.topAnchor.constraint(equalTo: fp3DateStackView.bottomAnchor, constant: 8),
+            sprintQualyDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            sprintQualyDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            sprintRaceDateStackView.topAnchor.constraint(equalTo: sprintQualyDateStackView.bottomAnchor, constant: 8),
+            sprintRaceDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            sprintRaceDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            qualyDateStackView.topAnchor.constraint(equalTo: sprintRaceDateStackView.bottomAnchor, constant: 8),
             qualyDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             qualyDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
