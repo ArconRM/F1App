@@ -19,27 +19,30 @@ class AppCoordinator: Coordinator {
 
     init(factory: Factory) {
         self.rootViewController = UITabBarController()
-        
+
         self.childCoordinators = []
         self.factory = factory
     }
 
     func start() -> UIViewController {
         let scheduleVC = factory.makeScheduleViewController()
-        scheduleVC.tabBarItem = UITabBarItem(
+        let scheduleNavigationVC = UINavigationController(rootViewController: scheduleVC)
+        scheduleNavigationVC.tabBarItem = UITabBarItem(
             title: "Расписание",
             image: UIImage(systemName: "calendar"),
             tag: 0
         )
 
         let driversChampionshipVC = factory.makeDriversChampionshipViewController()
-        driversChampionshipVC.tabBarItem = UITabBarItem(
-            title: "Личный зачет",
+        let driversChampionshipNavigationVC = UINavigationController(rootViewController: driversChampionshipVC)
+        driversChampionshipNavigationVC.tabBarItem = UITabBarItem(
+            title: "Личный зачёт",
             image: UIImage(systemName: "person"),
             selectedImage: UIImage(systemName: "person.fill")
         )
 
         let constructorsChampionshipVC = factory.makeConstructorChampionshipViewController()
+        let constructorsChampionshipNavigationVC = UINavigationController(rootViewController: constructorsChampionshipVC)
         constructorsChampionshipVC.tabBarItem = UITabBarItem(
             title: "Командный зачет",
             image: UIImage(systemName: "person.3"),
@@ -47,13 +50,19 @@ class AppCoordinator: Coordinator {
         )
 
         let settingsVC = factory.makeSettingsViewController()
+        let settingsNavigationVC = UINavigationController(rootViewController: settingsVC)
         settingsVC.tabBarItem = UITabBarItem(
             title: "Настройки",
             image: UIImage(systemName: "gear"),
             tag: 3
         )
 
-        rootViewController.viewControllers = [scheduleVC, driversChampionshipVC, constructorsChampionshipVC, settingsVC]
+        rootViewController.viewControllers = [
+            scheduleNavigationVC,
+            driversChampionshipNavigationVC,
+            constructorsChampionshipNavigationVC,
+            settingsNavigationVC
+        ]
         return rootViewController
     }
 }

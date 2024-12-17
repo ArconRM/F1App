@@ -36,6 +36,11 @@
 		163C4D3A2CF8D7C200C62F43 /* F1AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */; };
 		163C4D3B2CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */; };
 		166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F3C112D0600D4005A92DF /* RaceCardView.swift */; };
+		1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */; };
+		1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4652D10431500400899 /* CellIdentifiers.swift */; };
+		1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */; };
+		1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */; };
+		1670B4702D12069100400899 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B46F2D12069100400899 /* Separator.swift */; };
 		168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101732CFDAFDC00D51776 /* Coordinator.swift */; };
 		168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101752CFDAFF500D51776 /* AppCoordinator.swift */; };
 		168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101772CFDB25B00D51776 /* ScheduleViewController.swift */; };
@@ -105,6 +110,11 @@
 		163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITests.swift; sourceTree = "<group>"; };
 		163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		166F3C112D0600D4005A92DF /* RaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceCardView.swift; sourceTree = "<group>"; };
+		1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
+		1670B4652D10431500400899 /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
+		1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewSelectionDelegate.swift; sourceTree = "<group>"; };
+		1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		1670B46F2D12069100400899 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		168101732CFDAFDC00D51776 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		168101752CFDAFF500D51776 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168101772CFDB25B00D51776 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +188,7 @@
 		163C4CF42CF8D7B300C62F43 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				1670B4652D10431500400899 /* CellIdentifiers.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -292,6 +303,9 @@
 		163C4D3D2CF8E6B100C62F43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1670B46E2D12068400400899 /* Common */,
+				1670B46B2D11518300400899 /* Cells */,
+				1670B4612D103D6900400899 /* Delegates */,
 				166F3C0E2D060047005A92DF /* Subviews */,
 				1681018D2D0320A000D51776 /* BaseViewController.swift */,
 				168101772CFDB25B00D51776 /* ScheduleViewController.swift */,
@@ -308,6 +322,31 @@
 				166F3C112D0600D4005A92DF /* RaceCardView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		1670B4612D103D6900400899 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */,
+				1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		1670B46B2D11518300400899 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1670B46E2D12068400400899 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1670B46F2D12069100400899 /* Separator.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		168101712CFDAF6E00D51776 /* Coordinators */ = {
@@ -605,12 +644,14 @@
 				163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */,
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
 				163C4D142CF8D7B300C62F43 /* Championship.swift in Sources */,
+				1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */,
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
 				166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */,
 				163C4D152CF8D7B300C62F43 /* ChampionshipRace.swift in Sources */,
 				168101822D02F4C100D51776 /* ConstructorChampionshipViewController.swift in Sources */,
 				1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */,
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
+				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
 				16C030C52D072DE4000C258E /* DateExtension.swift in Sources */,
 				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
@@ -623,6 +664,7 @@
 				168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */,
 				1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */,
 				163C4D1A2CF8D7B300C62F43 /* RacesNetworkService.swift in Sources */,
+				1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */,
 				1681017E2CFEFA4000D51776 /* Factory.swift in Sources */,
 				16C030C72D08192C000C258E /* FactoryMock.swift in Sources */,
 				163C4D1B2CF8D7B300C62F43 /* UrlSource.swift in Sources */,
@@ -631,8 +673,10 @@
 				168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */,
 				163C4D1C2CF8D7B300C62F43 /* UrlSourceF1Connect.swift in Sources */,
 				1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */,
+				1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */,
 				163C4D1E2CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift in Sources */,
 				168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */,
+				1670B4702D12069100400899 /* Separator.swift in Sources */,
 				163C4D1F2CF8D7B300C62F43 /* AppDelegate.swift in Sources */,
 				163C4D202CF8D7B300C62F43 /* SceneDelegate.swift in Sources */,
 				1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */,

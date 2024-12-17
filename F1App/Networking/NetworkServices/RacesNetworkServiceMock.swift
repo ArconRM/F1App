@@ -9,17 +9,37 @@ import Foundation
 
 public struct RacesNetworkServiceMock: RacesNetworkService {
     
-    public func fetchCurrentSeasonRaces(
-        resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
-    ) {
-        completionHandler(.success([ChampionshipRace.mock, ChampionshipRace.mock]))
-    }
-    
+    private let raceDecoder = RaceDecoderF1Connect()
+
     public func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<ChampionshipRace?, any Error>) -> Void
     ) {
-        completionHandler(.success(ChampionshipRace.mock))
+        if let path = Bundle.main.path(forResource: "current", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let races = try raceDecoder.decodeRaces(from: data)
+                completionHandler(.success(races[0]))
+            }
+            catch let error {
+                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+            }
+        }
+    }
+
+    public func fetchCurrentSeasonRaces(
+        resultQueue: DispatchQueue,
+        completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
+    ) {
+        if let path = Bundle.main.path(forResource: "current", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let races = try raceDecoder.decodeRaces(from: data)
+                completionHandler(.success(races))
+            }
+            catch let error {
+                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+            }
+        }
     }
 }

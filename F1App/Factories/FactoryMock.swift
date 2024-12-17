@@ -8,7 +8,7 @@
 import Foundation
 
 final class FactoryMock: Factory {
-    
+
     func makeScheduleViewController() -> ScheduleViewController {
         let raceNetworkService = RacesNetworkServiceMock()
         let presenter = SchedulePresenter(raceNetworkService: raceNetworkService)

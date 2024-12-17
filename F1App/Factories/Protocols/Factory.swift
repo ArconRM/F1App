@@ -10,7 +10,7 @@ import UIKit
 
 // По примеру https://github.com/MostafaNafie/clean-mvp/blob/main/CleanMVP
 protocol Factory {
-    
+
     func makeScheduleViewController() -> ScheduleViewController
 
     func makeDriversChampionshipViewController() -> DriversChampionshipViewController

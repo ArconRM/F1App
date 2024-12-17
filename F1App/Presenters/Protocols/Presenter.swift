@@ -9,7 +9,7 @@ import Foundation
 
 protocol Presenter {
     associatedtype View: BaseViewController
-    
+
     var view: View? { get set }
 
     func viewDidLoad()

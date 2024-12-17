@@ -9,10 +9,10 @@ import Foundation
 
 final class ConstructorChampionshipPresenter: Presenter {
     typealias View = ConstructorChampionshipViewController
-    
+
     weak var view: View?
-    
+
     func viewDidLoad() {
-        
+
     }
 }

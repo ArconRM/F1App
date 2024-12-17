@@ -8,13 +8,14 @@
 import Foundation
 
 public protocol RacesNetworkService {
-    func fetchCurrentSeasonRaces(
-        resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<[ChampionshipRace?], Error>) -> Void
-    )
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<ChampionshipRace?, Error>) -> Void
+    )
+
+    func fetchCurrentSeasonRaces(
+        resultQueue: DispatchQueue,
+        completionHandler: @escaping (Result<[ChampionshipRace?], Error>) -> Void
     )
 }

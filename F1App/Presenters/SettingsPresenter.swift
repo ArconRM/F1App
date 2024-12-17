@@ -9,9 +9,9 @@ import Foundation
 
 final class SettingsPresenter: Presenter {
     typealias View = SettingsViewController
-    
+
     weak var view: View?
-    
+
     func viewDidLoad() {
 
     }

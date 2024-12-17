@@ -17,7 +17,7 @@ final class RacesNetworkingTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)
-                print(races[0])
+                print(races)
             }
             catch {
                 XCTAssert(false)

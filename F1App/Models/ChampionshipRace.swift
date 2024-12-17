@@ -67,7 +67,7 @@ public struct ChampionshipRace {
 //            raceDatetime: dateFormatter.date(from: raceDatetime),
 //            qualyDatetime: dateFormatter.date(from: qualyDatetime)
 //        )
-        
+
         return ChampionshipRace(
             raceId: "bahrein_2024",
             raceName: "Gulf Air Bahrain Grand Prix 2024",
@@ -77,7 +77,7 @@ public struct ChampionshipRace {
             circuitId: "bahrein",
             circuitName: "Bahrein International Circuit",
             winnerId: "max_verstappen",
-            winnerName: "Max",
+            winnerName: "Max Verstappen",
             teamWinnerId: "red_bull",
             teamWinnerName: "Red Bull Racing",
             fp1Datetime: dateFormatter.date(from: fp1Datetime),
@@ -168,7 +168,9 @@ extension ChampionshipRace {
         var winnerName: String?
         if let winnerJson = json["winner"] as? [String: Any?] {
             winnerId = (winnerJson["driverId"] as? String? ?? nil) as String?
-            winnerName = (winnerJson["name"] as? String? ?? nil) as String?
+            if let name = winnerJson["name"] as? String, let surname = winnerJson["surname"] as? String {
+                winnerName = "\(name) \(surname)"
+            }
         }
 
 //      TeamWinner
