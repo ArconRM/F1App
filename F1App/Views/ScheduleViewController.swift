@@ -21,10 +21,17 @@ class ScheduleViewController: BaseViewController {
 
     // MARK: - Setup View
     private func setupView() {
-        self.navigationItem.title = "Расписание"
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.isTranslucent = false
+        navigationItem.title = "Расписание"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.isTranslucent = false
 
+        scheduleTableViewDelegate = ScheduleTableViewDelegate()
+        scheduleTableViewDelegate?.selectionDelegate = self
+        
+        scheduleTableView.delegate = scheduleTableViewDelegate
+        scheduleTableView.dataSource = scheduleTableViewDelegate
+        scheduleTableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.scheduleTableViewCell.rawValue)
+        
         scheduleTableView.isHidden = true
 
         view.addSubview(scrollView)
@@ -105,7 +112,7 @@ class ScheduleViewController: BaseViewController {
     
     private let nextRaceTitleLabel: UILabel = {
         let label = createLabel(fontSize: 24, color: .black)
-        label.text = "Следующая гонка"
+        label.text = "Следующий этап"
         return label
     }()
     
@@ -125,7 +132,8 @@ class ScheduleViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
         
-        tableView.rowHeight = CGFloat(ScheduleTableViewDelegate.rowHeight)
+        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.fullRowHeight) - 25
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         
         return tableView
@@ -151,13 +159,9 @@ class ScheduleViewController: BaseViewController {
         noScheduleLabel.isHidden = true
         scheduleTableView.isHidden = false
         
-        scheduleTableViewDelegate = ScheduleTableViewDelegate(items: races)
-        scheduleTableViewDelegate?.selectionDelegate = self
-
-        scheduleTableView.delegate = scheduleTableViewDelegate
-        scheduleTableView.dataSource = scheduleTableViewDelegate
-        scheduleTableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.scheduleTableViewCell.rawValue)
+        scheduleTableViewDelegate?.setItems(items: races)
         
+        scheduleTableView.reloadData()
         scheduleTableView.layoutIfNeeded()
         scheduleTableView.heightAnchor.constraint(equalToConstant: scheduleTableView.contentSize.height).isActive = true
     }

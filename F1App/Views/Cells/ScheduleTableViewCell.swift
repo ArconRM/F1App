@@ -9,11 +9,6 @@
 import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
-
-    let titleLabel = createLabel(fontSize: 18, color: .black)
-    let curcuitLabel = createLabel(fontSize: 14, color: .darkGray)
-    let dateLabel = createLabel(fontSize: 16, color: .black)
-    let winnerLabel = createLabel(fontSize: 14, color: .black)
     
     // Для отступов по бокам
     override var frame: CGRect {
@@ -49,6 +44,7 @@ class ScheduleTableViewCell: UITableViewCell {
 
         contentView.addSubview(stackView)
         
+        stackView.addSubview(numberLabel)
         stackView.addSubview(titleLabel)
         stackView.addSubview(curcuitLabel)
         stackView.addSubview(dateLabel)
@@ -64,24 +60,29 @@ class ScheduleTableViewCell: UITableViewCell {
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
+            numberLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16),
+            numberLabel.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            numberLabel.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            
             titleLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
             
             curcuitLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            curcuitLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+            curcuitLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
             curcuitLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
             
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
-            dateLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+            dateLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
-//            
+            
             winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
-            winnerLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+            winnerLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
             winnerLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8)
         ])
     }
     
+    // MARK: - UI Elements
     private static func createLabel(fontSize: Int, color: UIColor) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -101,4 +102,31 @@ class ScheduleTableViewCell: UITableViewCell {
         
         return stackView
     }()
+    
+    private let numberLabel = createLabel(fontSize: 16, color: .black)
+    private let titleLabel = createLabel(fontSize: 18, color: .black)
+    private let curcuitLabel = createLabel(fontSize: 14, color: .darkGray)
+    private let dateLabel = createLabel(fontSize: 16, color: .black)
+    private let winnerLabel = createLabel(fontSize: 14, color: .black)
+    
+    // MARK: - Public Methods
+    public func configure(item: ChampionshipRace) {
+        numberLabel.text = "\(item.round)"
+        
+        titleLabel.text = item.raceName
+        curcuitLabel.text = item.circuitName
+        
+        if let fp1Datetime = item.fp1Datetime, let raceDatetime = item.raceDatetime {
+            dateLabel.text = "\(fp1Datetime.getDayMonthString()) - \(raceDatetime.getDayMonthString())"
+        } else {
+            dateLabel.text = "Нет даты"
+        }
+        
+        if let winnerName = item.winnerName {
+            winnerLabel.text = "Победитель: \(winnerName)"
+            stackView.layer.opacity = 0.5
+        } else {
+            winnerLabel.removeFromSuperview()
+        }
+    }
 }

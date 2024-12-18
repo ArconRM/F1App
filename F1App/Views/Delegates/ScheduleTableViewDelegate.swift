@@ -10,14 +10,14 @@ import UIKit
 
 class ScheduleTableViewDelegate: NSObject {
     
-    public static let rowHeight = 150
+    public static let fullRowHeight: CGFloat = 150
+    public static let rowHeightWithoutWinner: CGFloat = 120
 
-    var items: [ChampionshipRace?]
+    var items: [ChampionshipRace?] = []
     weak var selectionDelegate: UITableViewSelectionDelegate?
-
-    init(items: [ChampionshipRace?]) {
+    
+    public func setItems(items: [ChampionshipRace?]) {
         self.items = items
-        super.init()
     }
 }
 
@@ -27,7 +27,11 @@ extension ScheduleTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(ScheduleTableViewDelegate.rowHeight)
+        if let item = items[indexPath.section], let _ = item.winnerName {
+            return ScheduleTableViewDelegate.fullRowHeight
+        } else {
+            return ScheduleTableViewDelegate.rowHeightWithoutWinner
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -56,21 +60,7 @@ extension ScheduleTableViewDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.scheduleTableViewCell.rawValue, for: indexPath) as! ScheduleTableViewCell
         if let item = items[indexPath.section] {
-            cell.titleLabel.text = item.raceName
-            cell.curcuitLabel.text = item.circuitName
-            
-            if let fp1Datetime = item.fp1Datetime, let raceDatetime = item.raceDatetime {
-                cell.dateLabel.text = "\(fp1Datetime.getDayMonthString()) - \(raceDatetime.getDayMonthString())"
-            } else {
-                cell.dateLabel.text = "Нет даты"
-            }
-            
-            if let winnerName = item.winnerName {
-                cell.winnerLabel.text = "Победитель: \(winnerName)"
-            }
-            
-        } else {
-            cell.titleLabel.text = "Нет инфорфмации о гонке"
+            cell.configure(item: item)
         }
         return cell
     }

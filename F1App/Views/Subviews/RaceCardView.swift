@@ -32,6 +32,7 @@ class RaceCardView: UIView {
         layer.shadowRadius = 4
 
         addSubview(titleLabel)
+        addSubview(roundLabel)
         addSubview(curcuitLabel)
         addSubview(separator)
         addSubview(noScheduleLabel)
@@ -41,7 +42,12 @@ class RaceCardView: UIView {
 
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            
+            roundLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            titleLabel.topAnchor.constraint(equalTo: roundLabel.bottomAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
@@ -94,6 +100,13 @@ class RaceCardView: UIView {
         label.text = "Нет данных о названии"
         return label
     }()
+    
+    private let roundLabel: UILabel = {
+        let label = createLabel(fontSize: 14, color: .darkGray)
+        label.text = "- этап"
+        label.textAlignment = .center
+        return label
+    }()
 
     private let curcuitLabel: UILabel = {
         let label = createLabel(fontSize: 14, color: .darkGray)
@@ -123,6 +136,7 @@ class RaceCardView: UIView {
         noScheduleLabel.removeFromSuperview()
 
         titleLabel.text = race.raceName
+        roundLabel.text = "\(race.round) этап"
         curcuitLabel.text = race.circuitName
 
         if let fp1Label = fp1DateStackView.arrangedSubviews[1] as? UILabel {

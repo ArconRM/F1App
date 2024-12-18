@@ -19,7 +19,7 @@ public struct RacesNetworkServiceMock: RacesNetworkService {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)
-                completionHandler(.success(races[0]))
+                completionHandler(.success(races[22]))
             }
             catch let error {
                 completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
