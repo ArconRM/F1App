@@ -9,8 +9,8 @@ import XCTest
 @testable import F1App
 
 final class RacesNetworkingTests: XCTestCase {
-    let raceDecoder = RaceDecoderF1Connect()
-    let networkManager = RacesNetworkServiceImpl(urlSource: UrlSourceF1Connect(), raceDecoder: RaceDecoderF1Connect())
+    let raceDecoder = F1ConnectRaceDecoder()
+    let networkManager = RacesNetworkServiceImpl(urlSource: UrlSourceF1Connect(), raceDecoder: F1ConnectRaceDecoder())
     
     func testRaceDecoder() {
         if let path = Bundle.main.path(forResource: "current", ofType: "json") {

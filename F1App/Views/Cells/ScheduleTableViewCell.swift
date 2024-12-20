@@ -17,8 +17,7 @@ class ScheduleTableViewCell: UITableViewCell {
         }
         set (newFrame) {
             var frame = newFrame
-            frame.origin.x += 16
-            frame.size.width -= 32
+            frame = frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
             super.frame = frame
         }
     }
@@ -35,50 +34,57 @@ class ScheduleTableViewCell: UITableViewCell {
     
     // MARK: - Setup View
     private func setupViews() {
-        contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 10
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOpacity = 0.1
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        contentView.layer.shadowRadius = 4
-
-        contentView.addSubview(stackView)
+        contentView.addSubview(mainStackView)
         
-        stackView.addSubview(numberLabel)
-        stackView.addSubview(titleLabel)
-        stackView.addSubview(curcuitLabel)
-        stackView.addSubview(dateLabel)
-        stackView.addSubview(winnerLabel)
+        mainStackView.addSubview(numberLabel)
+        mainStackView.addSubview(separator)
+        mainStackView.addSubview(labelsStackView)
+        
+        labelsStackView.addSubview(titleLabel)
+        labelsStackView.addSubview(curcuitLabel)
+        labelsStackView.addSubview(dateLabel)
+        labelsStackView.addSubview(winnerLabel)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            numberLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16),
-            numberLabel.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
-            numberLabel.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            numberLabel.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            numberLabel.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: 16),
+            numberLabel.centerYAnchor.constraint(equalTo: mainStackView.centerYAnchor),
+            numberLabel.widthAnchor.constraint(equalToConstant: 30),
             
-            titleLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
+            separator.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            separator.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor),
+            separator.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 8),
+            separator.widthAnchor.constraint(equalToConstant: 1),
+            
+            labelsStackView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            labelsStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor),
+            labelsStackView.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
+            labelsStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: labelsStackView.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 32),
+            titleLabel.trailingAnchor.constraint(equalTo: labelsStackView.trailingAnchor, constant: -16),
             
             curcuitLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            curcuitLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
-            curcuitLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
+            curcuitLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 32),
+            curcuitLabel.trailingAnchor.constraint(equalTo: labelsStackView.trailingAnchor, constant: -8),
             
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
-            dateLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
-            dateLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
+            dateLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 32),
+            dateLabel.trailingAnchor.constraint(equalTo: labelsStackView.trailingAnchor, constant: -8),
             
             winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
-            winnerLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 16),
-            winnerLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8)
+            winnerLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 32),
+            winnerLabel.trailingAnchor.constraint(equalTo: labelsStackView.trailingAnchor, constant: -8)
         ])
     }
     
@@ -91,23 +97,28 @@ class ScheduleTableViewCell: UITableViewCell {
         return label
     }
     
-    private let stackView: UIStackView = {
+    private static func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
         let stackView = UIStackView()
         
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
+        stackView.axis = axis
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+//        stackView.distribution = axis == .vertical ? .fillEqually : .fill
         
         return stackView
-    }()
+    }
     
-    private let numberLabel = createLabel(fontSize: 16, color: .black)
-    private let titleLabel = createLabel(fontSize: 18, color: .black)
-    private let curcuitLabel = createLabel(fontSize: 14, color: .darkGray)
-    private let dateLabel = createLabel(fontSize: 16, color: .black)
-    private let winnerLabel = createLabel(fontSize: 14, color: .black)
+    public let mainStackView: UIStackView = createStackView(axis: .horizontal)
+    public let labelsStackView: UIStackView = createStackView(axis: .vertical)
+    
+    private let separator = Separator()
+    
+    private let numberLabel = createLabel(fontSize: 16, color: .appColor(.mainTextColor))
+    private let titleLabel = createLabel(fontSize: 18, color: .appColor(.mainTextColor))
+    private let curcuitLabel = createLabel(fontSize: 14, color: .appColor(.subTextColor))
+    private let dateLabel = createLabel(fontSize: 16, color: .appColor(.mainTextColor))
+    private let winnerLabel = createLabel(fontSize: 14, color: .appColor(.mainTextColor))
     
     // MARK: - Public Methods
     public func configure(item: ChampionshipRace) {
@@ -124,7 +135,7 @@ class ScheduleTableViewCell: UITableViewCell {
         
         if let winnerName = item.winnerName {
             winnerLabel.text = "Победитель: \(winnerName)"
-            stackView.layer.opacity = 0.5
+            labelsStackView.layer.opacity = 0.5
         } else {
             winnerLabel.removeFromSuperview()
         }

@@ -62,6 +62,16 @@ extension ScheduleTableViewDelegate: UITableViewDataSource {
         if let item = items[indexPath.section] {
             cell.configure(item: item)
         }
+        
+        cell.backgroundColor = .appColor(.viewsBackgroundColor)
+        
+        let maskPath = UIBezierPath(roundedRect: CGRect(origin: cell.bounds.origin, size: cell.bounds.size), byRoundingCorners: [.topLeft, .topRight, .bottomRight, .bottomLeft], cornerRadii: CGSize(width: 10, height: 10))
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = CGRect(origin: cell.bounds.origin, size: cell.bounds.size)
+        shapeLayer.path = maskPath.cgPath
+        cell.layer.mask = shapeLayer
+        
         return cell
     }
 }

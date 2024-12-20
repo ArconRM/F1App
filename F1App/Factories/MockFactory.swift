@@ -1,5 +1,5 @@
 //
-//  FactoryMock.swift
+//  MockFactory.swift
 //  F1App
 //
 //  Created by Artemiy MIROTVORTSEV on 10.12.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FactoryMock: Factory {
+final class MockFactory: Factory {
 
     func makeScheduleViewController() -> ScheduleViewController {
         let raceNetworkService = RacesNetworkServiceMock()

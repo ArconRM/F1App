@@ -41,24 +41,29 @@
 		1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */; };
 		1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */; };
 		1670B4702D12069100400899 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B46F2D12069100400899 /* Separator.swift */; };
+		1670B4742D13668900400899 /* UIColor+AdaptiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4732D13668900400899 /* UIColor+AdaptiveColor.swift */; };
+		1670B47D2D1491F300400899 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B47C2D1491F300400899 /* GradientView.swift */; };
+		1670B47F2D149A4800400899 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B47E2D149A4800400899 /* Colors.swift */; };
+		1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4802D149AE100400899 /* UIColor+AppColor.swift */; };
+		1670B4832D14A18D00400899 /* UIView+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4822D14A18D00400899 /* UIView+DropShadow.swift */; };
 		168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101732CFDAFDC00D51776 /* Coordinator.swift */; };
 		168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101752CFDAFF500D51776 /* AppCoordinator.swift */; };
 		168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101772CFDB25B00D51776 /* ScheduleViewController.swift */; };
 		1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */; };
 		1681017E2CFEFA4000D51776 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017D2CFEFA4000D51776 /* Factory.swift */; };
-		168101802CFEFBFA00D51776 /* FactoryF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */; };
+		168101802CFEFBFA00D51776 /* F1ConnectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */; };
 		168101822D02F4C100D51776 /* ConstructorChampionshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101812D02F4C100D51776 /* ConstructorChampionshipViewController.swift */; };
 		168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101832D02F55C00D51776 /* SettingsViewController.swift */; };
 		1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101892D02F91B00D51776 /* RaceDecoder.swift */; };
-		1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */; };
+		1681018C2D02FA8900D51776 /* F1ConnectRaceDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */; };
 		1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018D2D0320A000D51776 /* BaseViewController.swift */; };
 		168101922D0323A200D51776 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101912D0323A200D51776 /* Presenter.swift */; };
 		1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0502D04346800C25292 /* SchedulePresenter.swift */; };
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
 		1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorChampionship.swift */; };
 		1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0562D0436FC00C25292 /* SettingsPresenter.swift */; };
-		16C030C52D072DE4000C258E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* DateExtension.swift */; };
-		16C030C72D08192C000C258E /* FactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* FactoryMock.swift */; };
+		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
+		16C030C72D08192C000C258E /* MockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* MockFactory.swift */; };
 		3568857A5B93615BB51739B5 /* Pods_F1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,24 +120,29 @@
 		1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewSelectionDelegate.swift; sourceTree = "<group>"; };
 		1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		1670B46F2D12069100400899 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
+		1670B4732D13668900400899 /* UIColor+AdaptiveColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AdaptiveColor.swift"; sourceTree = "<group>"; };
+		1670B47C2D1491F300400899 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1670B47E2D149A4800400899 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1670B4802D149AE100400899 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
+		1670B4822D14A18D00400899 /* UIView+DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DropShadow.swift"; sourceTree = "<group>"; };
 		168101732CFDAFDC00D51776 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		168101752CFDAFF500D51776 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168101772CFDB25B00D51776 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipViewController.swift; sourceTree = "<group>"; };
 		1681017D2CFEFA4000D51776 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryF1Connect.swift; sourceTree = "<group>"; };
+		1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1ConnectFactory.swift; sourceTree = "<group>"; };
 		168101812D02F4C100D51776 /* ConstructorChampionshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionshipViewController.swift; sourceTree = "<group>"; };
 		168101832D02F55C00D51776 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		168101892D02F91B00D51776 /* RaceDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDecoder.swift; sourceTree = "<group>"; };
-		1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDecoderF1Connect.swift; sourceTree = "<group>"; };
+		1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1ConnectRaceDecoder.swift; sourceTree = "<group>"; };
 		1681018D2D0320A000D51776 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		168101912D0323A200D51776 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		1695A0502D04346800C25292 /* SchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePresenter.swift; sourceTree = "<group>"; };
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0542D0436D400C25292 /* ConstructorChampionship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionship.swift; sourceTree = "<group>"; };
 		1695A0562D0436FC00C25292 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		16C030C42D072DE4000C258E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		16C030C62D08192C000C258E /* FactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMock.swift; sourceTree = "<group>"; };
+		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		16C030C62D08192C000C258E /* MockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFactory.swift; sourceTree = "<group>"; };
 		544EC18E7C3166E270529048 /* Pods-F1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.release.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.release.xcconfig"; sourceTree = "<group>"; };
 		6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1670B4652D10431500400899 /* CellIdentifiers.swift */,
+				1670B47E2D149A4800400899 /* Colors.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -205,8 +216,8 @@
 		163C4CFD2CF8D7B300C62F43 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				163C4CF42CF8D7B300C62F43 /* Enums */,
 				163C4CF72CF8D7B300C62F43 /* Errors */,
+				163C4CF42CF8D7B300C62F43 /* Enums */,
 				163C4CF82CF8D7B300C62F43 /* Championship.swift */,
 				163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */,
 				163C4CFA2CF8D7B300C62F43 /* Circuit.swift */,
@@ -327,7 +338,6 @@
 		1670B4612D103D6900400899 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */,
 				1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */,
 			);
 			path = Delegates;
@@ -345,8 +355,18 @@
 			isa = PBXGroup;
 			children = (
 				1670B46F2D12069100400899 /* Separator.swift */,
+				1670B47C2D1491F300400899 /* GradientView.swift */,
+				1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		1670B4772D1486F300400899 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		168101712CFDAF6E00D51776 /* Coordinators */ = {
@@ -370,8 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				1681017C2CFEFA2A00D51776 /* Protocols */,
-				1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */,
-				16C030C62D08192C000C258E /* FactoryMock.swift */,
+				1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */,
+				16C030C62D08192C000C258E /* MockFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -388,8 +408,8 @@
 			isa = PBXGroup;
 			children = (
 				163C4D002CF8D7B300C62F43 /* Protocols */,
+				1670B4772D1486F300400899 /* Mock */,
 				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
-				162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -398,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				168101882D02F8CE00D51776 /* Protocols */,
-				1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */,
+				1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */,
 			);
 			path = Decoding;
 			sourceTree = "<group>";
@@ -434,7 +454,10 @@
 		16C030C32D072D9B000C258E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				16C030C42D072DE4000C258E /* DateExtension.swift */,
+				16C030C42D072DE4000C258E /* Date+Extensions.swift */,
+				1670B4732D13668900400899 /* UIColor+AdaptiveColor.swift */,
+				1670B4802D149AE100400899 /* UIColor+AppColor.swift */,
+				1670B4822D14A18D00400899 /* UIView+DropShadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,6 +667,7 @@
 				163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */,
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
 				163C4D142CF8D7B300C62F43 /* Championship.swift in Sources */,
+				1670B47D2D1491F300400899 /* GradientView.swift in Sources */,
 				1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */,
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
 				166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */,
@@ -652,26 +676,30 @@
 				1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */,
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
 				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
-				16C030C52D072DE4000C258E /* DateExtension.swift in Sources */,
-				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
+				16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */,
+				1681018C2D02FA8900D51776 /* F1ConnectRaceDecoder.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
 				163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */,
 				168101922D0323A200D51776 /* Presenter.swift in Sources */,
 				163C4D182CF8D7B300C62F43 /* Team.swift in Sources */,
 				168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */,
-				168101802CFEFBFA00D51776 /* FactoryF1Connect.swift in Sources */,
+				168101802CFEFBFA00D51776 /* F1ConnectFactory.swift in Sources */,
 				163C4D192CF8D7B300C62F43 /* DriversNetworkService.swift in Sources */,
 				168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */,
 				1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */,
 				163C4D1A2CF8D7B300C62F43 /* RacesNetworkService.swift in Sources */,
 				1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */,
 				1681017E2CFEFA4000D51776 /* Factory.swift in Sources */,
-				16C030C72D08192C000C258E /* FactoryMock.swift in Sources */,
+				16C030C72D08192C000C258E /* MockFactory.swift in Sources */,
 				163C4D1B2CF8D7B300C62F43 /* UrlSource.swift in Sources */,
+				1670B4742D13668900400899 /* UIColor+AdaptiveColor.swift in Sources */,
 				1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */,
 				162ED6D62D081E7600DF9A04 /* RacesNetworkServiceMock.swift in Sources */,
+				1670B47F2D149A4800400899 /* Colors.swift in Sources */,
+				1670B4832D14A18D00400899 /* UIView+DropShadow.swift in Sources */,
 				168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */,
 				163C4D1C2CF8D7B300C62F43 /* UrlSourceF1Connect.swift in Sources */,
+				1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */,
 				1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */,
 				1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */,
 				163C4D1E2CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift in Sources */,

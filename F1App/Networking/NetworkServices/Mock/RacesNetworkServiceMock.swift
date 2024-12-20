@@ -9,7 +9,7 @@ import Foundation
 
 public struct RacesNetworkServiceMock: RacesNetworkService {
     
-    private let raceDecoder = RaceDecoderF1Connect()
+    private let raceDecoder = F1ConnectRaceDecoder()
 
     public func fetchNextSeasonRace(
         resultQueue: DispatchQueue,

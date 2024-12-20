@@ -15,15 +15,6 @@ class ScheduleViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        presenter.viewDidLoad()
-    }
-
-    // MARK: - Setup View
-    private func setupView() {
-        navigationItem.title = "Расписание"
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.isTranslucent = false
 
         scheduleTableViewDelegate = ScheduleTableViewDelegate()
         scheduleTableViewDelegate?.selectionDelegate = self
@@ -32,8 +23,32 @@ class ScheduleViewController: BaseViewController {
         scheduleTableView.dataSource = scheduleTableViewDelegate
         scheduleTableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.scheduleTableViewCell.rawValue)
         
-        scheduleTableView.isHidden = true
+        setupView()
+        presenter.viewDidLoad()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        // Check if the user interface style has changed
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection!) {
+            // Update UI elements if needed
+            backgroundGradientView.colors = [.appColor(.backgroundSecondaryColor), .appColor(.backgroundPrimaryColor), .appColor(.backgroundSecondaryColor)]
+        }
+    }
 
+    // MARK: - Setup View
+    private func setupView() {
+//        navigationItem.title = "Расписание"
+//        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.hidesBarsOnSwipe = true
+        
+        backgroundGradientView.frame = view.bounds
+        
+        scheduleTableView.isHidden = true
+        
+        view.addSubview(backgroundGradientView)
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContainerView)
         scrollContainerView.addSubview(nextRaceTitleLabel)
@@ -45,7 +60,7 @@ class ScheduleViewController: BaseViewController {
 
         setupInitalConstraints()
     }
-
+    
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -95,6 +110,13 @@ class ScheduleViewController: BaseViewController {
         label.textColor = color
         return label
     }
+    
+    private let backgroundGradientView: GradientView = {
+        let gradientView = GradientView()
+        gradientView.colors = [.appColor(.backgroundSecondaryColor), .appColor(.backgroundPrimaryColor), .appColor(.backgroundSecondaryColor)]
+        gradientView.opacity = 0.3
+        return gradientView
+    }()
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -111,13 +133,13 @@ class ScheduleViewController: BaseViewController {
     }()
     
     private let nextRaceTitleLabel: UILabel = {
-        let label = createLabel(fontSize: 24, color: .black)
+        let label = createLabel(fontSize: 24, color: .appColor(.mainTextColor))
         label.text = "Следующий этап"
         return label
     }()
     
     private let scheduleTitleLabel: UILabel = {
-        let label = createLabel(fontSize: 24, color: .black)
+        let label = createLabel(fontSize: 24, color: .appColor(.mainTextColor))
         label.text = "Полное расписание"
         return label
     }()
@@ -136,11 +158,13 @@ class ScheduleViewController: BaseViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         
+        tableView.backgroundColor = .clear
+        
         return tableView
     }()
 
     private let noScheduleLabel: UILabel = {
-        let label = createLabel(fontSize: 16, color: .lightGray)
+        let label = createLabel(fontSize: 16, color: .appColor(.subTextColor))
         label.text = "Полного расписания пока нет"
         label.textAlignment = .center
         return label
@@ -174,9 +198,9 @@ extension ScheduleViewController: UITableViewSelectionDelegate {
 }
 
 // MARK: - Preview
- @available(iOS 17, *)
- #Preview {
-    let factory = FactoryMock()
+@available(iOS 17, *)
+#Preview {
+    let factory = MockFactory()
     let view = factory.makeScheduleViewController()
     return view
- }
+}

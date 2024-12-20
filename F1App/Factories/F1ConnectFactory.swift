@@ -1,5 +1,5 @@
 //
-//  FactoryF1Connect.swift
+//  F1ConnectFactory.swift
 //  F1App
 //
 //  Created by Artemiy MIROTVORTSEV on 03.12.2024.
@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-final class FactoryF1Connect: Factory {
+final class F1ConnectFactory: Factory {
     private let urlSource = UrlSourceF1Connect()
-    private let raceDecoder = RaceDecoderF1Connect()
+    private let raceDecoder = F1ConnectRaceDecoder()
 
     func makeScheduleViewController() -> ScheduleViewController {
         let racesNetworkService = RacesNetworkServiceImpl(urlSource: urlSource, raceDecoder: raceDecoder)
