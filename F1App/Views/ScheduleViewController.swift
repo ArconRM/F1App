@@ -18,39 +18,36 @@ class ScheduleViewController: BaseViewController {
 
         scheduleTableViewDelegate = ScheduleTableViewDelegate()
         scheduleTableViewDelegate?.selectionDelegate = self
-        
+
         scheduleTableView.delegate = scheduleTableViewDelegate
         scheduleTableView.dataSource = scheduleTableViewDelegate
         scheduleTableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.scheduleTableViewCell.rawValue)
-        
+
         setupView()
         presenter.viewDidLoad()
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
-        // Check if the user interface style has changed
+
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection!) {
-            // Update UI elements if needed
-            backgroundGradientView.colors = [.appColor(.backgroundSecondaryColor), .appColor(.backgroundPrimaryColor), .appColor(.backgroundSecondaryColor)]
+            backgroundGradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         }
     }
 
     // MARK: - Setup View
     private func setupView() {
-//        navigationItem.title = "Расписание"
-//        navigationController?.navigationBar.prefersLargeTitles = false
-//        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.hidesBarsOnSwipe = true
-        
+        navigationController?.navigationBar.isHidden = true
+
         backgroundGradientView.frame = view.bounds
-        
+
         scheduleTableView.isHidden = true
-        
+
         view.addSubview(backgroundGradientView)
         view.addSubview(scrollView)
+
         scrollView.addSubview(scrollContainerView)
+
         scrollContainerView.addSubview(nextRaceTitleLabel)
         scrollContainerView.addSubview(currentRaceCard)
         scrollContainerView.addSubview(separator)
@@ -60,7 +57,7 @@ class ScheduleViewController: BaseViewController {
 
         setupInitalConstraints()
     }
-    
+
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -73,15 +70,15 @@ class ScheduleViewController: BaseViewController {
             scrollContainerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             scrollContainerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
+
             nextRaceTitleLabel.topAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.topAnchor, constant: 16),
             nextRaceTitleLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
-            nextRaceTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
+            nextRaceTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
 
             currentRaceCard.topAnchor.constraint(equalTo: nextRaceTitleLabel.bottomAnchor, constant: 16),
             currentRaceCard.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             currentRaceCard.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
-            
+
             separator.topAnchor.constraint(equalTo: currentRaceCard.bottomAnchor, constant: 16),
             separator.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
@@ -93,27 +90,19 @@ class ScheduleViewController: BaseViewController {
 
             scheduleTitleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 16),
             scheduleTitleLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
-            scheduleTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
-            
+            scheduleTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
+
             scheduleTableView.topAnchor.constraint(equalTo: scheduleTitleLabel.bottomAnchor),
-            scheduleTableView.leftAnchor.constraint(equalTo: scrollContainerView.leftAnchor),
-            scheduleTableView.rightAnchor.constraint(equalTo: scrollContainerView.rightAnchor),
+            scheduleTableView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor),
+            scheduleTableView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
             scheduleTableView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor)
         ])
     }
 
     // MARK: - UI Elements
-    private static func createLabel(fontSize: Int, color: UIColor) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: CGFloat(fontSize))
-        label.textColor = color
-        return label
-    }
-    
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
-        gradientView.colors = [.appColor(.backgroundSecondaryColor), .appColor(.backgroundPrimaryColor), .appColor(.backgroundSecondaryColor)]
+        gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         gradientView.opacity = 0.3
         return gradientView
     }()
@@ -131,15 +120,15 @@ class ScheduleViewController: BaseViewController {
         scrollContainerView.translatesAutoresizingMaskIntoConstraints = false
         return scrollContainerView
     }()
-    
+
     private let nextRaceTitleLabel: UILabel = {
-        let label = createLabel(fontSize: 24, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: 24, color: .appColor(.mainTextColor))
         label.text = "Следующий этап"
         return label
     }()
-    
+
     private let scheduleTitleLabel: UILabel = {
-        let label = createLabel(fontSize: 24, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: 24, color: .appColor(.mainTextColor))
         label.text = "Полное расписание"
         return label
     }()
@@ -153,44 +142,46 @@ class ScheduleViewController: BaseViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
-        
-        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.fullRowHeight) - 25
+
+        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.rowHeight)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.sectionHeaderTopPadding = 10
+        
         tableView.separatorStyle = .none
-        
         tableView.backgroundColor = .clear
-        
+
         return tableView
     }()
 
     private let noScheduleLabel: UILabel = {
-        let label = createLabel(fontSize: 16, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: 16, color: .appColor(.subTextColor))
         label.text = "Полного расписания пока нет"
         label.textAlignment = .center
         return label
     }()
-    
+
     private let separator = Separator()
 
     // MARK: - Data Methods
-    public func loadedCurrentRace(race: ChampionshipRace?) {
+    func loadedCurrentRace(race: ChampionshipRace?) {
         if race != nil {
             currentRaceCard.configure(race: race!)
         }
     }
 
-    public func loadedAllRaces(races: [ChampionshipRace?]) {
+    func loadedAllRaces(races: [ChampionshipRace?]) {
         noScheduleLabel.isHidden = true
         scheduleTableView.isHidden = false
-        
+
         scheduleTableViewDelegate?.setItems(items: races)
-        
+
         scheduleTableView.reloadData()
         scheduleTableView.layoutIfNeeded()
         scheduleTableView.heightAnchor.constraint(equalToConstant: scheduleTableView.contentSize.height).isActive = true
     }
 }
 
+// MARK: - Extensions
 extension ScheduleViewController: UITableViewSelectionDelegate {
     func didSelectItem(at index: Int) {
         print("fuck")
@@ -200,7 +191,7 @@ extension ScheduleViewController: UITableViewSelectionDelegate {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = MockFactory()
+    let factory = FactoryMock()
     let view = factory.makeScheduleViewController()
     return view
 }

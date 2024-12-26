@@ -7,9 +7,13 @@
 
 import Foundation
 
-public protocol RaceDecoder {
+protocol RaceDecoder {
 
     func decodeRace(from data: Data) throws -> ChampionshipRace?
 
+    func decodeRace(from json: [String: Any]) throws -> ChampionshipRace?
+
     func decodeRaces(from data: Data) throws -> [ChampionshipRace?]
+
+    func decodeRaces(from json: [String: Any]) throws -> [ChampionshipRace?]
 }

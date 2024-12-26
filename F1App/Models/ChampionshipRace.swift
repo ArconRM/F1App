@@ -7,8 +7,6 @@
 
 import Foundation
 
-// https://developer.apple.com/swift/blog/?id=37
-// TODO: Мб все таки через decoder ебнуть
 public struct ChampionshipRace {
     public var raceId: String?
     public var raceName: String
@@ -34,7 +32,7 @@ public struct ChampionshipRace {
     public var qualyDatetime: Date?
     public var raceDatetime: Date?
 
-    public static var mock: ChampionshipRace {
+    public static var mock: Self {
         let fp1Datetime = "2024-02-29 11:30:00 +0000"
         let fp2Datetime = "2024-02-29 15:00:00 +0000"
         let fp3Datetime = "2024-03-01 12:30:00 +0000"
@@ -68,7 +66,7 @@ public struct ChampionshipRace {
 //            qualyDatetime: dateFormatter.date(from: qualyDatetime)
 //        )
 
-        return ChampionshipRace(
+        return .init(
             raceId: "bahrein_2024",
             raceName: "Gulf Air Bahrain Grand Prix 2024",
             laps: 57,

@@ -1,24 +1,31 @@
 //
-//  MockFactory.swift
+//  FactoryF1Connect.swift
 //  F1App
 //
-//  Created by Artemiy MIROTVORTSEV on 10.12.2024.
+//  Created by Artemiy MIROTVORTSEV on 03.12.2024.
 //
 
 import Foundation
+import UIKit
 
-final class MockFactory: Factory {
+final class FactoryF1Connect: Factory {
+    private let urlSource = UrlSourceF1Connect()
+    private let raceDecoder = RaceDecoderF1Connect()
+    private var driverDecoder = DriverDecoderF1Connect()
+    private var teamDecoder = TeamDecoderF1Connect()
+    private lazy var driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: driverDecoder, teamDecoder: teamDecoder)
 
     func makeScheduleViewController() -> ScheduleViewController {
-        let raceNetworkService = RacesNetworkServiceMock()
-        let presenter = SchedulePresenter(raceNetworkService: raceNetworkService)
+        let racesNetworkService = RacesNetworkServiceImpl(urlSource: urlSource, raceDecoder: raceDecoder)
+        let presenter = SchedulePresenter(raceNetworkService: racesNetworkService)
         let viewController = ScheduleViewController(presenter: presenter)
         presenter.view = viewController
         return viewController
     }
 
     func makeDriversChampionshipViewController() -> DriversChampionshipViewController {
-        let presenter = DriversChampionshipPresenter()
+        let driversChampionshipNetworkService = StandingsNetworkServiceImpl(urlSource: urlSource, driversChampionshipDecoder: driversChampionshipDecoder)
+        let presenter = DriversChampionshipPresenter(driversChampionshipNetworkService: driversChampionshipNetworkService)
         let viewController = DriversChampionshipViewController(presenter: presenter)
         presenter.view = viewController
         return viewController

@@ -11,9 +11,9 @@ import UIKit
 enum Colors: String {
     case mainTextColor
     case subTextColor
-    
+
     case backgroundPrimaryColor
     case backgroundSecondaryColor
-    
+
     case viewsBackgroundColor
 }

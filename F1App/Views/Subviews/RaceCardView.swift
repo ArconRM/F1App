@@ -19,19 +19,12 @@ class RaceCardView: UIView {
         super.init(coder: coder)
         setupView()
     }
-    
-    // MARK: - Life Cycle
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-//        dropShadow(color: .appColor(.mainTextColor), opacity: 0.1, radius: 5)
-    }
-    
+
     // MARK: - Setup View
     private func setupView() {
         backgroundColor = .appColor(.viewsBackgroundColor)
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         layer.cornerRadius = 10
 
         addSubview(roundLabel)
@@ -45,20 +38,20 @@ class RaceCardView: UIView {
 
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
-            
+
             roundLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
+
             titleLabel.topAnchor.constraint(equalTo: roundLabel.bottomAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            curcuitLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            curcuitLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             curcuitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             curcuitLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            separator.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 8),
+            separator.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             separator.heightAnchor.constraint(equalToConstant: 1),
@@ -71,14 +64,6 @@ class RaceCardView: UIView {
     }
 
     // MARK: - UI Elements
-    private static func createLabel(fontSize: Int, color: UIColor) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: CGFloat(fontSize))
-        label.textColor = color
-        return label
-    }
-
     private static func createHorizontalStackView(with text: String) -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,10 +71,10 @@ class RaceCardView: UIView {
         stackView.distribution = .equalSpacing
         stackView.spacing = 4
 
-        let staticLabel = createLabel(fontSize: 14, color: .appColor(.mainTextColor))
+        let staticLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
         staticLabel.text = text
 
-        let dateLabel = createLabel(fontSize: 14, color: .appColor(.mainTextColor))
+        let dateLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
         dateLabel.text = "-"
 
         stackView.addArrangedSubview(staticLabel)
@@ -99,26 +84,26 @@ class RaceCardView: UIView {
     }
 
     private let titleLabel: UILabel = {
-        let label = createLabel(fontSize: 18, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: 18, color: .appColor(.mainTextColor))
         label.text = "Нет данных о названии"
         return label
     }()
-    
+
     private let roundLabel: UILabel = {
-        let label = createLabel(fontSize: 14, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
         label.text = "- этап"
         label.textAlignment = .center
         return label
     }()
 
     private let curcuitLabel: UILabel = {
-        let label = createLabel(fontSize: 14, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
         label.text = "Нет данных о трассе"
         return label
     }()
 
     private let noScheduleLabel: UILabel = {
-        let label = createLabel(fontSize: 14, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
         label.text = "Нет расписания"
         label.textAlignment = .center
         return label
@@ -131,7 +116,7 @@ class RaceCardView: UIView {
     private let sprintRaceDateStackView = createHorizontalStackView(with: "Спринт:")
     private let qualyDateStackView = createHorizontalStackView(with: "Квалификация:")
     private let raceDateStackView = createHorizontalStackView(with: "Гонка:")
-    
+
     private let separator = Separator()
 
     // MARK: - Configuration Method

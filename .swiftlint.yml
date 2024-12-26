@@ -3,6 +3,16 @@ disabled_rules:
   - line_length
   - function_body_length
   - type_body_length
+  
+opt_in_rules:
+  - closing_brace
+  - opening_brace
+  - return_arrow_whitespace
+  - trailing_semicolon
+  - statement_position
+  
+force_cast:
+  severity: warning
 
 included:
   - F1App

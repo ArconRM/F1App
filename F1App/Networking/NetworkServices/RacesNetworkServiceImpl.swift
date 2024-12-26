@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RacesNetworkServiceImpl: RacesNetworkService {
+struct RacesNetworkServiceImpl: RacesNetworkService {
 
     private let urlSource: UrlSource
     private let raceDecoder: RaceDecoder
@@ -17,7 +17,7 @@ public struct RacesNetworkServiceImpl: RacesNetworkService {
         self.raceDecoder = raceDecoder
     }
 
-    public func fetchNextSeasonRace(
+    func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<ChampionshipRace?, any Error>) -> Void
     ) {
@@ -44,7 +44,7 @@ public struct RacesNetworkServiceImpl: RacesNetworkService {
         }.resume()
     }
 
-    public func fetchCurrentSeasonRaces(
+    func fetchCurrentSeasonRaces(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
     ) {

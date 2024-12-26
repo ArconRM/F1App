@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol UrlSource {
+protocol UrlSource {
     var baseUrl: String { get }
 
     func getCurrentSeasonRacesUrl() -> String

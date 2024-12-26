@@ -7,8 +7,10 @@
 
 import Foundation
 
-public struct F1ConnectRaceDecoder: RaceDecoder {
-    public func decodeRace(from data: Data) throws -> ChampionshipRace? {
+// https://developer.apple.com/swift/blog/?id=37
+struct F1ConnectRaceDecoder: RaceDecoder {
+
+    func decodeRace(from data: Data) throws -> ChampionshipRace? {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
            let raceJson = json["race"] as? [[String: Any]], raceJson.count == 1 {
 
@@ -19,21 +21,20 @@ public struct F1ConnectRaceDecoder: RaceDecoder {
         return nil
     }
 
-    public func decodeRaces(from data: Data) throws -> [ChampionshipRace?] {
+    func decodeRaces(from data: Data) throws -> [ChampionshipRace?] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
            let racesJsonArray = json["races"] as? [[String: Any]] {
 
-            var races: [ChampionshipRace] = []
+            var races: [ChampionshipRace?] = []
             for raceJson in racesJsonArray {
-                if let race = try decodeRaceFromJson(raceJson) {
-                    races.append(race)
-                }
+                let race = try decodeRaceFromJson(raceJson)
+                races.append(race)
             }
             return races
         }
         return []
     }
-    
+
     private func decodeRaceFromJson(_ json: [String: Any?]) throws -> ChampionshipRace? {
         // Not nested props
         let raceId = (json["raceId"] as? String? ?? nil) as String?

@@ -7,13 +7,14 @@
 
 import Foundation
 
-public struct UrlSourceF1Connect: UrlSource {
-    public let baseUrl: String = "https://f1connectapi.vercel.app/api"
+struct UrlSourceF1Connect: UrlSource {
+    let baseUrl: String = "https://f1connectapi.vercel.app/api"
 
-    public func getCurrentSeasonRacesUrl() -> String {
+    func getCurrentSeasonRacesUrl() -> String {
         return baseUrl + "/current"
     }
-    public func getNextSeasonRaceUrl() -> String {
+
+    func getNextSeasonRaceUrl() -> String {
         return baseUrl + "/current/next"
     }
 }

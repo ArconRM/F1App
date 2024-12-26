@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum NetworkError: Error, LocalizedError {
+enum NetworkError: Error, LocalizedError {
     case urlError
     case fetchError(String)
     case unexpectedError(String)
 
-    public var errorDescription: String? {
+    var errorDescription: String? {
         switch self {
         case .urlError:
             return "Неправильная ссылка"
@@ -23,7 +23,7 @@ public enum NetworkError: Error, LocalizedError {
         }
     }
 
-    public var failureReason: String? {
+    var failureReason: String? {
         switch self {
         case .urlError:
             return "Вызвался запрос по кривой ссылке."

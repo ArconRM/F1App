@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol RacesNetworkService {
+protocol RacesNetworkService {
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,

@@ -43,7 +43,7 @@ final class SchedulePresenter: Presenter {
             }
         }
     }
-    
+
     /// Moves races without winnerId forward
     private func sortRaces(_ races: [ChampionshipRace?]) -> [ChampionshipRace?] {
         return races.filter { $0?.winnerId == nil } + races.filter { $0?.winnerId != nil }

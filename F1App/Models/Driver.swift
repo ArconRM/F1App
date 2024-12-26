@@ -11,9 +11,21 @@ public struct Driver: Codable {
     public var driverId: String
     public var name: String
     public var surname: String
-    public var country: String
-    public var birthDate: Date
-    public var number: String?
-    public var shortName: String
+    public var nationality: String
+    public var birthday: Date
+    public var number: Int?
+    public var shortName: String?
     public var url: String?
+
+    public static var mock: Self {
+        return .init(
+            driverId: "1",
+            name: "Driver Name",
+            surname: "Drivers surname",
+            nationality: "RUS",
+            birthday: Date.distantPast,
+            number: 69,
+            shortName: "DnD"
+        )
+    }
 }

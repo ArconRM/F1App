@@ -9,6 +9,25 @@ import Foundation
 
 extension Date {
 
+    static func fromStringWithFormat(from dateString: String, format dateFormat: String) -> Self? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: dateString) ?? nil
+    }
+
+    static func fromStringWithFormat(from dateString: String, formatVariants dateFormats: [String]) -> Self? {
+        let dateFormatter = DateFormatter()
+
+        for dateFormat in dateFormats {
+            dateFormatter.dateFormat = dateFormat
+            if let date = dateFormatter.date(from: dateString) {
+                return date
+            }
+        }
+
+        return nil
+    }
+
     func getHours() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
@@ -20,7 +39,7 @@ extension Date {
         dateFormatter.dateFormat = "mm"
         return Int(dateFormatter.string(from: self)) ?? 0
     }
-    
+
     func getDayMonthString(divider: String = " ") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")

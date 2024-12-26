@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16087C6B2D1A087600654DE0 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16087C6A2D1A087600654DE0 /* 1.json */; };
+		16087C6C2D1A087600654DE0 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16087C6A2D1A087600654DE0 /* 1.json */; };
+		16087C6E2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C6D2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift */; };
+		16087C702D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C6F2D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift */; };
+		16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C712D1B30F500654DE0 /* LabelFactory.swift */; };
+		16087C742D1B4D3500654DE0 /* StackViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C732D1B4D3500654DE0 /* StackViewFactory.swift */; };
+		16087C762D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C752D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift */; };
+		16087C782D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */; };
 		162ED6D62D081E7600DF9A04 /* RacesNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */; };
 		163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF52CF8D7B300C62F43 /* NetworkError.swift */; };
 		163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF62CF8D7B300C62F43 /* SerializationError.swift */; };
-		163C4D142CF8D7B300C62F43 /* Championship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF82CF8D7B300C62F43 /* Championship.swift */; };
 		163C4D152CF8D7B300C62F43 /* ChampionshipRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */; };
 		163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFA2CF8D7B300C62F43 /* Circuit.swift */; };
 		163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFB2CF8D7B300C62F43 /* Driver.swift */; };
 		163C4D182CF8D7B300C62F43 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFC2CF8D7B300C62F43 /* Team.swift */; };
-		163C4D192CF8D7B300C62F43 /* DriversNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFE2CF8D7B300C62F43 /* DriversNetworkService.swift */; };
+		163C4D192CF8D7B300C62F43 /* StandingsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFE2CF8D7B300C62F43 /* StandingsNetworkService.swift */; };
 		163C4D1A2CF8D7B300C62F43 /* RacesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFF2CF8D7B300C62F43 /* RacesNetworkService.swift */; };
 		163C4D1B2CF8D7B300C62F43 /* UrlSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D012CF8D7B300C62F43 /* UrlSource.swift */; };
 		163C4D1C2CF8D7B300C62F43 /* UrlSourceF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D032CF8D7B300C62F43 /* UrlSourceF1Connect.swift */; };
@@ -46,24 +53,32 @@
 		1670B47F2D149A4800400899 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B47E2D149A4800400899 /* Colors.swift */; };
 		1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4802D149AE100400899 /* UIColor+AppColor.swift */; };
 		1670B4832D14A18D00400899 /* UIView+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4822D14A18D00400899 /* UIView+DropShadow.swift */; };
+		1670B4852D16C69400400899 /* DriverDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4842D16C69400400899 /* DriverDecoder.swift */; };
+		1670B4872D16C9C500400899 /* DriversChampionshipEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4862D16C9C500400899 /* DriversChampionshipEntry.swift */; };
+		1670B4892D16DB0700400899 /* DriverDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4882D16DB0700400899 /* DriverDecoderF1Connect.swift */; };
+		1670B48B2D16DB1400400899 /* TeamDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B48A2D16DB1400400899 /* TeamDecoder.swift */; };
+		1670B48D2D16DB3F00400899 /* TeamDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */; };
+		1670B48F2D16FE9300400899 /* DriversChampionshipDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */; };
+		1670B4912D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */; };
 		168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101732CFDAFDC00D51776 /* Coordinator.swift */; };
 		168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101752CFDAFF500D51776 /* AppCoordinator.swift */; };
 		168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101772CFDB25B00D51776 /* ScheduleViewController.swift */; };
 		1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */; };
 		1681017E2CFEFA4000D51776 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017D2CFEFA4000D51776 /* Factory.swift */; };
-		168101802CFEFBFA00D51776 /* F1ConnectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */; };
+		168101802CFEFBFA00D51776 /* FactoryF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */; };
 		168101822D02F4C100D51776 /* ConstructorChampionshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101812D02F4C100D51776 /* ConstructorChampionshipViewController.swift */; };
 		168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101832D02F55C00D51776 /* SettingsViewController.swift */; };
 		1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101892D02F91B00D51776 /* RaceDecoder.swift */; };
-		1681018C2D02FA8900D51776 /* F1ConnectRaceDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */; };
+		1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */; };
 		1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018D2D0320A000D51776 /* BaseViewController.swift */; };
 		168101922D0323A200D51776 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101912D0323A200D51776 /* Presenter.swift */; };
 		1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0502D04346800C25292 /* SchedulePresenter.swift */; };
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
 		1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorChampionship.swift */; };
 		1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0562D0436FC00C25292 /* SettingsPresenter.swift */; };
+		16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD5B402D1C434B00B13974 /* GradientColors.swift */; };
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
-		16C030C72D08192C000C258E /* MockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* MockFactory.swift */; };
+		16C030C72D08192C000C258E /* FactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* FactoryMock.swift */; };
 		3568857A5B93615BB51739B5 /* Pods_F1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,18 +101,24 @@
 
 /* Begin PBXFileReference section */
 		023B0ADB0586B228B6E6864E /* Pods-F1App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.debug.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.debug.xcconfig"; sourceTree = "<group>"; };
+		16087C6A2D1A087600654DE0 /* 1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
+		16087C6D2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNetworkServiceMock.swift; sourceTree = "<group>"; };
+		16087C6F2D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipTableViewCell.swift; sourceTree = "<group>"; };
+		16087C712D1B30F500654DE0 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		16087C732D1B4D3500654DE0 /* StackViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewFactory.swift; sourceTree = "<group>"; };
+		16087C752D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipTableViewDelegate.swift; sourceTree = "<group>"; };
+		16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNetworkServiceImpl.swift; sourceTree = "<group>"; };
 		162532FC2CEFBF8D00F9397F /* F1App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		162533122CEFBF8E00F9397F /* F1AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1625331C2CEFBF8E00F9397F /* F1AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesNetworkServiceMock.swift; sourceTree = "<group>"; };
 		163C4CF52CF8D7B300C62F43 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		163C4CF62CF8D7B300C62F43 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
-		163C4CF82CF8D7B300C62F43 /* Championship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Championship.swift; sourceTree = "<group>"; };
 		163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipRace.swift; sourceTree = "<group>"; };
 		163C4CFA2CF8D7B300C62F43 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
 		163C4CFB2CF8D7B300C62F43 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		163C4CFC2CF8D7B300C62F43 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		163C4CFE2CF8D7B300C62F43 /* DriversNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversNetworkService.swift; sourceTree = "<group>"; };
+		163C4CFE2CF8D7B300C62F43 /* StandingsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNetworkService.swift; sourceTree = "<group>"; };
 		163C4CFF2CF8D7B300C62F43 /* RacesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesNetworkService.swift; sourceTree = "<group>"; };
 		163C4D012CF8D7B300C62F43 /* UrlSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSource.swift; sourceTree = "<group>"; };
 		163C4D032CF8D7B300C62F43 /* UrlSourceF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSourceF1Connect.swift; sourceTree = "<group>"; };
@@ -125,24 +146,32 @@
 		1670B47E2D149A4800400899 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1670B4802D149AE100400899 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
 		1670B4822D14A18D00400899 /* UIView+DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DropShadow.swift"; sourceTree = "<group>"; };
+		1670B4842D16C69400400899 /* DriverDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDecoder.swift; sourceTree = "<group>"; };
+		1670B4862D16C9C500400899 /* DriversChampionshipEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipEntry.swift; sourceTree = "<group>"; };
+		1670B4882D16DB0700400899 /* DriverDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDecoderF1Connect.swift; sourceTree = "<group>"; };
+		1670B48A2D16DB1400400899 /* TeamDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDecoder.swift; sourceTree = "<group>"; };
+		1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDecoderF1Connect.swift; sourceTree = "<group>"; };
+		1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipDecoder.swift; sourceTree = "<group>"; };
+		1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipDecoderF1Connect.swift; sourceTree = "<group>"; };
 		168101732CFDAFDC00D51776 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		168101752CFDAFF500D51776 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168101772CFDB25B00D51776 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipViewController.swift; sourceTree = "<group>"; };
 		1681017D2CFEFA4000D51776 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1ConnectFactory.swift; sourceTree = "<group>"; };
+		1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryF1Connect.swift; sourceTree = "<group>"; };
 		168101812D02F4C100D51776 /* ConstructorChampionshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionshipViewController.swift; sourceTree = "<group>"; };
 		168101832D02F55C00D51776 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		168101892D02F91B00D51776 /* RaceDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDecoder.swift; sourceTree = "<group>"; };
-		1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1ConnectRaceDecoder.swift; sourceTree = "<group>"; };
+		1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDecoderF1Connect.swift; sourceTree = "<group>"; };
 		1681018D2D0320A000D51776 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		168101912D0323A200D51776 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		1695A0502D04346800C25292 /* SchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePresenter.swift; sourceTree = "<group>"; };
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0542D0436D400C25292 /* ConstructorChampionship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionship.swift; sourceTree = "<group>"; };
 		1695A0562D0436FC00C25292 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		16BD5B402D1C434B00B13974 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		16C030C62D08192C000C258E /* MockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFactory.swift; sourceTree = "<group>"; };
+		16C030C62D08192C000C258E /* FactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMock.swift; sourceTree = "<group>"; };
 		544EC18E7C3166E270529048 /* Pods-F1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.release.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.release.xcconfig"; sourceTree = "<group>"; };
 		6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -200,6 +229,7 @@
 			children = (
 				1670B4652D10431500400899 /* CellIdentifiers.swift */,
 				1670B47E2D149A4800400899 /* Colors.swift */,
+				16BD5B402D1C434B00B13974 /* GradientColors.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -218,11 +248,11 @@
 			children = (
 				163C4CF72CF8D7B300C62F43 /* Errors */,
 				163C4CF42CF8D7B300C62F43 /* Enums */,
-				163C4CF82CF8D7B300C62F43 /* Championship.swift */,
 				163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */,
 				163C4CFA2CF8D7B300C62F43 /* Circuit.swift */,
 				163C4CFB2CF8D7B300C62F43 /* Driver.swift */,
 				163C4CFC2CF8D7B300C62F43 /* Team.swift */,
+				1670B4862D16C9C500400899 /* DriversChampionshipEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,8 +260,8 @@
 		163C4D002CF8D7B300C62F43 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				163C4CFE2CF8D7B300C62F43 /* DriversNetworkService.swift */,
 				163C4CFF2CF8D7B300C62F43 /* RacesNetworkService.swift */,
+				163C4CFE2CF8D7B300C62F43 /* StandingsNetworkService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -285,6 +315,7 @@
 		163C4D2A2CF8D7C200C62F43 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				16087C6A2D1A087600654DE0 /* 1.json */,
 				163C4D262CF8D7C200C62F43 /* 2024.json */,
 				163C4D272CF8D7C200C62F43 /* constructors-championship.json */,
 				163C4D282CF8D7C200C62F43 /* current.json */,
@@ -339,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */,
+				16087C752D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -347,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				1670B46C2D11518900400899 /* ScheduleTableViewCell.swift */,
+				16087C6F2D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -354,9 +387,11 @@
 		1670B46E2D12068400400899 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				16087C712D1B30F500654DE0 /* LabelFactory.swift */,
 				1670B46F2D12069100400899 /* Separator.swift */,
 				1670B47C2D1491F300400899 /* GradientView.swift */,
 				1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */,
+				16087C732D1B4D3500654DE0 /* StackViewFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -365,8 +400,20 @@
 			isa = PBXGroup;
 			children = (
 				162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */,
+				16087C6D2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		1670B4922D16FEEA00400899 /* F1Connect */ = {
+			isa = PBXGroup;
+			children = (
+				1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */,
+				1670B4882D16DB0700400899 /* DriverDecoderF1Connect.swift */,
+				1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */,
+				1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */,
+			);
+			path = F1Connect;
 			sourceTree = "<group>";
 		};
 		168101712CFDAF6E00D51776 /* Coordinators */ = {
@@ -390,8 +437,8 @@
 			isa = PBXGroup;
 			children = (
 				1681017C2CFEFA2A00D51776 /* Protocols */,
-				1681017F2CFEFBFA00D51776 /* F1ConnectFactory.swift */,
-				16C030C62D08192C000C258E /* MockFactory.swift */,
+				1681017F2CFEFBFA00D51776 /* FactoryF1Connect.swift */,
+				16C030C62D08192C000C258E /* FactoryMock.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -410,6 +457,7 @@
 				163C4D002CF8D7B300C62F43 /* Protocols */,
 				1670B4772D1486F300400899 /* Mock */,
 				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
+				16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -418,7 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				168101882D02F8CE00D51776 /* Protocols */,
-				1681018B2D02FA8900D51776 /* F1ConnectRaceDecoder.swift */,
+				1670B4922D16FEEA00400899 /* F1Connect */,
 			);
 			path = Decoding;
 			sourceTree = "<group>";
@@ -427,6 +475,9 @@
 			isa = PBXGroup;
 			children = (
 				168101892D02F91B00D51776 /* RaceDecoder.swift */,
+				1670B4842D16C69400400899 /* DriverDecoder.swift */,
+				1670B48A2D16DB1400400899 /* TeamDecoder.swift */,
+				1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -592,6 +643,7 @@
 				163C4D332CF8D7C200C62F43 /* constructors-championship.json in Resources */,
 				163C4D342CF8D7C200C62F43 /* current.json in Resources */,
 				163C4D352CF8D7C200C62F43 /* 2024.json in Resources */,
+				16087C6C2D1A087600654DE0 /* 1.json in Resources */,
 				163C4D362CF8D7C200C62F43 /* drivers-championship.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16087C6B2D1A087600654DE0 /* 1.json in Resources */,
 				163C4D2E2CF8D7C200C62F43 /* 2024.json in Resources */,
 				163C4D2F2CF8D7C200C62F43 /* constructors-championship.json in Resources */,
 				163C4D302CF8D7C200C62F43 /* current.json in Resources */,
@@ -633,7 +686,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if command -v ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null 2>&1\nthen\n    ${PODS_ROOT}/SwiftLint/swiftlint --fix && ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+			shellScript = "if command -v ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null 2>&1\nthen\n    ${PODS_ROOT}/SwiftLint/swiftlint\n    ${PODS_ROOT}/SwiftLint/swiftlint --fix\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 		};
 		593CA1641C6C10126E79F2CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -666,31 +719,39 @@
 			files = (
 				163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */,
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
-				163C4D142CF8D7B300C62F43 /* Championship.swift in Sources */,
 				1670B47D2D1491F300400899 /* GradientView.swift in Sources */,
 				1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */,
+				16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */,
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
+				1670B48B2D16DB1400400899 /* TeamDecoder.swift in Sources */,
 				166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */,
 				163C4D152CF8D7B300C62F43 /* ChampionshipRace.swift in Sources */,
+				16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */,
+				16087C6E2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift in Sources */,
 				168101822D02F4C100D51776 /* ConstructorChampionshipViewController.swift in Sources */,
 				1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */,
+				16087C762D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift in Sources */,
+				16087C782D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift in Sources */,
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
 				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
 				16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */,
-				1681018C2D02FA8900D51776 /* F1ConnectRaceDecoder.swift in Sources */,
+				1670B48F2D16FE9300400899 /* DriversChampionshipDecoder.swift in Sources */,
+				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
 				163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */,
 				168101922D0323A200D51776 /* Presenter.swift in Sources */,
 				163C4D182CF8D7B300C62F43 /* Team.swift in Sources */,
 				168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */,
-				168101802CFEFBFA00D51776 /* F1ConnectFactory.swift in Sources */,
-				163C4D192CF8D7B300C62F43 /* DriversNetworkService.swift in Sources */,
+				1670B48D2D16DB3F00400899 /* TeamDecoderF1Connect.swift in Sources */,
+				168101802CFEFBFA00D51776 /* FactoryF1Connect.swift in Sources */,
+				163C4D192CF8D7B300C62F43 /* StandingsNetworkService.swift in Sources */,
 				168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */,
 				1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */,
+				1670B4892D16DB0700400899 /* DriverDecoderF1Connect.swift in Sources */,
 				163C4D1A2CF8D7B300C62F43 /* RacesNetworkService.swift in Sources */,
 				1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */,
 				1681017E2CFEFA4000D51776 /* Factory.swift in Sources */,
-				16C030C72D08192C000C258E /* MockFactory.swift in Sources */,
+				16C030C72D08192C000C258E /* FactoryMock.swift in Sources */,
 				163C4D1B2CF8D7B300C62F43 /* UrlSource.swift in Sources */,
 				1670B4742D13668900400899 /* UIColor+AdaptiveColor.swift in Sources */,
 				1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */,
@@ -698,15 +759,20 @@
 				1670B47F2D149A4800400899 /* Colors.swift in Sources */,
 				1670B4832D14A18D00400899 /* UIView+DropShadow.swift in Sources */,
 				168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */,
+				1670B4872D16C9C500400899 /* DriversChampionshipEntry.swift in Sources */,
 				163C4D1C2CF8D7B300C62F43 /* UrlSourceF1Connect.swift in Sources */,
+				1670B4852D16C69400400899 /* DriverDecoder.swift in Sources */,
 				1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */,
 				1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */,
 				1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */,
+				1670B4912D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift in Sources */,
 				163C4D1E2CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift in Sources */,
+				16087C702D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift in Sources */,
 				168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */,
 				1670B4702D12069100400899 /* Separator.swift in Sources */,
 				163C4D1F2CF8D7B300C62F43 /* AppDelegate.swift in Sources */,
 				163C4D202CF8D7B300C62F43 /* SceneDelegate.swift in Sources */,
+				16087C742D1B4D3500654DE0 /* StackViewFactory.swift in Sources */,
 				1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

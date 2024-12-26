@@ -7,11 +7,10 @@
 
 import Foundation
 
-public struct RacesNetworkServiceMock: RacesNetworkService {
-    
-    private let raceDecoder = F1ConnectRaceDecoder()
+struct RacesNetworkServiceMock: RacesNetworkService {
+    private let raceDecoder = RaceDecoderF1Connect()
 
-    public func fetchNextSeasonRace(
+    func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<ChampionshipRace?, any Error>) -> Void
     ) {
@@ -20,14 +19,13 @@ public struct RacesNetworkServiceMock: RacesNetworkService {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)
                 completionHandler(.success(races[22]))
-            }
-            catch let error {
+            } catch let error {
                 completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
             }
         }
     }
 
-    public func fetchCurrentSeasonRaces(
+    func fetchCurrentSeasonRaces(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
     ) {
@@ -36,8 +34,7 @@ public struct RacesNetworkServiceMock: RacesNetworkService {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)
                 completionHandler(.success(races))
-            }
-            catch let error {
+            } catch let error {
                 completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
             }
         }
