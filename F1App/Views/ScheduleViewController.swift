@@ -122,13 +122,13 @@ class ScheduleViewController: BaseViewController {
     }()
 
     private let nextRaceTitleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 24, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
         label.text = "Следующий этап"
         return label
     }()
 
     private let scheduleTitleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 24, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
         label.text = "Полное расписание"
         return label
     }()

@@ -53,14 +53,13 @@ class DriversChampionshipTableViewCell: UITableViewCell {
             labelsVStackView.leadingAnchor.constraint(equalTo: positionLabel.trailingAnchor, constant: 25),
             labelsVStackView.bottomAnchor.constraint(equalTo: mainHStackView.bottomAnchor),
 
-            fullNameLabel.topAnchor.constraint(equalTo: labelsVStackView.topAnchor),
+            fullNameLabel.topAnchor.constraint(equalTo: labelsVStackView.topAnchor, constant: 2),
             fullNameLabel.leadingAnchor.constraint(equalTo: labelsVStackView.leadingAnchor),
             fullNameLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor),
 
-            teamNameLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 5),
+            teamNameLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 8),
             teamNameLabel.leadingAnchor.constraint(equalTo: labelsVStackView.leadingAnchor),
             teamNameLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor),
-//            teamNameLabel.bottomAnchor.constraint(equalTo: labelsVStackView.bottomAnchor),
 
             pointsLabel.topAnchor.constraint(equalTo: mainHStackView.topAnchor),
             pointsLabel.trailingAnchor.constraint(equalTo: mainHStackView.trailingAnchor, constant: -16),
