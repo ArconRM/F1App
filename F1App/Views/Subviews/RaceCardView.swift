@@ -120,39 +120,39 @@ class RaceCardView: UIView {
     private let separator = Separator()
 
     // MARK: - Configuration Method
-    func configure(race: ChampionshipRace) {
+    func configure(round: Round) {
         noScheduleLabel.removeFromSuperview()
 
-        titleLabel.text = race.raceName
-        roundLabel.text = "\(race.round) этап"
-        curcuitLabel.text = race.circuitName
+        titleLabel.text = round.raceName
+        roundLabel.text = "\(round.round) этап"
+        curcuitLabel.text = round.circuitName
 
         if let fp1Label = fp1DateStackView.arrangedSubviews[1] as? UILabel {
-            fp1Label.text = race.fp1Datetime?.getDayMonthTimeWordString() ?? "-"
+            fp1Label.text = round.fp1Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let fp2Label = fp2DateStackView.arrangedSubviews[1] as? UILabel {
-            fp2Label.text = race.fp2Datetime?.getDayMonthTimeWordString() ?? "-"
+            fp2Label.text = round.fp2Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let fp3Label = fp3DateStackView.arrangedSubviews[1] as? UILabel {
-            fp3Label.text = race.fp3Datetime?.getDayMonthTimeWordString() ?? "-"
+            fp3Label.text = round.fp3Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let sprintQualyLabel = sprintQualyDateStackView.arrangedSubviews[1] as? UILabel {
-            sprintQualyLabel.text = race.sprintQualyDatetime?.getDayMonthTimeWordString() ?? "-"
+            sprintQualyLabel.text = round.sprintQualyDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let sprintRaceLabel = sprintRaceDateStackView.arrangedSubviews[1] as? UILabel {
-            sprintRaceLabel.text = race.sprintRaceDatetime?.getDayMonthTimeWordString() ?? "-"
+            sprintRaceLabel.text = round.sprintRaceDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let qualyLabel = qualyDateStackView.arrangedSubviews[1] as? UILabel {
-            qualyLabel.text = race.qualyDatetime?.getDayMonthTimeWordString() ?? "-"
+            qualyLabel.text = round.qualyDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         if let raceLabel = raceDateStackView.arrangedSubviews[1] as? UILabel {
-            raceLabel.text = race.raceDatetime?.getDayMonthTimeWordString() ?? "-"
+            raceLabel.text = round.raceDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
         addSubview(fp1DateStackView)
@@ -203,6 +203,6 @@ class RaceCardView: UIView {
 @available(iOS 17, *)
 #Preview {
     let cardView = RaceCardView()
-    cardView.configure(race: ChampionshipRace.mock)
+    cardView.configure(round: Round.mock)
     return cardView
 }

@@ -26,7 +26,7 @@ final class SchedulePresenter: Presenter {
         raceNetworkService.fetchNextSeasonRace(resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let race):
-                self?.view?.loadedCurrentRace(race: race)
+                self?.view?.loadedCurrentRace(round: race)
             case .failure:
                 fatalError("Failed to load race")
             }
@@ -45,7 +45,7 @@ final class SchedulePresenter: Presenter {
     }
 
     /// Moves races without winnerId forward
-    private func sortRaces(_ races: [ChampionshipRace?]) -> [ChampionshipRace?] {
+    private func sortRaces(_ races: [Round?]) -> [Round?] {
         return races.filter { $0?.winnerId == nil } + races.filter { $0?.winnerId != nil }
     }
 }

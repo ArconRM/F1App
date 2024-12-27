@@ -163,13 +163,13 @@ class ScheduleViewController: BaseViewController {
     private let separator = Separator()
 
     // MARK: - Data Methods
-    func loadedCurrentRace(race: ChampionshipRace?) {
-        if race != nil {
-            currentRaceCard.configure(race: race!)
+    func loadedCurrentRace(round: Round?) {
+        if round != nil {
+            currentRaceCard.configure(round: round!)
         }
     }
 
-    func loadedAllRaces(races: [ChampionshipRace?]) {
+    func loadedAllRaces(races: [Round?]) {
         noScheduleLabel.isHidden = true
         scheduleTableView.isHidden = false
 

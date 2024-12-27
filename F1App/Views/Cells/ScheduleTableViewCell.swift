@@ -104,7 +104,7 @@ class ScheduleTableViewCell: UITableViewCell {
     private let winnerLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
 
     // MARK: - Data Methods
-    func configure(item: ChampionshipRace) {
+    func configure(item: Round) {
         numberLabel.text = "\(item.round)"
 
         titleLabel.text = item.raceName

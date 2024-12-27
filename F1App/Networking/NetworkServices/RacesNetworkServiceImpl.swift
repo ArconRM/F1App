@@ -19,7 +19,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<ChampionshipRace?, any Error>) -> Void
+        completionHandler: @escaping (Result<Round?, any Error>) -> Void
     ) {
         guard let url = URL(string: urlSource.getNextSeasonRaceUrl()) else {
             resultQueue.async {
@@ -46,7 +46,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
 
     func fetchCurrentSeasonRaces(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
+        completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
         guard let url = URL(string: urlSource.getCurrentSeasonRacesUrl()) else {
             resultQueue.async {

@@ -1,5 +1,5 @@
 //
-//  ChampionshipRace.swift
+//  Round.swift
 //  F1App
 //
 //  Created by Artemiy MIROTVORTSEV on 20.11.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChampionshipRace {
+struct Round {
     var raceId: String?
     var raceName: String
     var laps: Int?
@@ -45,7 +45,7 @@ struct ChampionshipRace {
 
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
 
-//        return ChampionshipRace(
+//        return Round(
 //            raceId: "bahrein_2024",
 //            raceName: "Gulf Air Bahrain Grand Prix 2024",
 //            laps: 57,

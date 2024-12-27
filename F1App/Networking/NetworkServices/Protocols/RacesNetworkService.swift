@@ -11,11 +11,11 @@ protocol RacesNetworkService {
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<ChampionshipRace?, Error>) -> Void
+        completionHandler: @escaping (Result<Round?, Error>) -> Void
     )
 
     func fetchCurrentSeasonRaces(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<[ChampionshipRace?], Error>) -> Void
+        completionHandler: @escaping (Result<[Round?], Error>) -> Void
     )
 }

@@ -12,10 +12,10 @@ class ScheduleTableViewDelegate: NSObject {
     
     static var rowHeight = 120
 
-    var items: [ChampionshipRace?] = []
+    var items: [Round?] = []
     weak var selectionDelegate: UITableViewSelectionDelegate?
 
-    func setItems(items: [ChampionshipRace?]) {
+    func setItems(items: [Round?]) {
         self.items = items
     }
 }

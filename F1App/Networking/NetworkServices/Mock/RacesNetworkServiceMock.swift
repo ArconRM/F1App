@@ -12,7 +12,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<ChampionshipRace?, any Error>) -> Void
+        completionHandler: @escaping (Result<Round?, any Error>) -> Void
     ) {
         if let path = Bundle.main.path(forResource: "current", ofType: "json") {
             do {
@@ -27,7 +27,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
 
     func fetchCurrentSeasonRaces(
         resultQueue: DispatchQueue,
-        completionHandler: @escaping (Result<[ChampionshipRace?], any Error>) -> Void
+        completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
         if let path = Bundle.main.path(forResource: "current", ofType: "json") {
             do {

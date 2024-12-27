@@ -10,14 +10,14 @@ import Foundation
 // https://developer.apple.com/swift/blog/?id=37
 struct RaceDecoderF1Connect: RaceDecoder {
 
-    func decodeRace(from data: Data) throws -> ChampionshipRace? {
+    func decodeRace(from data: Data) throws -> Round? {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             return try decodeRace(from: json)
         }
         return nil
     }
 
-    func decodeRace(from json: [String: Any]) throws -> ChampionshipRace? {
+    func decodeRace(from json: [String: Any]) throws -> Round? {
         if let racesJson = json["race"] as? [[String: Any]], racesJson.count == 1 {
             return try decodeRaceFromDict(racesJson[0])
         }
@@ -29,17 +29,17 @@ struct RaceDecoderF1Connect: RaceDecoder {
         return nil
     }
 
-    func decodeRaces(from data: Data) throws -> [ChampionshipRace?] {
+    func decodeRaces(from data: Data) throws -> [Round?] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
            return try decodeRaces(from: json)
         }
         return []
     }
 
-    func decodeRaces(from json: [String: Any]) throws -> [ChampionshipRace?] {
+    func decodeRaces(from json: [String: Any]) throws -> [Round?] {
         if let racesJsonArray = json["races"] as? [[String: Any]] {
 
-            var races: [ChampionshipRace?] = []
+            var races: [Round?] = []
             for raceJson in racesJsonArray {
                 races.append(try decodeRaceFromDict(raceJson))
             }
@@ -48,7 +48,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
         return []
     }
 
-    private func decodeRaceFromDict(_ dict: [String: Any?]) throws -> ChampionshipRace {
+    private func decodeRaceFromDict(_ dict: [String: Any?]) throws -> Round {
         // Not nested props
         let raceId = (dict["raceId"] as? String? ?? nil) as String?
 
@@ -137,7 +137,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
             teamWinnerName = (teamWinnerDict["teamName"] as? String? ?? nil)
         }
 
-        return ChampionshipRace(
+        return Round(
             raceId: raceId,
             raceName: raceName,
             laps: laps,
