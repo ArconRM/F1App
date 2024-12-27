@@ -23,7 +23,7 @@
 		162ED6D62D081E7600DF9A04 /* RacesNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */; };
 		163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF52CF8D7B300C62F43 /* NetworkError.swift */; };
 		163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF62CF8D7B300C62F43 /* SerializationError.swift */; };
-		163C4D152CF8D7B300C62F43 /* ChampionshipRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */; };
+		163C4D152CF8D7B300C62F43 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF92CF8D7B300C62F43 /* Round.swift */; };
 		163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFA2CF8D7B300C62F43 /* Circuit.swift */; };
 		163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFB2CF8D7B300C62F43 /* Driver.swift */; };
 		163C4D182CF8D7B300C62F43 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CFC2CF8D7B300C62F43 /* Team.swift */; };
@@ -81,6 +81,7 @@
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
 		1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorChampionship.swift */; };
 		1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0562D0436FC00C25292 /* SettingsPresenter.swift */; };
+		16A421DB2D1EE9D5003683CD /* RoundDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421DA2D1EE9D5003683CD /* RoundDetailsView.swift */; };
 		16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD5B402D1C434B00B13974 /* GradientColors.swift */; };
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
 		16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* DependencyFactoryMock.swift */; };
@@ -124,7 +125,7 @@
 		162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesNetworkServiceMock.swift; sourceTree = "<group>"; };
 		163C4CF52CF8D7B300C62F43 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		163C4CF62CF8D7B300C62F43 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
-		163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipRace.swift; sourceTree = "<group>"; };
+		163C4CF92CF8D7B300C62F43 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		163C4CFA2CF8D7B300C62F43 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
 		163C4CFB2CF8D7B300C62F43 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		163C4CFC2CF8D7B300C62F43 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0542D0436D400C25292 /* ConstructorChampionship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionship.swift; sourceTree = "<group>"; };
 		1695A0562D0436FC00C25292 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		16A421DA2D1EE9D5003683CD /* RoundDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailsView.swift; sourceTree = "<group>"; };
 		16BD5B402D1C434B00B13974 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		16C030C62D08192C000C258E /* DependencyFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryMock.swift; sourceTree = "<group>"; };
@@ -258,7 +260,7 @@
 			children = (
 				163C4CF72CF8D7B300C62F43 /* Errors */,
 				163C4CF42CF8D7B300C62F43 /* Enums */,
-				163C4CF92CF8D7B300C62F43 /* ChampionshipRace.swift */,
+				163C4CF92CF8D7B300C62F43 /* Round.swift */,
 				163C4CFA2CF8D7B300C62F43 /* Circuit.swift */,
 				163C4CFB2CF8D7B300C62F43 /* Driver.swift */,
 				163C4CFC2CF8D7B300C62F43 /* Team.swift */,
@@ -365,6 +367,7 @@
 				168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */,
 				168101812D02F4C100D51776 /* ConstructorsChampionshipViewController.swift */,
 				168101832D02F55C00D51776 /* SettingsViewController.swift */,
+				16A421DA2D1EE9D5003683CD /* RoundDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -741,7 +744,7 @@
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
 				1670B48B2D16DB1400400899 /* TeamDecoder.swift in Sources */,
 				166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */,
-				163C4D152CF8D7B300C62F43 /* ChampionshipRace.swift in Sources */,
+				163C4D152CF8D7B300C62F43 /* Round.swift in Sources */,
 				16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */,
 				16087C6E2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift in Sources */,
 				168101822D02F4C100D51776 /* ConstructorsChampionshipViewController.swift in Sources */,
@@ -774,6 +777,7 @@
 				162B5E492D1DB0A800D1E1B6 /* ConstructorsChampionshipTableViewDelegate.swift in Sources */,
 				1670B4742D13668900400899 /* UIColor+AdaptiveColor.swift in Sources */,
 				1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */,
+				16A421DB2D1EE9D5003683CD /* RoundDetailsView.swift in Sources */,
 				162ED6D62D081E7600DF9A04 /* RacesNetworkServiceMock.swift in Sources */,
 				1670B47F2D149A4800400899 /* Colors.swift in Sources */,
 				1670B4832D14A18D00400899 /* UIView+DropShadow.swift in Sources */,
