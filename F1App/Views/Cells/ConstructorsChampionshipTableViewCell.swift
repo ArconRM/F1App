@@ -1,15 +1,15 @@
 //
-//  DriversChampionshipTableViewCell.swift
+//  ConstructorsChampionshipTableViewCell.swift
 //  F1App
 //
-//  Created by Artemiy MIROTVORTSEV on 24.12.2024.
+//  Created by Artemiy MIROTVORTSEV on 26.12.2024.
 //
 
 import Foundation
 import UIKit
 
-class DriversChampionshipTableViewCell: UITableViewCell {
-
+class ConstructorsChampionshipTableViewCell: UITableViewCell {
+    
     static let cellHeight: CGFloat = 80
 
     // MARK: - Initializers
@@ -29,16 +29,16 @@ class DriversChampionshipTableViewCell: UITableViewCell {
         mainHStackView.addSubview(positionLabel)
         mainHStackView.addSubview(labelsVStackView)
         mainHStackView.addSubview(pointsLabel)
-
-        labelsVStackView.addSubview(fullNameLabel)
+        
         labelsVStackView.addSubview(teamNameLabel)
+        labelsVStackView.addSubview(countryLabel)
 
         setupConstraints()
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            contentView.heightAnchor.constraint(equalToConstant: DriversChampionshipTableViewCell.cellHeight),
+            contentView.heightAnchor.constraint(equalToConstant: ConstructorsChampionshipTableViewCell.cellHeight),
 
             mainHStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             mainHStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -54,13 +54,13 @@ class DriversChampionshipTableViewCell: UITableViewCell {
             labelsVStackView.leadingAnchor.constraint(equalTo: positionLabel.trailingAnchor, constant: 22),
             labelsVStackView.bottomAnchor.constraint(equalTo: mainHStackView.bottomAnchor),
 
-            fullNameLabel.topAnchor.constraint(equalTo: labelsVStackView.topAnchor, constant: 2),
-            fullNameLabel.leadingAnchor.constraint(equalTo: labelsVStackView.leadingAnchor),
-            fullNameLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor),
-
-            teamNameLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 8),
+            teamNameLabel.topAnchor.constraint(equalTo: labelsVStackView.topAnchor, constant: 2),
             teamNameLabel.leadingAnchor.constraint(equalTo: labelsVStackView.leadingAnchor),
             teamNameLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor),
+
+            countryLabel.topAnchor.constraint(equalTo: teamNameLabel.bottomAnchor, constant: 8),
+            countryLabel.leadingAnchor.constraint(equalTo: labelsVStackView.leadingAnchor),
+            countryLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor),
 
             pointsLabel.topAnchor.constraint(equalTo: mainHStackView.topAnchor),
             pointsLabel.trailingAnchor.constraint(equalTo: mainHStackView.trailingAnchor, constant: -16),
@@ -70,18 +70,18 @@ class DriversChampionshipTableViewCell: UITableViewCell {
 
     // MARK: - UI Elements
     private let positionLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let fullNameLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let teamNameLabel = LabelFactory.createLabel(fontSize: 12, color: .appColor(.subTextColor))
+    private let teamNameLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
+    private let countryLabel = LabelFactory.createLabel(fontSize: 12, color: .appColor(.subTextColor))
     private let pointsLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
 
     private let mainHStackView = StackViewFactory.createStackView(axis: .horizontal)
     private let labelsVStackView = StackViewFactory.createStackView(axis: .vertical)
 
     // MARK: - Data Methods
-    func configure(item: DriversChampionshipEntry) {
+    func configure(item: ConstructorsChampionshipEntry) {
         positionLabel.text = "\(item.position)"
-        fullNameLabel.text = "\(item.driver.name) \(item.driver.surname)"
         teamNameLabel.text = "\(item.team.teamName)"
+        countryLabel.text = "\(item.team.country)"
         pointsLabel.text = "\(item.points)"
     }
 }

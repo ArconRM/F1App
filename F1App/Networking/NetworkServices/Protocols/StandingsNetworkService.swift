@@ -13,4 +13,10 @@ protocol StandingsNetworkService {
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[DriversChampionshipEntry?], Error>) -> Void
     )
+    
+    func fetchCurrentConstructorsChampionship(
+        resultQueue: DispatchQueue,
+        completionHandler: @escaping (Result<[ConstructorsChampionshipEntry?], Error>) -> Void
+    )
+    
 }

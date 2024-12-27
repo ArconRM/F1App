@@ -191,7 +191,7 @@ extension ScheduleViewController: UITableViewSelectionDelegate {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = FactoryMock()
+    let factory = DependencyFactoryMock()
     let view = factory.makeScheduleViewController()
     return view
 }

@@ -7,32 +7,32 @@
 
 import Foundation
 
-public struct ChampionshipRace {
-    public var raceId: String?
-    public var raceName: String
-    public var laps: Int?
-    public var round: Int
-    public var url: String?
+struct ChampionshipRace {
+    var raceId: String?
+    var raceName: String
+    var laps: Int?
+    var round: Int
+    var url: String?
 
-    public var circuitId: String
-    public var circuitName: String
+    var circuitId: String
+    var circuitName: String
 
-    public var winnerId: String?
-    public var winnerName: String?
+    var winnerId: String?
+    var winnerName: String?
 
-    public var teamWinnerId: String?
-    public var teamWinnerName: String?
+    var teamWinnerId: String?
+    var teamWinnerName: String?
 
     // Schedule
-    public var fp1Datetime: Date?
-    public var fp2Datetime: Date?
-    public var fp3Datetime: Date?
-    public var sprintQualyDatetime: Date?
-    public var sprintRaceDatetime: Date?
-    public var qualyDatetime: Date?
-    public var raceDatetime: Date?
+    var fp1Datetime: Date?
+    var fp2Datetime: Date?
+    var fp3Datetime: Date?
+    var sprintQualyDatetime: Date?
+    var sprintRaceDatetime: Date?
+    var qualyDatetime: Date?
+    var raceDatetime: Date?
 
-    public static var mock: Self {
+    static var mock: Self {
         let fp1Datetime = "2024-02-29 11:30:00 +0000"
         let fp2Datetime = "2024-02-29 15:00:00 +0000"
         let fp3Datetime = "2024-03-01 12:30:00 +0000"

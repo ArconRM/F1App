@@ -7,17 +7,17 @@
 
 import Foundation
 
-public struct Driver: Codable {
-    public var driverId: String
-    public var name: String
-    public var surname: String
-    public var nationality: String
-    public var birthday: Date
-    public var number: Int?
-    public var shortName: String?
-    public var url: String?
+struct Driver: Codable {
+    var driverId: String
+    var name: String
+    var surname: String
+    var nationality: String
+    var birthday: Date
+    var number: Int?
+    var shortName: String?
+    var url: String?
 
-    public static var mock: Self {
+    static var mock: Self {
         return .init(
             driverId: "1",
             name: "Driver Name",

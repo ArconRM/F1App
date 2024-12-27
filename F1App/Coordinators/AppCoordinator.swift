@@ -11,13 +11,13 @@ import UIKit
 class AppCoordinator: Coordinator {
     typealias RootViewController = UITabBarController
 
-    private let factory: Factory
+    private let factory: DependencyFactory
 
     var rootViewController: RootViewController
 
     var childCoordinators: [any Coordinator]
 
-    init(factory: Factory) {
+    init(factory: DependencyFactory) {
         self.rootViewController = UITabBarController()
 
         self.childCoordinators = []

@@ -1,32 +1,33 @@
 //
-//  DriversChampionshipViewController.swift
+//  ConstructorsChampionshipViewController.swift
 //  F1App
 //
-//  Created by Artemiy MIROTVORTSEV on 02.12.2024.
+//  Created by Artemiy MIROTVORTSEV on 06.12.2024.
 //
 
 import Foundation
 import UIKit
 
-class DriversChampionshipViewController: BaseViewController {
-
-    private var championshipTableViewDelegate: DriversChampionshipTableViewDelegate?
+class ConstructorsChampionshipViewController: BaseViewController {
+    
+    private var championshipTableViewDelegate: ConstructorsChampionshipTableViewDelegate?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        championshipTableViewDelegate = DriversChampionshipTableViewDelegate()
+        
+        championshipTableViewDelegate = ConstructorsChampionshipTableViewDelegate()
         championshipTableViewDelegate?.selectionDelegate = self
 
         championshipTableView.delegate = championshipTableViewDelegate
         championshipTableView.dataSource = championshipTableViewDelegate
-        championshipTableView.register(DriversChampionshipTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.driversChampionshipTableViewCell.rawValue)
-
+        championshipTableView.register(ConstructorsChampionshipTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.constructorsChampionshipTableViewCell.rawValue)
+        
         setupView()
+        
         presenter.viewDidLoad()
     }
-
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -51,7 +52,7 @@ class DriversChampionshipViewController: BaseViewController {
 
         setupConstraints()
     }
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -75,8 +76,8 @@ class DriversChampionshipViewController: BaseViewController {
             championshipTableView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor, constant: -16)
         ])
     }
-
-    // MARK: - UI Elements
+    
+    //MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
@@ -100,7 +101,7 @@ class DriversChampionshipViewController: BaseViewController {
 
     private let titleLabel: UILabel = {
         let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
-        label.text = "Личный зачет"
+        label.text = "Командный зачет"
         return label
     }()
 
@@ -109,7 +110,7 @@ class DriversChampionshipViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
 
-        tableView.estimatedRowHeight = DriversChampionshipTableViewDelegate.rowHeight
+        tableView.estimatedRowHeight = ConstructorsChampionshipTableViewDelegate.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
 
@@ -118,10 +119,10 @@ class DriversChampionshipViewController: BaseViewController {
 
         return tableView
     }()
-
-    // MARK: - Data Methods
-    func loadedDriversChampionship(_ driversChampionship: [DriversChampionshipEntry?]) {
-        championshipTableViewDelegate?.setItems(items: driversChampionship)
+    
+    //MARK: - Data Methods
+    func loadedConstructorsChampionship(_ constructorsChampionship: [ConstructorsChampionshipEntry?]) {
+        championshipTableViewDelegate?.setItems(items: constructorsChampionship)
 
         championshipTableView.reloadData()
         championshipTableView.layoutIfNeeded()
@@ -130,7 +131,7 @@ class DriversChampionshipViewController: BaseViewController {
 }
 
 // MARK: - Extensions
-extension DriversChampionshipViewController: UITableViewSelectionDelegate {
+extension ConstructorsChampionshipViewController: UITableViewSelectionDelegate {
     func didSelectItem(at index: Int) {
         print("fuck")
     }
@@ -140,6 +141,6 @@ extension DriversChampionshipViewController: UITableViewSelectionDelegate {
 @available(iOS 17, *)
 #Preview {
     let factory = DependencyFactoryMock()
-    let view = factory.makeDriversChampionshipViewController()
+    let view = factory.makeConstructorChampionshipViewController()
     return view
 }

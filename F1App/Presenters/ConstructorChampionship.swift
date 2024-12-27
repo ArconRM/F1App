@@ -8,11 +8,27 @@
 import Foundation
 
 final class ConstructorChampionshipPresenter: Presenter {
-    typealias View = ConstructorChampionshipViewController
+    typealias View = ConstructorsChampionshipViewController
 
+    let standingsNetworkService: StandingsNetworkService
     weak var view: View?
+    
+    init(standingsNetworkService: StandingsNetworkService) {
+        self.standingsNetworkService = standingsNetworkService
+    }
 
     func viewDidLoad() {
-
+        loadConstructorsChampionship()
+    }
+    
+    private func loadConstructorsChampionship() {
+        standingsNetworkService.fetchCurrentConstructorsChampionship(resultQueue: .main) { result in
+            switch result {
+            case .success(let constructorsdriversChampionship):
+                self.view?.loadedConstructorsChampionship(constructorsdriversChampionship)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

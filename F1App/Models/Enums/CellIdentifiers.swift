@@ -10,4 +10,5 @@ import Foundation
 enum CellIdentifiers: String {
     case scheduleTableViewCell
     case driversChampionshipTableViewCell
+    case constructorsChampionshipTableViewCell
 }

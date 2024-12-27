@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct DriversChampionshipEntry {
-    public var points: Int
-    public var position: Int
-    public var driver: Driver
-    public var team: Team
+struct DriversChampionshipEntry {
+    var points: Int
+    var position: Int
+    var driver: Driver
+    var team: Team
 
-    public static var mock: Self {
+    static var mock: Self {
         return .init(
             points: 100,
             position: 1,
@@ -22,7 +22,7 @@ public struct DriversChampionshipEntry {
         )
     }
 
-    public static var mockArray: [Self] {
+    static var mockArray: [Self] {
         return stride(from: 0, to: 400, by: 50).map { DriversChampionshipEntry(points: $0, position: $0 / 50, driver: Driver.mock, team: Team.mock) }
     }
 }

@@ -13,6 +13,8 @@ final class RacesNetworkingTests: XCTestCase {
     let driversDecoder = DriverDecoderF1Connect()
     let teamDecoder = TeamDecoderF1Connect()
     let driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+    let constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+    
     let raceNetworkManager = RacesNetworkServiceImpl(urlSource: UrlSourceF1Connect(), raceDecoder: RaceDecoderF1Connect())
     
     func testRaceDecoder() {
@@ -46,6 +48,20 @@ final class RacesNetworkingTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let championship = try driversChampionshipDecoder.decodeDriversChampionship(data)
+                print(championship)
+            }
+            catch(let error) {
+                print(error)
+                XCTAssert(false)
+            }
+        }
+    }
+    
+    func testConstructorsChampionshipDecoder() {
+        if let path = Bundle.main.path(forResource: "constructors-championship", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(data)
                 print(championship)
             }
             catch(let error) {

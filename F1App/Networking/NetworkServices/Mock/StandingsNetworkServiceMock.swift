@@ -9,7 +9,8 @@ import Foundation
 
 struct StandingsNetworkServiceMock: StandingsNetworkService {
     private let driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-
+    private let constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+    
     func fetchCurrentDriversChampionship(
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[DriversChampionshipEntry?], any Error>) -> Void
@@ -24,4 +25,20 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
             }
         }
     }
+    
+    func fetchCurrentConstructorsChampionship(
+        resultQueue: DispatchQueue,
+        completionHandler: @escaping (Result<[ConstructorsChampionshipEntry?], any Error>) -> Void
+    ) {
+        if let path = Bundle.main.path(forResource: "constructors-championship", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(data)
+                completionHandler(.success(championship))
+            } catch let error {
+                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+            }
+        }
+    }
+    
 }

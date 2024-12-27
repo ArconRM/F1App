@@ -7,17 +7,17 @@
 
 import Foundation
 
-public struct Circuit: Codable {
-    public var circuitId: String
-    public var name: String
-    public var country: String
-    public var city: String
-    public var length: Int
-    public var lapRecord: String
-    public var firstParticipationYear: Int
-    public var numberOfCorners: Int
-    public var fastestLapDriverId: String?
-    public var fastestLapTeamId: String?
-    public var fastestLapYear: Int?
-    public var url: String
+struct Circuit: Codable {
+    var circuitId: String
+    var name: String
+    var country: String
+    var city: String
+    var length: Int
+    var lapRecord: String
+    var firstParticipationYear: Int
+    var numberOfCorners: Int
+    var fastestLapDriverId: String?
+    var fastestLapTeamId: String?
+    var fastestLapYear: Int?
+    var url: String
 }

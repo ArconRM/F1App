@@ -8,7 +8,6 @@
 import Foundation
 
 struct StandingsNetworkServiceImpl: StandingsNetworkService {
-
     private let urlSource: UrlSource
     private let driversChampionshipDecoder: DriversChampionshipDecoder
 
@@ -18,6 +17,10 @@ struct StandingsNetworkServiceImpl: StandingsNetworkService {
     }
 
     func fetchCurrentDriversChampionship(resultQueue: DispatchQueue, completionHandler: @escaping (Result<[DriversChampionshipEntry?], any Error>) -> Void) {
+        fatalError("Not implemented")
+    }
+    
+    func fetchCurrentConstructorsChampionship(resultQueue: DispatchQueue, completionHandler: @escaping (Result<[ConstructorsChampionshipEntry?], any Error>) -> Void) {
         fatalError("Not implemented")
     }
 }

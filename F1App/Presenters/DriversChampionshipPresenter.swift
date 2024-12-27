@@ -10,11 +10,11 @@ import Foundation
 final class DriversChampionshipPresenter: Presenter {
     typealias View = DriversChampionshipViewController
 
-    let driversChampionshipNetworkService: StandingsNetworkService
+    let standingsNetworkService: StandingsNetworkService
     weak var view: View?
 
-    init(driversChampionshipNetworkService: StandingsNetworkService) {
-        self.driversChampionshipNetworkService = driversChampionshipNetworkService
+    init(standingsNetworkService: StandingsNetworkService) {
+        self.standingsNetworkService = standingsNetworkService
     }
 
     func viewDidLoad() {
@@ -22,7 +22,7 @@ final class DriversChampionshipPresenter: Presenter {
     }
 
     private func loadDriversChampionship() {
-        driversChampionshipNetworkService.fetchCurrentDriversChampionship(resultQueue: .main) { result in
+        standingsNetworkService.fetchCurrentDriversChampionship(resultQueue: .main) { result in
             switch result {
             case .success(let driversChampionship):
                 self.view?.loadedDriversChampionship(driversChampionship)
