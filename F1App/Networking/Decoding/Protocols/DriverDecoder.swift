@@ -11,10 +11,10 @@ protocol DriverDecoder {
 
     func decodeDriver(from data: Data) throws -> Driver?
 
-    func decodeDriver(from json: [String: Any]) throws -> Driver?
+    func decodeDriver(from json: [String: Any?]) throws -> Driver?
 
     func decodeDrivers(from data: Data) throws -> [Driver]
 
-    func decodeDrivers(from json: [String: Any]) throws -> [Driver]
+    func decodeDrivers(from json: [String: Any?]) throws -> [Driver]
 
 }

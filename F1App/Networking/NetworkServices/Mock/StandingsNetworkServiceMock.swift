@@ -26,7 +26,7 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
         if let path = Bundle.main.path(forResource: "drivers-championship", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let championship = try driversChampionshipDecoder.decodeDriversChampionship(data)
+                let championship = try driversChampionshipDecoder.decodeDriversChampionship(from: data)
                 completionHandler(.success(championship))
             } catch let error {
                 completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
@@ -41,7 +41,7 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
         if let path = Bundle.main.path(forResource: "constructors-championship", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(data)
+                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(from: data)
                 completionHandler(.success(championship))
             } catch let error {
                 completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))

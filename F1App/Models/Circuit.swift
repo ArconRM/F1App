@@ -9,28 +9,24 @@ import Foundation
 
 struct Circuit: Codable {
     var circuitId: String
-    var circuitName: String
+    var name: String
     var country: String
     var city: String
-    var circuitLength: Int
+    var length: String
     var lapRecord: String
     var firstParticipationYear: Int
-    var numberOfCorners: Int
-    var fastestLapDriverId: String?
-    var fastestLapTeamId: String?
-    var fastestLapYear: Int?
+    var numberOfCorners: Int?
     var url: String?
     
     static var mock: Self {
         .init(
             circuitId: "1",
-            circuitName: "Circuit 1",
+            name: "Circuit 1",
             country: "Country 1",
             city: "City 1",
-            circuitLength: 100,
+            length: "100km",
             lapRecord: "LapRecord 1",
-            firstParticipationYear: 2021,
-            numberOfCorners: 10
+            firstParticipationYear: 2021
         )
     }
 }

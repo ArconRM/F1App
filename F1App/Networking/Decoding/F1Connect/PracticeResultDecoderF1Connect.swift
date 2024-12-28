@@ -16,20 +16,20 @@ struct PracticeResultDecoderF1Connect: PracticeResultsDecoder {
         self.teamDecoder = teamDecoder
     }
     
-    func decodePracticeResults(data: Data, practiceNumber: Int) throws -> [PracticeDriverResult] {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            return try decodePracticeResults(json: json, practiceNumber: practiceNumber)
+    func decodePracticeResults(from data: Data, practiceNumber: Int) throws -> [PracticeDriverResult] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
+            return try decodePracticeResults(from: json, practiceNumber: practiceNumber)
         }
         return []
     }
     
-    func decodePracticeResults(json: [String : Any], practiceNumber: Int) throws -> [PracticeDriverResult] {
-        if let roundJson = json["races"] as? [String: Any],
-           let practiceResultsJsonArray = roundJson["FP\(practiceNumber)_Results"] as? [[String: Any]] {
+    func decodePracticeResults(from json: [String: Any?], practiceNumber: Int) throws -> [PracticeDriverResult] {
+        if let roundJson = json["races"] as? [String: Any?],
+           let practiceResultsJsonArray = roundJson["FP\(practiceNumber)_Results"] as? [[String: Any?]] {
 
             var result: [PracticeDriverResult] = []
             for (position, json) in practiceResultsJsonArray.enumerated() {
-                result.append(try decodePracticeDriverResultFromJson(json: json, position: position + 1))
+                result.append(try decodePracticeDriverResultFromJson(json, position: position + 1))
             }
             return result
         }
@@ -37,17 +37,17 @@ struct PracticeResultDecoderF1Connect: PracticeResultsDecoder {
         return []
     }
     
-    private func decodePracticeDriverResultFromJson(json: [String: Any], position: Int) throws -> PracticeDriverResult {
+    private func decodePracticeDriverResultFromJson(_ json: [String: Any?], position: Int) throws -> PracticeDriverResult {
         guard let time = json["time"] as? String else {
-            throw SerializationError.missing("time")
+            throw SerializationError.missing(key: "time")
         }
         
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
-            throw SerializationError.invalid("driver")
+            throw SerializationError.invalid(key: "driver")
         }
         
         guard let team = try teamDecoder.decodeTeam(from: json) else {
-            throw SerializationError.invalid("team")
+            throw SerializationError.invalid(key: "team")
         }
         
         return PracticeDriverResult(

@@ -9,7 +9,7 @@ import Foundation
 
 protocol RaceResultsDecoder {
     
-    func decodeRaceResults(data: Data, isSprint: Bool) throws -> [RaceDriverResult]
+    func decodeRaceResults(from data: Data, isSprint: Bool) throws -> [RaceDriverResult]
     
-    func decodeRaceResults(json: [String: Any], isSprint: Bool) throws -> [RaceDriverResult]
+    func decodeRaceResults(from json: [String: Any?], isSprint: Bool) throws -> [RaceDriverResult]
 }

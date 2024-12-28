@@ -9,7 +9,7 @@ import Foundation
 
 protocol ConstructorsChampionshipDecoder {
     
-    func decodeConstructorsChampionship(_ data: Data) throws -> [ConstructorsChampionshipEntry]
+    func decodeConstructorsChampionship(from data: Data) throws -> [ConstructorsChampionshipEntry]
 
-    func decodeConstructorsChampionship(_ json: [String: Any]) throws -> [ConstructorsChampionshipEntry]
+    func decodeConstructorsChampionship(from json: [String: Any?]) throws -> [ConstructorsChampionshipEntry]
 }

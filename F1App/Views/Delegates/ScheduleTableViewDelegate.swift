@@ -27,7 +27,7 @@ extension ScheduleTableViewDelegate: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let item = items[indexPath.section], item.winnerName != nil {
+        if let item = items[indexPath.section], item.winner?.name != nil {
             return ScheduleTableViewCell.cellHeightFull
         } else {
             return ScheduleTableViewCell.cellHeightWithoutWinner

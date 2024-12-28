@@ -10,7 +10,8 @@ import Foundation
 final class SchedulePresenter: Presenter {
     typealias View = ScheduleViewController
 
-    let raceNetworkService: RacesNetworkService
+    private let raceNetworkService: RacesNetworkService
+    
     weak var view: View?
 
     init(raceNetworkService: RacesNetworkService) {
@@ -46,6 +47,6 @@ final class SchedulePresenter: Presenter {
 
     /// Moves races without winnerId forward
     private func sortRaces(_ races: [Round?]) -> [Round?] {
-        return races.filter { $0?.winnerId == nil } + races.filter { $0?.winnerId != nil }
+        return races.filter { $0?.winner?.driverId == nil } + races.filter { $0?.winner?.driverId != nil }
     }
 }

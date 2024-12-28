@@ -9,7 +9,7 @@ import Foundation
 
 protocol DriversChampionshipDecoder {
 
-    func decodeDriversChampionship(_ data: Data) throws -> [DriversChampionshipEntry]
+    func decodeDriversChampionship(from data: Data) throws -> [DriversChampionshipEntry]
 
-    func decodeDriversChampionship(_ json: [String: Any]) throws -> [DriversChampionshipEntry]
+    func decodeDriversChampionship(from json: [String: Any?]) throws -> [DriversChampionshipEntry]
 }

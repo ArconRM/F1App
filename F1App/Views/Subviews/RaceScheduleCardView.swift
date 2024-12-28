@@ -1,5 +1,5 @@
 //
-//  RaceCardView.swift
+//  RaceScheduleCardView.swift
 //  F1App
 //
 //  Created by Artemiy MIROTVORTSEV on 08.12.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaceCardView: UIView {
+class RaceScheduleCardView: UIView {
 
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -125,7 +125,7 @@ class RaceCardView: UIView {
 
         titleLabel.text = round.raceName
         roundLabel.text = "\(round.round) этап"
-        curcuitLabel.text = round.circuitName
+        curcuitLabel.text = round.circuit?.name
 
         if let fp1Label = fp1DateStackView.arrangedSubviews[1] as? UILabel {
             fp1Label.text = round.fp1Datetime?.getDayMonthTimeWordString() ?? "-"
@@ -202,7 +202,7 @@ class RaceCardView: UIView {
 
 @available(iOS 17, *)
 #Preview {
-    let cardView = RaceCardView()
+    let cardView = RaceScheduleCardView()
     cardView.configure(round: Round.mock)
     return cardView
 }

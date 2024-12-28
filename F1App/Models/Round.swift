@@ -15,14 +15,11 @@ struct Round {
     var year: Int
     var url: String?
     
-    var circuitId: String
-    var circuitName: String
+    var circuit: Circuit?
     
-    var winnerId: String?
-    var winnerName: String?
+    var winner: Driver?
     
-    var teamWinnerId: String?
-    var teamWinnerName: String?
+    var teamWinner: Team?
     
     var fp1Datetime: Date?
     var fp2Datetime: Date?
@@ -52,12 +49,9 @@ struct Round {
         //            round: 1,
         //            year: 2024,
         //            url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
-        //            circuitId: "bahrein",
-        //            circuitName: "Bahrein International Circuit",
-        //            winnerId: "max_verstappen",
-        //            winnerName: "Max",
-        //            teamWinnerId: "red_bull",
-        //            teamWinnerName: "Red Bull Racing",
+        //            circuit: Circuit.mock,
+        //            winner: Driver.mock,
+        //            teamWinner: Team.mock,
         //            fp1Datetime: dateFormatter.date(from: fp1Datetime),
         //            fp2Datetime: dateFormatter.date(from: fp2Datetime),
         //            fp3Datetime: nil,
@@ -74,12 +68,9 @@ struct Round {
             round: 1,
             year: 2024,
             url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
-            circuitId: "bahrein",
-            circuitName: "Bahrein International Circuit",
-            winnerId: "max_verstappen",
-            winnerName: "Max Verstappen",
-            teamWinnerId: "red_bull",
-            teamWinnerName: "Red Bull Racing",
+            circuit: Circuit.mock,
+            winner: Driver.mock,
+            teamWinner: Team.mock,
             fp1Datetime: dateFormatter.date(from: fp1Datetime),
             fp2Datetime: dateFormatter.date(from: fp2Datetime),
             fp3Datetime: dateFormatter.date(from: fp3Datetime),

@@ -12,12 +12,12 @@ import UIKit
 protocol DependencyFactory {
 
     func makeScheduleViewController() -> ScheduleViewController
+    
+    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController
 
     func makeDriversChampionshipViewController() -> DriversChampionshipViewController
 
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController
 
     func makeSettingsViewController() -> SettingsViewController
-    
-    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController
 }

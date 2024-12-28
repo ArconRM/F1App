@@ -10,7 +10,8 @@ import Foundation
 final class ConstructorChampionshipPresenter: Presenter {
     typealias View = ConstructorsChampionshipViewController
 
-    let standingsNetworkService: StandingsNetworkService
+    private let standingsNetworkService: StandingsNetworkService
+    
     weak var view: View?
     
     init(standingsNetworkService: StandingsNetworkService) {

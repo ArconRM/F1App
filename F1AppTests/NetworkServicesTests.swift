@@ -9,7 +9,14 @@ import XCTest
 @testable import F1App
 
 final class NetworkServicesTests: XCTestCase {
-    let raceNetworkManager = RacesNetworkServiceImpl(urlSource: UrlSourceF1Connect(), raceDecoder: RaceDecoderF1Connect())
+    let raceNetworkManager = RacesNetworkServiceImpl(
+        urlSource: UrlSourceF1Connect(),
+        raceDecoder: RaceDecoderF1Connect(
+            circuitDecoder: CircuitDecoderF1Connect(),
+            driverDecoder: DriverDecoderF1Connect(),
+            teamDecoder: TeamDecoderF1Connect()
+        )
+    )
     
     func testFetchCurrentSeasonRaces() {
         let didReceiveResponse = expectation(description: #function)

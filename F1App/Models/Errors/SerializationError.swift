@@ -9,8 +9,8 @@ import Foundation
 
 // https://developer.apple.com/swift/blog/?id=37
 enum SerializationError: Error, LocalizedError {
-    case missing(String)
-    case invalid(String)
+    case missing(key: String)
+    case invalid(key: String)
 
     var errorDescription: String? {
         return "Ошибка сериализации"

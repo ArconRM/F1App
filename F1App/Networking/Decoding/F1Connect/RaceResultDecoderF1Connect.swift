@@ -16,16 +16,16 @@ struct RaceResultDecoderF1Connect: RaceResultsDecoder {
         self.teamDecoder = teamDecoder
     }
     
-    func decodeRaceResults(data: Data, isSprint: Bool) throws -> [RaceDriverResult] {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            return try decodeRaceResults(json: json, isSprint: isSprint)
+    func decodeRaceResults(from data: Data, isSprint: Bool) throws -> [RaceDriverResult] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
+            return try decodeRaceResults(from: json, isSprint: isSprint)
         }
         return []
     }
     
-    func decodeRaceResults(json: [String : Any], isSprint: Bool) throws -> [RaceDriverResult] {
-        if let roundJson = json["races"] as? [String: Any],
-           let raceResultsJsonArray = roundJson[isSprint ? "sprintRaceResults" : "results"] as? [[String: Any]] {
+    func decodeRaceResults(from json: [String: Any?], isSprint: Bool) throws -> [RaceDriverResult] {
+        if let roundJson = json["races"] as? [String: Any?],
+           let raceResultsJsonArray = roundJson[isSprint ? "sprintRaceResults" : "results"] as? [[String: Any?]] {
             
             var result: [RaceDriverResult] = []
             for json in raceResultsJsonArray {
@@ -37,29 +37,29 @@ struct RaceResultDecoderF1Connect: RaceResultsDecoder {
         return []
     }
     
-    func decodeRaceDriverResultFromJson(_ json: [String: Any]) throws -> RaceDriverResult {
+    func decodeRaceDriverResultFromJson(_ json: [String: Any?]) throws -> RaceDriverResult {
         guard let position = json["position"] as? Int else {
-            throw SerializationError.missing("position")
+            throw SerializationError.missing(key: "position")
         }
         
         guard let grid = json["grid"] as? Int else {
-            throw SerializationError.missing("grid")
+            throw SerializationError.missing(key: "grid")
         }
         
         guard let points = json["points"] as? Int else {
-            throw SerializationError.missing("points")
+            throw SerializationError.missing(key: "points")
         }
         
         guard let time = json["time"] as? String else {
-            throw SerializationError.missing("time")
+            throw SerializationError.missing(key: "time")
         }
         
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
-            throw SerializationError.invalid("driver")
+            throw SerializationError.invalid(key: "driver")
         }
         
         guard let team = try teamDecoder.decodeTeam(from: json) else {
-            throw SerializationError.invalid("team")
+            throw SerializationError.invalid(key: "team")
         }
         
         return RaceDriverResult(

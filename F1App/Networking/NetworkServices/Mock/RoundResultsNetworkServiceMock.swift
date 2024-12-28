@@ -59,7 +59,7 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
         if let path = Bundle.main.path(forResource: "fp\(practiceNumber)", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let practiceResults = try practiceResultDecoder.decodePracticeResults(data: data, practiceNumber: practiceNumber)
+                let practiceResults = try practiceResultDecoder.decodePracticeResults(from: data, practiceNumber: practiceNumber)
                 return practiceResults
                 
             } catch let error {
@@ -73,7 +73,7 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
         if let path = Bundle.main.path(forResource: isSprint ? "sprint-qualy" : "qualy", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let qualyResults = try qualyResultDecoder.decodeQualyResults(data: data, isSprint: isSprint)
+                let qualyResults = try qualyResultDecoder.decodeQualyResults(from: data, isSprint: isSprint)
                 return qualyResults
                 
             } catch let error {
@@ -87,7 +87,7 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
         if let path = Bundle.main.path(forResource: isSprint ? "sprint-race" : "race", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let raceResults = try raceResultDecoder.decodeRaceResults(data: data, isSprint: isSprint)
+                let raceResults = try raceResultDecoder.decodeRaceResults(from: data, isSprint: isSprint)
                 return raceResults
                 
             } catch let error {

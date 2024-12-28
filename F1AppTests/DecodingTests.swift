@@ -9,9 +9,10 @@ import XCTest
 @testable import F1App
 
 class DecodingTests: XCTestCase {
-    let raceDecoder = RaceDecoderF1Connect()
+    let circuitDecoder = CircuitDecoderF1Connect()
     let driversDecoder = DriverDecoderF1Connect()
     let teamDecoder = TeamDecoderF1Connect()
+    let raceDecoder = RaceDecoderF1Connect(circuitDecoder: CircuitDecoderF1Connect(), driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
     
     let driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
     let constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
@@ -58,7 +59,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "drivers-championship", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let championship = try driversChampionshipDecoder.decodeDriversChampionship(data)
+                let championship = try driversChampionshipDecoder.decodeDriversChampionship(from: data)
                 
                 XCTAssert(!championship.isEmpty)
                 
@@ -75,7 +76,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "constructors-championship", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(data)
+                let championship = try constructorsChampionshipDecoder.decodeConstructorsChampionship(from: data)
                 
                 XCTAssert(!championship.isEmpty)
                 
@@ -92,7 +93,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "fp1", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let results = try practiceResultDecoder.decodePracticeResults(data: data, practiceNumber: 1)
+                let results = try practiceResultDecoder.decodePracticeResults(from: data, practiceNumber: 1)
                 
                 XCTAssert(!results.isEmpty)
                 
@@ -109,7 +110,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "sprint-qualy", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let results = try qualyResultDecoder.decodeQualyResults(data: data, isSprint: true)
+                let results = try qualyResultDecoder.decodeQualyResults(from: data, isSprint: true)
                 
                 XCTAssert(!results.isEmpty)
                 
@@ -126,7 +127,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "qualy", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let results = try qualyResultDecoder.decodeQualyResults(data: data, isSprint: false)
+                let results = try qualyResultDecoder.decodeQualyResults(from: data, isSprint: false)
                 
                 XCTAssert(!results.isEmpty)
                 
@@ -143,7 +144,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "sprint-race", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let results = try raceResultDecoder.decodeRaceResults(data: data, isSprint: true)
+                let results = try raceResultDecoder.decodeRaceResults(from: data, isSprint: true)
                 
                 XCTAssert(!results.isEmpty)
                 
@@ -160,7 +161,7 @@ class DecodingTests: XCTestCase {
         if let path = Bundle.main.path(forResource: "race", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let results = try raceResultDecoder.decodeRaceResults(data: data, isSprint: false)
+                let results = try raceResultDecoder.decodeRaceResults(from: data, isSprint: false)
                 
                 XCTAssert(!results.isEmpty)
                 

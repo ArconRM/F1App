@@ -8,7 +8,11 @@
 import Foundation
 
 struct RacesNetworkServiceMock: RacesNetworkService {
-    private let raceDecoder = RaceDecoderF1Connect()
+    private let raceDecoder = RaceDecoderF1Connect(
+        circuitDecoder: CircuitDecoderF1Connect(),
+        driverDecoder: DriverDecoderF1Connect(),
+        teamDecoder: TeamDecoderF1Connect()
+    )
 
     func fetchNextSeasonRace(
         resultQueue: DispatchQueue,

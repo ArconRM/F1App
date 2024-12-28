@@ -108,7 +108,7 @@ class ScheduleTableViewCell: UITableViewCell {
         numberLabel.text = "\(item.round)"
 
         titleLabel.text = item.raceName
-        curcuitLabel.text = item.circuitName
+        curcuitLabel.text = item.circuit?.name
 
         if let fp1Datetime = item.fp1Datetime, let raceDatetime = item.raceDatetime {
             dateLabel.text = "\(fp1Datetime.getDayMonthString()) - \(raceDatetime.getDayMonthString())"
@@ -116,7 +116,7 @@ class ScheduleTableViewCell: UITableViewCell {
             dateLabel.text = "Нет даты"
         }
 
-        if let winnerName = item.winnerName {
+        if let winnerName = item.winner?.name {
             winnerLabel.text = "Победитель: \(winnerName)"
             labelsVStackView.layer.opacity = 0.5
         } else {

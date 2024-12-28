@@ -133,8 +133,8 @@ class ScheduleViewController: BaseViewController {
         return label
     }()
 
-    private let currentRaceCard: RaceCardView = {
-        let view = RaceCardView()
+    private let currentRaceCard: RaceScheduleCardView = {
+        let view = RaceScheduleCardView()
         return view
     }()
 

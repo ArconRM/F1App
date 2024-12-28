@@ -16,6 +16,13 @@ final class DependencyFactoryMock: DependencyFactory {
         presenter.view = viewController
         return viewController
     }
+    
+    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController {
+        let presenter = RoundDetailsPresenter(round: round, roundResultsNetworkService: RoundResultsNetworkServiceMock())
+        let viewController = RoundDetailsViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
 
     func makeDriversChampionshipViewController() -> DriversChampionshipViewController {
         let standingsNetworkService = StandingsNetworkServiceMock()
@@ -36,13 +43,6 @@ final class DependencyFactoryMock: DependencyFactory {
     func makeSettingsViewController() -> SettingsViewController {
         let presenter = SettingsPresenter()
         let viewController = SettingsViewController(presenter: presenter)
-        presenter.view = viewController
-        return viewController
-    }
-    
-    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController {
-        let presenter = RoundDetailsPresenter(round: round)
-        let viewController = RoundDetailsViewController(presenter: presenter)
         presenter.view = viewController
         return viewController
     }

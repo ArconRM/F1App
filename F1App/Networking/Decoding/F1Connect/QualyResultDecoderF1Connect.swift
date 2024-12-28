@@ -16,20 +16,20 @@ struct QualyResultDecoderF1Connect: QualyResultsDecoder {
         self.teamDecoder = teamDecoder
     }
     
-    func decodeQualyResults(data: Data, isSprint: Bool) throws -> [QualyDriverResult] {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            return try decodeQualyResults(json: json, isSprint: isSprint)
+    func decodeQualyResults(from data: Data, isSprint: Bool) throws -> [QualyDriverResult] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
+            return try decodeQualyResults(from: json, isSprint: isSprint)
         }
         return []
     }
     
-    func decodeQualyResults(json: [String : Any], isSprint: Bool) throws -> [QualyDriverResult] {
-        if let roundJson = json["races"] as? [String: Any],
-           let qualyResultsJsonArray = roundJson[isSprint ? "sprintQualyResults" : "qualyResults"] as? [[String: Any]] {
+    func decodeQualyResults(from json: [String: Any?], isSprint: Bool) throws -> [QualyDriverResult] {
+        if let roundJson = json["races"] as? [String: Any?],
+           let qualyResultsJsonArray = roundJson[isSprint ? "sprintQualyResults" : "qualyResults"] as? [[String: Any?]] {
 
             var result: [QualyDriverResult] = []
             for json in qualyResultsJsonArray {
-                result.append(try decodeQualyDriverResultFromJson(json: json, isSprint: isSprint))
+                result.append(try decodeQualyDriverResultFromJson(json, isSprint: isSprint))
             }
             return result
         }
@@ -37,13 +37,13 @@ struct QualyResultDecoderF1Connect: QualyResultsDecoder {
         return []
     }
     
-    private func decodeQualyDriverResultFromJson(json: [String: Any], isSprint: Bool) throws -> QualyDriverResult {
+    private func decodeQualyDriverResultFromJson(_ json: [String: Any?], isSprint: Bool) throws -> QualyDriverResult {
         guard let position = json["Grid_Position"] as? Int else {
-            throw SerializationError.missing("position")
+            throw SerializationError.missing(key: "position")
         }
         
         guard let q1Time = json[isSprint ? "SQ1_Time" : "Q1_Time"] as? String else {
-            throw SerializationError.missing("q1Time")
+            throw SerializationError.missing(key: "q1Time")
         }
         
         let q2Time = json[isSprint ? "SQ2_Time" : "Q2_Time"] as? String
@@ -51,11 +51,11 @@ struct QualyResultDecoderF1Connect: QualyResultsDecoder {
         let q3Time = json[isSprint ? "SQ3_Time" : "Q3_Time"] as? String
         
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
-            throw SerializationError.invalid("driver")
+            throw SerializationError.invalid(key: "driver")
         }
         
         guard let team = try teamDecoder.decodeTeam(from: json) else {
-            throw SerializationError.invalid("team")
+            throw SerializationError.invalid(key: "team")
         }
         
         return QualyDriverResult(

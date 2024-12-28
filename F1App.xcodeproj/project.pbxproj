@@ -45,7 +45,7 @@
 		163C4D362CF8D7C200C62F43 /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D292CF8D7C200C62F43 /* drivers-championship.json */; };
 		163C4D3A2CF8D7C200C62F43 /* F1AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */; };
 		163C4D3B2CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */; };
-		166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F3C112D0600D4005A92DF /* RaceCardView.swift */; };
+		166F3C122D0600D4005A92DF /* RaceScheduleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */; };
 		1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */; };
 		1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4652D10431500400899 /* CellIdentifiers.swift */; };
 		1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */; };
@@ -110,6 +110,9 @@
 		16A4220F2D1F3B5C003683CD /* RoundResultsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4220E2D1F3B5C003683CD /* RoundResultsNetworkService.swift */; };
 		16A422112D1FE857003683CD /* RoundResultsNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422102D1FE857003683CD /* RoundResultsNetworkServiceMock.swift */; };
 		16A422132D1FF82F003683CD /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422122D1FF82F003683CD /* DecodingTests.swift */; };
+		16A422152D20191B003683CD /* RoundResultsNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */; };
+		16A422192D20209A003683CD /* CircuitDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422182D20209A003683CD /* CircuitDecoder.swift */; };
+		16A4221B2D202128003683CD /* CircuitDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4221A2D202128003683CD /* CircuitDecoderF1Connect.swift */; };
 		16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD5B402D1C434B00B13974 /* GradientColors.swift */; };
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
 		16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* DependencyFactoryMock.swift */; };
@@ -173,7 +176,7 @@
 		163C4D2B2CF8D7C200C62F43 /* NetworkServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTests.swift; sourceTree = "<group>"; };
 		163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITests.swift; sourceTree = "<group>"; };
 		163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		166F3C112D0600D4005A92DF /* RaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceCardView.swift; sourceTree = "<group>"; };
+		166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleCardView.swift; sourceTree = "<group>"; };
 		1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 		1670B4652D10431500400899 /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
 		1670B4672D106FB900400899 /* UITableViewSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewSelectionDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +233,9 @@
 		16A4220E2D1F3B5C003683CD /* RoundResultsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultsNetworkService.swift; sourceTree = "<group>"; };
 		16A422102D1FE857003683CD /* RoundResultsNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultsNetworkServiceMock.swift; sourceTree = "<group>"; };
 		16A422122D1FF82F003683CD /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
+		16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultsNetworkServiceImpl.swift; sourceTree = "<group>"; };
+		16A422182D20209A003683CD /* CircuitDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitDecoder.swift; sourceTree = "<group>"; };
+		16A4221A2D202128003683CD /* CircuitDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitDecoderF1Connect.swift; sourceTree = "<group>"; };
 		16BD5B402D1C434B00B13974 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		16C030C62D08192C000C258E /* DependencyFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryMock.swift; sourceTree = "<group>"; };
@@ -437,7 +443,7 @@
 		166F3C0E2D060047005A92DF /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				166F3C112D0600D4005A92DF /* RaceCardView.swift */,
+				166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */,
+				16A4221A2D202128003683CD /* CircuitDecoderF1Connect.swift */,
 				1670B4882D16DB0700400899 /* DriverDecoderF1Connect.swift */,
 				1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */,
 				1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */,
@@ -541,6 +548,7 @@
 				1670B4772D1486F300400899 /* Mock */,
 				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
 				16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */,
+				16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -558,6 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				168101892D02F91B00D51776 /* RaceDecoder.swift */,
+				16A422182D20209A003683CD /* CircuitDecoder.swift */,
 				1670B4842D16C69400400899 /* DriverDecoder.swift */,
 				1670B48A2D16DB1400400899 /* TeamDecoder.swift */,
 				1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */,
@@ -819,6 +828,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A422152D20191B003683CD /* RoundResultsNetworkServiceImpl.swift in Sources */,
 				163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */,
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
 				1670B47D2D1491F300400899 /* GradientView.swift in Sources */,
@@ -826,8 +836,9 @@
 				162B5E4D2D1DB2A200D1E1B6 /* ConstructorsChampionshipEntry.swift in Sources */,
 				16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */,
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
+				16A422192D20209A003683CD /* CircuitDecoder.swift in Sources */,
 				1670B48B2D16DB1400400899 /* TeamDecoder.swift in Sources */,
-				166F3C122D0600D4005A92DF /* RaceCardView.swift in Sources */,
+				166F3C122D0600D4005A92DF /* RaceScheduleCardView.swift in Sources */,
 				163C4D152CF8D7B300C62F43 /* Round.swift in Sources */,
 				16A422112D1FE857003683CD /* RoundResultsNetworkServiceMock.swift in Sources */,
 				16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */,
@@ -839,6 +850,7 @@
 				16A422072D1F2277003683CD /* QualyResultsDecoder.swift in Sources */,
 				16087C782D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift in Sources */,
 				162B5E512D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift in Sources */,
+				16A4221B2D202128003683CD /* CircuitDecoderF1Connect.swift in Sources */,
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
 				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
 				16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */,

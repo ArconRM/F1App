@@ -9,7 +9,7 @@ import Foundation
 
 protocol PracticeResultsDecoder {
     
-    func decodePracticeResults(data: Data, practiceNumber: Int) throws -> [PracticeDriverResult]
+    func decodePracticeResults(from data : Data, practiceNumber: Int) throws -> [PracticeDriverResult]
     
-    func decodePracticeResults(json: [String: Any], practiceNumber: Int) throws -> [PracticeDriverResult]
+    func decodePracticeResults(from json: [String: Any?], practiceNumber: Int) throws -> [PracticeDriverResult]
 }

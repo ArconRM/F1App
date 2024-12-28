@@ -16,15 +16,15 @@ struct DriversChampionshipDecoderF1Connect: DriversChampionshipDecoder {
         self.teamDecoder = teamDecoder
     }
 
-    func decodeDriversChampionship(_ data: Data) throws -> [DriversChampionshipEntry] {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            return try decodeDriversChampionship(json)
+    func decodeDriversChampionship(from data: Data) throws -> [DriversChampionshipEntry] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
+            return try decodeDriversChampionship(from: json)
         }
         return []
     }
 
-    func decodeDriversChampionship(_ json: [String: Any]) throws -> [DriversChampionshipEntry] {
-        if let championshipJsonArray = json["drivers_championship"] as? [[String: Any]] {
+    func decodeDriversChampionship(from json: [String: Any?]) throws -> [DriversChampionshipEntry] {
+        if let championshipJsonArray = json["drivers_championship"] as? [[String: Any?]] {
 
             var result: [DriversChampionshipEntry] = []
             for json in championshipJsonArray {
@@ -36,22 +36,22 @@ struct DriversChampionshipDecoderF1Connect: DriversChampionshipDecoder {
         return []
     }
 
-    private func decodeDriversChampionshipFromJson(_ json: [String: Any]) throws -> DriversChampionshipEntry {
+    private func decodeDriversChampionshipFromJson(_ json: [String: Any?]) throws -> DriversChampionshipEntry {
 
         guard let points = json["points"] as? Int else {
-            throw SerializationError.missing("points")
+            throw SerializationError.missing(key: "points")
         }
 
         guard let position = json["position"] as? Int else {
-            throw SerializationError.missing("position")
+            throw SerializationError.missing(key: "position")
         }
 
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
-            throw SerializationError.invalid("driver")
+            throw SerializationError.invalid(key: "driver")
         }
 
         guard let team = try teamDecoder.decodeTeam(from: json) else {
-            throw SerializationError.invalid("team")
+            throw SerializationError.invalid(key: "team")
         }
 
         return DriversChampionshipEntry(points: points, position: position, driver: driver, team: team)

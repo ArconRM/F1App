@@ -10,33 +10,33 @@ import Foundation
 struct TeamDecoderF1Connect: TeamDecoder {
 
     func decodeTeam(from data: Data) throws -> Team? {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
             return try decodeTeam(from: json)
         }
         return nil
     }
 
-    func decodeTeam(from json: [String: Any]) throws -> Team? {
-        if let teamsJson = json["team"] as? [[String: Any]], teamsJson.count == 1 {
+    func decodeTeam(from json: [String: Any?]) throws -> Team? {
+        if let teamsJson = json["team"] as? [[String: Any?]], teamsJson.count == 1 {
             return try decodeTeamFromJson(teamsJson[0])
         }
 
-        if let teamJson = json["team"] as? [String: Any] {
+        if let teamJson = json["team"] as? [String: Any?] {
             return try decodeTeamFromJson(teamJson)
         }
 
-        return nil
+        return try decodeTeamFromJson(json)
     }
 
     func decodeTeams(from data: Data) throws -> [Team] {
-        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
             return try decodeTeams(from: json)
         }
         return []
     }
 
-    func decodeTeams(from json: [String: Any]) throws -> [Team] {
-        if let teamsJsonArray = json["drivers"] as? [[String: Any]] {
+    func decodeTeams(from json: [String: Any?]) throws -> [Team] {
+        if let teamsJsonArray = json["drivers"] as? [[String: Any?]] {
 
             var teams: [Team] = []
             for teamJson in teamsJsonArray {
@@ -47,18 +47,18 @@ struct TeamDecoderF1Connect: TeamDecoder {
         return []
     }
 
-    private func decodeTeamFromJson(_ json: [String: Any]) throws -> Team {
+    private func decodeTeamFromJson(_ json: [String: Any?]) throws -> Team {
 
         guard let teamId = json["teamId"] as? String else {
-            throw SerializationError.missing("teamId")
+            throw SerializationError.missing(key: "teamId")
         }
 
         guard let teamName = json["teamName"] as? String else {
-            throw SerializationError.missing("teamName")
+            throw SerializationError.missing(key: "teamName")
         }
 
         guard let country = json["country"] as? String ?? json["nationality"] as? String else {
-            throw SerializationError.missing("country")
+            throw SerializationError.missing(key: "country")
         }
 
         let constructorsChampionships = json["constructorsChampionships"] as? Int
