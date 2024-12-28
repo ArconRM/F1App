@@ -28,17 +28,17 @@ struct DriverDecoderF1Connect: DriverDecoder {
         return nil
     }
 
-    func decodeDrivers(from data: Data) throws -> [Driver?] {
+    func decodeDrivers(from data: Data) throws -> [Driver] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             return try decodeDrivers(from: json)
         }
         return []
     }
 
-    func decodeDrivers(from json: [String: Any]) throws -> [Driver?] {
+    func decodeDrivers(from json: [String: Any]) throws -> [Driver] {
         if let driversJsonArray = json["drivers"] as? [[String: Any]] {
 
-            var drivers: [Driver?] = []
+            var drivers: [Driver] = []
             for driverJson in driversJsonArray {
                 drivers.append(try decodeDriverFromJson(driverJson))
             }
@@ -49,32 +49,32 @@ struct DriverDecoderF1Connect: DriverDecoder {
 
     private func decodeDriverFromJson(_ json: [String: Any]) throws -> Driver {
 
-        guard let driverId = (json["driverId"] as? String? ?? nil) as String? else {
+        guard let driverId = json["driverId"] as? String else {
             throw SerializationError.missing("driverId")
         }
 
-        guard let name = (json["name"] as? String? ?? nil) as String? else {
+        guard let name = json["name"] as? String else {
             throw SerializationError.missing("name")
         }
 
-        guard let surname = (json["surname"] as? String? ?? nil) as String? else {
+        guard let surname = json["surname"] as? String else {
             throw SerializationError.missing("surname")
         }
 
-        guard let nationality = (json["nationality"] as? String? ?? nil) as String? else {
+        guard let nationality = json["nationality"] as? String else {
             throw SerializationError.missing("nationality")
         }
 
-        guard let birthdayString = (json["birthday"] as? String? ?? nil) as String? else {
+        guard let birthdayString = json["birthday"] as? String else {
             throw SerializationError.missing("birthday")
         }
         guard let birthday = Date.fromStringWithFormat(from: birthdayString, formatVariants: ["dd/MM/yyyy", "yyyy-MM-dd"]) else {
             throw SerializationError.invalid("birthday")
         }
 
-        let number = (json["number"] as? Int? ?? nil) as Int?
+        let number = json["number"] as? Int
 
-        let shortName = (json["shortName"] as? String? ?? nil) as String?
+        let shortName = json["shortName"] as? String
 
         return Driver(
             driverId: driverId,

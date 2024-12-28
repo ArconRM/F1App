@@ -16,14 +16,14 @@ struct DriversChampionshipDecoderF1Connect: DriversChampionshipDecoder {
         self.teamDecoder = teamDecoder
     }
 
-    func decodeDriversChampionship(_ data: Data) throws -> [DriversChampionshipEntry?] {
+    func decodeDriversChampionship(_ data: Data) throws -> [DriversChampionshipEntry] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             return try decodeDriversChampionship(json)
         }
         return []
     }
 
-    func decodeDriversChampionship(_ json: [String: Any]) throws -> [DriversChampionshipEntry?] {
+    func decodeDriversChampionship(_ json: [String: Any]) throws -> [DriversChampionshipEntry] {
         if let championshipJsonArray = json["drivers_championship"] as? [[String: Any]] {
 
             var result: [DriversChampionshipEntry] = []
@@ -38,11 +38,11 @@ struct DriversChampionshipDecoderF1Connect: DriversChampionshipDecoder {
 
     private func decodeDriversChampionshipFromJson(_ json: [String: Any]) throws -> DriversChampionshipEntry {
 
-        guard let points = (json["points"] as? Int? ?? nil) as Int? else {
+        guard let points = json["points"] as? Int else {
             throw SerializationError.missing("points")
         }
 
-        guard let position = (json["position"] as? Int? ?? nil) as Int? else {
+        guard let position = json["position"] as? Int else {
             throw SerializationError.missing("position")
         }
 

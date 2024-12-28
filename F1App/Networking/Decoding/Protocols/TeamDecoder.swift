@@ -13,7 +13,7 @@ protocol TeamDecoder {
 
     func decodeTeam(from json: [String: Any]) throws -> Team?
 
-    func decodeTeams(from data: Data) throws -> [Team?]
+    func decodeTeams(from data: Data) throws -> [Team]
 
-    func decodeTeams(from json: [String: Any]) throws -> [Team?]
+    func decodeTeams(from json: [String: Any]) throws -> [Team]
 }

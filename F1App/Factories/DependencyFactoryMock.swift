@@ -39,4 +39,11 @@ final class DependencyFactoryMock: DependencyFactory {
         presenter.view = viewController
         return viewController
     }
+    
+    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController {
+        let presenter = RoundDetailsPresenter(round: round)
+        let viewController = RoundDetailsViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
 }

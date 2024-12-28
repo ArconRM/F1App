@@ -14,7 +14,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<Round?, any Error>) -> Void
     ) {
-        if let path = Bundle.main.path(forResource: "current", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "2024", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)
@@ -29,7 +29,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
-        if let path = Bundle.main.path(forResource: "current", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "2024", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let races = try raceDecoder.decodeRaces(from: data)

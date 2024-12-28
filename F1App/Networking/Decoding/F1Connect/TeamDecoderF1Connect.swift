@@ -28,17 +28,17 @@ struct TeamDecoderF1Connect: TeamDecoder {
         return nil
     }
 
-    func decodeTeams(from data: Data) throws -> [Team?] {
+    func decodeTeams(from data: Data) throws -> [Team] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             return try decodeTeams(from: json)
         }
         return []
     }
 
-    func decodeTeams(from json: [String: Any]) throws -> [Team?] {
+    func decodeTeams(from json: [String: Any]) throws -> [Team] {
         if let teamsJsonArray = json["drivers"] as? [[String: Any]] {
 
-            var teams: [Team?] = []
+            var teams: [Team] = []
             for teamJson in teamsJsonArray {
                 teams.append(try decodeTeamFromJson(teamJson))
             }
@@ -49,21 +49,21 @@ struct TeamDecoderF1Connect: TeamDecoder {
 
     private func decodeTeamFromJson(_ json: [String: Any]) throws -> Team {
 
-        guard let teamId = (json["teamId"] as? String? ?? nil) as String? else {
+        guard let teamId = json["teamId"] as? String else {
             throw SerializationError.missing("teamId")
         }
 
-        guard let teamName = (json["teamName"] as? String? ?? nil) as String? else {
+        guard let teamName = json["teamName"] as? String else {
             throw SerializationError.missing("teamName")
         }
 
-        guard let country = (json["country"] as? String? ?? nil) as String? else {
+        guard let country = json["country"] as? String ?? json["nationality"] as? String else {
             throw SerializationError.missing("country")
         }
 
-        let constructorsChampionships = (json["constructorsChampionships"] as? Int? ?? nil) as Int?
+        let constructorsChampionships = json["constructorsChampionships"] as? Int
 
-        let driversChampionships = (json["driversChampionships"] as? Int? ?? nil) as Int?
+        let driversChampionships = json["driversChampionships"] as? Int
 
         return Team(
             teamId: teamId,

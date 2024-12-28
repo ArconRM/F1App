@@ -8,8 +8,16 @@
 import Foundation
 
 struct StandingsNetworkServiceMock: StandingsNetworkService {
-    private let driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-    private let constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+    private let driversChampionshipDecoder: DriversChampionshipDecoderF1Connect
+    private let constructorsChampionshipDecoder: ConstructorsChampionshipDecoderF1Connect
+    
+    init() {
+        let driverDecoder = DriverDecoderF1Connect()
+        let teamDecoder = TeamDecoderF1Connect()
+        
+        driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: driverDecoder, teamDecoder: teamDecoder)
+        constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: teamDecoder)
+    }
     
     func fetchCurrentDriversChampionship(
         resultQueue: DispatchQueue,

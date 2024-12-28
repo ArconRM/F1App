@@ -18,4 +18,6 @@ protocol DependencyFactory {
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController
 
     func makeSettingsViewController() -> SettingsViewController
+    
+    func makeRoundDetailsViewController(round: Round) -> RoundDetailsViewController
 }
