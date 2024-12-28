@@ -17,7 +17,7 @@ struct Circuit: Codable {
     var firstParticipationYear: Int
     var numberOfCorners: Int?
     var url: String?
-    
+
     static var mock: Self {
         .init(
             circuitId: "1",

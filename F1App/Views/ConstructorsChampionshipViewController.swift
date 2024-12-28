@@ -9,25 +9,25 @@ import Foundation
 import UIKit
 
 class ConstructorsChampionshipViewController: BaseViewController {
-    
+
     private var championshipTableViewDelegate: ConstructorsChampionshipTableViewDelegate?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         championshipTableViewDelegate = ConstructorsChampionshipTableViewDelegate()
         championshipTableViewDelegate?.selectionDelegate = self
 
         championshipTableView.delegate = championshipTableViewDelegate
         championshipTableView.dataSource = championshipTableViewDelegate
         championshipTableView.register(ConstructorsChampionshipTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.constructorsChampionshipTableViewCell.rawValue)
-        
+
         setupView()
-        
+
         presenter.viewDidLoad()
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -39,7 +39,7 @@ class ConstructorsChampionshipViewController: BaseViewController {
     // MARK: - Setup View
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
-        
+
         backgroundGradientView.frame = view.bounds
 
         view.addSubview(backgroundGradientView)
@@ -52,13 +52,13 @@ class ConstructorsChampionshipViewController: BaseViewController {
 
         setupConstraints()
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
+
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -76,7 +76,7 @@ class ConstructorsChampionshipViewController: BaseViewController {
             championshipTableView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor, constant: -16)
         ])
     }
-    
+
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
@@ -119,7 +119,7 @@ class ConstructorsChampionshipViewController: BaseViewController {
 
         return tableView
     }()
-    
+
     // MARK: - Data Methods
     func loadedConstructorsChampionship(_ constructorsChampionship: [ConstructorsChampionshipEntry?]) {
         championshipTableViewDelegate?.setItems(items: constructorsChampionship)

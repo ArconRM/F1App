@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ScheduleTableViewDelegate: NSObject {
-    
+
     static var rowHeight = 120
 
     var items: [Round?] = []

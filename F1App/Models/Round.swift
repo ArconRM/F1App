@@ -14,13 +14,13 @@ struct Round {
     var round: Int
     var year: Int
     var url: String?
-    
+
     var circuit: Circuit?
-    
+
     var winner: Driver?
-    
+
     var teamWinner: Team?
-    
+
     var fp1Datetime: Date?
     var fp2Datetime: Date?
     var fp3Datetime: Date?
@@ -28,7 +28,7 @@ struct Round {
     var sprintRaceDatetime: Date?
     var qualyDatetime: Date?
     var raceDatetime: Date?
-    
+
     static var mock: Self {
         let fp1Datetime = "2024-02-29 11:30:00 +0000"
         let fp2Datetime = "2024-02-29 15:00:00 +0000"
@@ -37,11 +37,11 @@ struct Round {
         let sprintRaceDatetime = "2024-03-01 16:30:00 +0000"
         let qualyDatetime = "2024-03-01 16:00:00 +0000"
         let raceDatetime = "2024-03-02 15:00:00 +0000"
-        
+
         let dateFormatter = DateFormatter()
-        
+
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        
+
         //        return Round(
         //            raceId: "bahrein_2024",
         //            raceName: "Gulf Air Bahrain Grand Prix 2024",
@@ -60,7 +60,7 @@ struct Round {
         //            raceDatetime: dateFormatter.date(from: raceDatetime),
         //            qualyDatetime: dateFormatter.date(from: qualyDatetime)
         //        )
-        
+
         return .init(
             raceId: "bahrein_2024",
             raceName: "Gulf Air Bahrain Grand Prix 2024",

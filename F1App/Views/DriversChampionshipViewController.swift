@@ -38,7 +38,7 @@ class DriversChampionshipViewController: BaseViewController {
     // MARK: - Setup View
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
-        
+
         backgroundGradientView.frame = view.bounds
 
         view.addSubview(backgroundGradientView)
@@ -57,7 +57,7 @@ class DriversChampionshipViewController: BaseViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
+
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),

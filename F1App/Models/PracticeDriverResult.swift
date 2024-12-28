@@ -9,12 +9,12 @@ import Foundation
 
 struct PracticeDriverResult {
     var position: Int
-    
+
     var time: String
-    
+
     var driver: Driver
     var team: Team
-    
+
     static var mock: Self {
         .init(
             position: 1,

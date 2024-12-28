@@ -8,9 +8,8 @@
 import Foundation
 
 protocol QualyResultsDecoder {
-    
+
     func decodeQualyResults(from data: Data, isSprint: Bool) throws -> [QualyDriverResult]
-    
+
     func decodeQualyResults(from json: [String: Any?], isSprint: Bool) throws -> [QualyDriverResult]
 }
-

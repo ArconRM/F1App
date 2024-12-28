@@ -9,12 +9,12 @@ import Foundation
 
 final class RoundDetailsPresenter: Presenter {
     typealias View = RoundDetailsViewController
-    
+
     private let roundResultsNetworkService: RoundResultsNetworkService
-    
+
     var round: Round
     weak var view: View?
-    
+
     init(round: Round, roundResultsNetworkService: RoundResultsNetworkService) {
         self.round = round
         self.roundResultsNetworkService = roundResultsNetworkService
@@ -23,6 +23,6 @@ final class RoundDetailsPresenter: Presenter {
     func viewDidLoad() {
         view?.loadedBaseRoundInfo(round)
     }
-    
+
 //    private func 
 }

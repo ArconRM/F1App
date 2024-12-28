@@ -13,12 +13,12 @@ class SettingsViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupView()
-        
+
         presenter.viewDidLoad()
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -26,19 +26,19 @@ class SettingsViewController: BaseViewController {
             backgroundGradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         }
     }
-    
+
     // MARK: - Setup View
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
-        
+
         backgroundGradientView.frame = view.bounds
 
         view.addSubview(backgroundGradientView)
         view.addSubview(titleLabel)
-        
+
         setupConstraints()
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -46,7 +46,7 @@ class SettingsViewController: BaseViewController {
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
-    
+
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
@@ -54,7 +54,7 @@ class SettingsViewController: BaseViewController {
         gradientView.opacity = 0.3
         return gradientView
     }()
-    
+
     private let titleLabel: UILabel = {
         let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
         label.text = "Настройки"

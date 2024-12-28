@@ -11,7 +11,7 @@ final class SchedulePresenter: Presenter {
     typealias View = ScheduleViewController
 
     private let raceNetworkService: RacesNetworkService
-    
+
     weak var view: View?
 
     init(raceNetworkService: RacesNetworkService) {

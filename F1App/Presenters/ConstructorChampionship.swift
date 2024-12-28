@@ -11,9 +11,9 @@ final class ConstructorChampionshipPresenter: Presenter {
     typealias View = ConstructorsChampionshipViewController
 
     private let standingsNetworkService: StandingsNetworkService
-    
+
     weak var view: View?
-    
+
     init(standingsNetworkService: StandingsNetworkService) {
         self.standingsNetworkService = standingsNetworkService
     }
@@ -21,7 +21,7 @@ final class ConstructorChampionshipPresenter: Presenter {
     func viewDidLoad() {
         loadConstructorsChampionship()
     }
-    
+
     private func loadConstructorsChampionship() {
         standingsNetworkService.fetchCurrentConstructorsChampionship(resultQueue: .main) { result in
             switch result {

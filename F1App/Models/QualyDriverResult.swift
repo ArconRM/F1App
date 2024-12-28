@@ -9,14 +9,14 @@ import Foundation
 
 struct QualyDriverResult {
     var position: Int
-    
+
     var q1Time: String
     var q2Time: String?
     var q3Time: String?
-    
+
     var driver: Driver
     var team: Team
-    
+
     static var mock: Self {
         .init(
             position: 1,

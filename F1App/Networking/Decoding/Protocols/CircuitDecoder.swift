@@ -8,9 +8,9 @@
 import Foundation
 
 protocol CircuitDecoder {
-    
+
     func decodeCircuit(from data: Data) throws -> Circuit?
 
     func decodeCircuit(from json: [String: Any?]) throws -> Circuit?
-    
+
 }

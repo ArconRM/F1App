@@ -9,19 +9,19 @@ import Foundation
 
 struct ConstructorsChampionshipDecoderF1Connect: ConstructorsChampionshipDecoder {
     private let teamDecoder: TeamDecoder
-    
+
     init(teamDecoder: TeamDecoder) {
         self.teamDecoder = teamDecoder
     }
-    
+
     func decodeConstructorsChampionship(from data: Data) throws -> [ConstructorsChampionshipEntry] {
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any?] {
             return try decodeConstructorsChampionship(from: json)
         }
         return []
     }
-    
-    func decodeConstructorsChampionship(from json: [String : Any?]) throws -> [ConstructorsChampionshipEntry] {
+
+    func decodeConstructorsChampionship(from json: [String: Any?]) throws -> [ConstructorsChampionshipEntry] {
         if let championshipJsonArray = json["constructors_championship"] as? [[String: Any?]] {
 
             var result: [ConstructorsChampionshipEntry] = []
@@ -33,7 +33,7 @@ struct ConstructorsChampionshipDecoderF1Connect: ConstructorsChampionshipDecoder
 
         return []
     }
-    
+
     func decodeConstructorsChampionshipFromJson(_ json: [String: Any?]) throws -> ConstructorsChampionshipEntry {
         guard let points = json["points"] as? Int else {
             throw SerializationError.missing(key: "points")

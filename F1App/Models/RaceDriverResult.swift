@@ -11,12 +11,12 @@ struct RaceDriverResult {
     var position: Int
     var grid: Int
     var points: Int
-    
+
     var totalTime: String
-    
+
     var driver: Driver
     var team: Team
-    
+
     static var mock: Self {
         .init(
             position: 1,

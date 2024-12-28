@@ -12,7 +12,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
     private let circuitDecoder: CircuitDecoder
     private let driverDecoder: DriverDecoder
     private let teamDecoder: TeamDecoder
-    
+
     init(circuitDecoder: CircuitDecoder, driverDecoder: DriverDecoder, teamDecoder: TeamDecoder) {
         self.circuitDecoder = circuitDecoder
         self.driverDecoder = driverDecoder
@@ -33,7 +33,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
         guard let year = Int(yearString) else {
             throw SerializationError.invalid(key: "season")
         }
-        
+
         if let racesJson = json["race"] as? [[String: Any?]], racesJson.count == 1 {
             return try decodeRaceFromJson(racesJson[0], year: year)
         }
@@ -59,7 +59,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
         guard let year = Int(yearString) else {
             throw SerializationError.invalid(key: "season")
         }
-        
+
         if let racesJsonArray = json["races"] as? [[String: Any?]] {
 
             var races: [Round] = []
@@ -127,25 +127,25 @@ struct RaceDecoderF1Connect: RaceDecoder {
         }
         let sprintQualyDate = sprintQualyScheduleDict["date"] ?? nil
         let sprintQualyTime = sprintQualyScheduleDict["time"] ?? nil
-        
+
         guard let sprintRaceScheduleDict = scheduleDict["sprintRace"] as? [String: String?] else {
             throw SerializationError.missing(key: "sprintRaceSchedule")
         }
         let sprintRaceDate = sprintRaceScheduleDict["date"] ?? nil
         let sprintRaceTime = sprintRaceScheduleDict["time"] ?? nil
-        
+
         let circuit: Circuit?
         if let circuitJson = json["circuit"] as? [String: Any?] {
             circuit = try circuitDecoder.decodeCircuit(from: circuitJson)
         } else {
             throw SerializationError.missing(key: "circuit")
         }
-        
+
         var winner: Driver?
         if let winnerJson = json["winner"] as? [String: Any?] {
             winner = try driverDecoder.decodeDriver(from: winnerJson)
         }
-        
+
         var teamWinner: Team?
         if let teamWinnerJson = json["teamWinner"] as? [String: Any?] {
             teamWinner = try teamDecoder.decodeTeam(from: teamWinnerJson)

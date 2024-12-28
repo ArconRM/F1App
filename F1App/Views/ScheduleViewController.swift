@@ -146,7 +146,7 @@ class ScheduleViewController: BaseViewController {
         tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.rowHeight)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderTopPadding = 10
-        
+
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
 

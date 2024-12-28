@@ -11,7 +11,7 @@ final class DriversChampionshipPresenter: Presenter {
     typealias View = DriversChampionshipViewController
 
     private let standingsNetworkService: StandingsNetworkService
-    
+
     weak var view: View?
 
     init(standingsNetworkService: StandingsNetworkService) {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class DriversChampionshipTableViewDelegate: NSObject {
-    
+
     static var rowHeight = DriversChampionshipTableViewCell.cellHeight
 
     var items: [DriversChampionshipEntry?] = []
@@ -25,7 +25,7 @@ extension DriversChampionshipTableViewDelegate: UITableViewDelegate {
     func numberOfSections(_ tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return DriversChampionshipTableViewDelegate.rowHeight
     }
@@ -37,7 +37,7 @@ extension DriversChampionshipTableViewDelegate: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == items.count-1 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
+            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
         }
     }
 }

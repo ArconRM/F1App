@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ConstructorsChampionshipTableViewCell: UITableViewCell {
-    
+
     static let cellHeight: CGFloat = 80
 
     // MARK: - Initializers
@@ -29,7 +29,7 @@ class ConstructorsChampionshipTableViewCell: UITableViewCell {
         mainHStackView.addSubview(positionLabel)
         mainHStackView.addSubview(labelsVStackView)
         mainHStackView.addSubview(pointsLabel)
-        
+
         labelsVStackView.addSubview(teamNameLabel)
         labelsVStackView.addSubview(countryLabel)
 
