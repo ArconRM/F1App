@@ -113,6 +113,7 @@
 		16A422152D20191B003683CD /* RoundResultsNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */; };
 		16A422192D20209A003683CD /* CircuitDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422182D20209A003683CD /* CircuitDecoder.swift */; };
 		16A4221B2D202128003683CD /* CircuitDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4221A2D202128003683CD /* CircuitDecoderF1Connect.swift */; };
+		16A4221D2D204E32003683CD /* CircuitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4221C2D204E32003683CD /* CircuitCardView.swift */; };
 		16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD5B402D1C434B00B13974 /* GradientColors.swift */; };
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
 		16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* DependencyFactoryMock.swift */; };
@@ -236,6 +237,7 @@
 		16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultsNetworkServiceImpl.swift; sourceTree = "<group>"; };
 		16A422182D20209A003683CD /* CircuitDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitDecoder.swift; sourceTree = "<group>"; };
 		16A4221A2D202128003683CD /* CircuitDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitDecoderF1Connect.swift; sourceTree = "<group>"; };
+		16A4221C2D204E32003683CD /* CircuitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitCardView.swift; sourceTree = "<group>"; };
 		16BD5B402D1C434B00B13974 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		16C030C62D08192C000C258E /* DependencyFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryMock.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */,
+				16A4221C2D204E32003683CD /* CircuitCardView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				1681018A2D02F91B00D51776 /* RaceDecoder.swift in Sources */,
 				16087C762D1B500400654DE0 /* DriversChampionshipTableViewDelegate.swift in Sources */,
 				16A422072D1F2277003683CD /* QualyResultsDecoder.swift in Sources */,
+				16A4221D2D204E32003683CD /* CircuitCardView.swift in Sources */,
 				16087C782D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift in Sources */,
 				162B5E512D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift in Sources */,
 				16A4221B2D202128003683CD /* CircuitDecoderF1Connect.swift in Sources */,

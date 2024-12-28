@@ -21,12 +21,13 @@ struct Circuit: Codable {
     static var mock: Self {
         .init(
             circuitId: "1",
-            name: "Circuit 1",
-            country: "Country 1",
-            city: "City 1",
+            name: "Bahrein International Circuit",
+            country: "Bahrein",
+            city: "Sakhir",
             length: "100km",
-            lapRecord: "LapRecord 1",
-            firstParticipationYear: 2021
+            lapRecord: "1:31:447",
+            firstParticipationYear: 2004,
+            numberOfCorners: 69
         )
     }
 }

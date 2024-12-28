@@ -74,11 +74,11 @@ class RaceScheduleCardView: UIView {
         let staticLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
         staticLabel.text = text
 
-        let dateLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
-        dateLabel.text = "-"
+        let dataLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
+        dataLabel.text = "-"
 
         stackView.addArrangedSubview(staticLabel)
-        stackView.addArrangedSubview(dateLabel)
+        stackView.addArrangedSubview(dataLabel)
 
         return stackView
     }
@@ -109,13 +109,13 @@ class RaceScheduleCardView: UIView {
         return label
     }()
 
-    private let fp1DateStackView = createHorizontalStackView(with: "Практика 1:")
-    private let fp2DateStackView = createHorizontalStackView(with: "Практика 2:")
-    private let fp3DateStackView = createHorizontalStackView(with: "Практика 3:")
-    private let sprintQualyDateStackView = createHorizontalStackView(with: "Спринт-квалификация:")
-    private let sprintRaceDateStackView = createHorizontalStackView(with: "Спринт:")
-    private let qualyDateStackView = createHorizontalStackView(with: "Квалификация:")
-    private let raceDateStackView = createHorizontalStackView(with: "Гонка:")
+    private let fp1DateHStackView = createHorizontalStackView(with: "Практика 1:")
+    private let fp2DateHStackView = createHorizontalStackView(with: "Практика 2:")
+    private let fp3DateHStackView = createHorizontalStackView(with: "Практика 3:")
+    private let sprintQualyDateHStackView = createHorizontalStackView(with: "Спринт-квалификация:")
+    private let sprintRaceDateHStackView = createHorizontalStackView(with: "Спринт:")
+    private let qualyDateHStackView = createHorizontalStackView(with: "Квалификация:")
+    private let raceDateHStackView = createHorizontalStackView(with: "Гонка:")
 
     private let separator = Separator()
 
@@ -127,82 +127,91 @@ class RaceScheduleCardView: UIView {
         roundLabel.text = "\(round.round) этап"
         curcuitLabel.text = round.circuit?.name
 
-        if let fp1Label = fp1DateStackView.arrangedSubviews[1] as? UILabel {
+        if let fp1Label = fp1DateHStackView.arrangedSubviews[1] as? UILabel {
             fp1Label.text = round.fp1Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let fp2Label = fp2DateStackView.arrangedSubviews[1] as? UILabel {
+        if let fp2Label = fp2DateHStackView.arrangedSubviews[1] as? UILabel {
             fp2Label.text = round.fp2Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let fp3Label = fp3DateStackView.arrangedSubviews[1] as? UILabel {
+        if let fp3Label = fp3DateHStackView.arrangedSubviews[1] as? UILabel {
             fp3Label.text = round.fp3Datetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let sprintQualyLabel = sprintQualyDateStackView.arrangedSubviews[1] as? UILabel {
+        if let sprintQualyLabel = sprintQualyDateHStackView.arrangedSubviews[1] as? UILabel {
             sprintQualyLabel.text = round.sprintQualyDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let sprintRaceLabel = sprintRaceDateStackView.arrangedSubviews[1] as? UILabel {
+        if let sprintRaceLabel = sprintRaceDateHStackView.arrangedSubviews[1] as? UILabel {
             sprintRaceLabel.text = round.sprintRaceDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let qualyLabel = qualyDateStackView.arrangedSubviews[1] as? UILabel {
+        if let qualyLabel = qualyDateHStackView.arrangedSubviews[1] as? UILabel {
             qualyLabel.text = round.qualyDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        if let raceLabel = raceDateStackView.arrangedSubviews[1] as? UILabel {
+        if let raceLabel = raceDateHStackView.arrangedSubviews[1] as? UILabel {
             raceLabel.text = round.raceDatetime?.getDayMonthTimeWordString() ?? "-"
         }
 
-        addSubview(fp1DateStackView)
-        addSubview(fp2DateStackView)
-        addSubview(fp3DateStackView)
-        addSubview(sprintQualyDateStackView)
-        addSubview(sprintRaceDateStackView)
-        addSubview(qualyDateStackView)
-        addSubview(raceDateStackView)
+        addSubview(fp1DateHStackView)
+        addSubview(fp2DateHStackView)
+        addSubview(fp3DateHStackView)
+        addSubview(sprintQualyDateHStackView)
+        addSubview(sprintRaceDateHStackView)
+        addSubview(qualyDateHStackView)
+        addSubview(raceDateHStackView)
 
         setupScheduleConstraints()
     }
 
     func setupScheduleConstraints() {
         NSLayoutConstraint.activate([
-            fp1DateStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
-            fp1DateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            fp1DateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            fp1DateHStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
+            fp1DateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            fp1DateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            fp2DateStackView.topAnchor.constraint(equalTo: fp1DateStackView.bottomAnchor, constant: 8),
-            fp2DateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            fp2DateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            fp2DateHStackView.topAnchor.constraint(equalTo: fp1DateHStackView.bottomAnchor, constant: 8),
+            fp2DateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            fp2DateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            fp3DateStackView.topAnchor.constraint(equalTo: fp2DateStackView.bottomAnchor, constant: 8),
-            fp3DateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            fp3DateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            fp3DateHStackView.topAnchor.constraint(equalTo: fp2DateHStackView.bottomAnchor, constant: 8),
+            fp3DateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            fp3DateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            sprintQualyDateStackView.topAnchor.constraint(equalTo: fp3DateStackView.bottomAnchor, constant: 8),
-            sprintQualyDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            sprintQualyDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            sprintQualyDateHStackView.topAnchor.constraint(equalTo: fp3DateHStackView.bottomAnchor, constant: 8),
+            sprintQualyDateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            sprintQualyDateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            sprintRaceDateStackView.topAnchor.constraint(equalTo: sprintQualyDateStackView.bottomAnchor, constant: 8),
-            sprintRaceDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            sprintRaceDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            sprintRaceDateHStackView.topAnchor.constraint(equalTo: sprintQualyDateHStackView.bottomAnchor, constant: 8),
+            sprintRaceDateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            sprintRaceDateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            qualyDateStackView.topAnchor.constraint(equalTo: sprintRaceDateStackView.bottomAnchor, constant: 8),
-            qualyDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            qualyDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            qualyDateHStackView.topAnchor.constraint(equalTo: sprintRaceDateHStackView.bottomAnchor, constant: 8),
+            qualyDateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            qualyDateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            raceDateStackView.topAnchor.constraint(equalTo: qualyDateStackView.bottomAnchor, constant: 8),
-            raceDateStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            raceDateStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            raceDateStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            raceDateHStackView.topAnchor.constraint(equalTo: qualyDateHStackView.bottomAnchor, constant: 8),
+            raceDateHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            raceDateHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            raceDateHStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 }
 
+// MARK: - Preview
 @available(iOS 17, *)
 #Preview {
     let cardView = RaceScheduleCardView()
     cardView.configure(round: Round.mock)
-    return cardView
+    
+    let backgroundView = UIView()
+    backgroundView.backgroundColor = .appColor(.backgroundPrimaryColor)
+    backgroundView.addSubview(cardView)
+    
+    cardView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
+    cardView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
+    
+    return backgroundView
 }
