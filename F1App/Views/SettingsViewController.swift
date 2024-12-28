@@ -47,7 +47,7 @@ class SettingsViewController: BaseViewController {
         ])
     }
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)

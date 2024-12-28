@@ -47,7 +47,7 @@ class RoundDetailsViewController: BaseViewController {
         ])
     }
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
@@ -57,7 +57,7 @@ class RoundDetailsViewController: BaseViewController {
     
     private let raceNameTitleLabel = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
     
-    //MARK: - Data Methods
+    // MARK: - Data Methods
     func loadedBaseRoundInfo(_ round: Round) {
         raceNameTitleLabel.text = round.raceName
     }
