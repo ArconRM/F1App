@@ -69,10 +69,10 @@ class ConstructorsChampionshipTableViewCell: UITableViewCell {
     }
 
     // MARK: - UI Elements
-    private let positionLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let teamNameLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let countryLabel = LabelFactory.createLabel(fontSize: 12, color: .appColor(.subTextColor))
-    private let pointsLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
+    private let positionLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
+    private let teamNameLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
+    private let countryLabel = LabelFactory.createLabel(fontSize: FontSizes.caption.rawValue, color: .appColor(.subTextColor))
+    private let pointsLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
 
     private let mainHStackView = StackViewFactory.createStackView(axis: .horizontal)
     private let labelsVStackView = StackViewFactory.createStackView(axis: .vertical)

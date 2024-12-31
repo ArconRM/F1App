@@ -8,10 +8,10 @@
 import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
+    
+    private var dateLabelBottomConstraint: NSLayoutConstraint?
 
-    static let cellHeightFull: CGFloat = 150
-    static let cellHeightWithoutWinner: CGFloat = 120
-
+    // MARK: - Life Cycle
     // Для отступов по бокам
     override var frame: CGRect {
         get {
@@ -23,11 +23,26 @@ class ScheduleTableViewCell: UITableViewCell {
             super.frame = frame
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let maskPath = UIBezierPath(
+            roundedRect: CGRect(origin: .zero, size: self.bounds.size),
+            byRoundingCorners: [.topLeft, .topRight, .bottomRight, .bottomLeft],
+            cornerRadii: CGSize(width: 10, height: 10)
+        )
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = self.bounds
+        shapeLayer.path = maskPath.cgPath
+        self.layer.mask = shapeLayer
+    }
 
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
+        setupView()
     }
 
     required init?(coder: NSCoder) {
@@ -35,79 +50,64 @@ class ScheduleTableViewCell: UITableViewCell {
     }
 
     // MARK: - Setup View
-    private func setupViews() {
-        contentView.addSubview(mainHStackView)
-
-        mainHStackView.addSubview(numberLabel)
-        mainHStackView.addSubview(separator)
-        mainHStackView.addSubview(labelsVStackView)
-
-        labelsVStackView.addSubview(titleLabel)
-        labelsVStackView.addSubview(curcuitLabel)
-        labelsVStackView.addSubview(dateLabel)
-        labelsVStackView.addSubview(winnerLabel)
+    private func setupView() {
+        contentView.backgroundColor = .appColor(.viewsBackgroundColor)
+        
+        contentView.addSubview(numberLabel)
+        contentView.addSubview(separator)
+        contentView.addSubview(headerLabel)
+        contentView.addSubview(curcuitLabel)
+        contentView.addSubview(dateLabel)
 
         setupConstraints()
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            mainHStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            mainHStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            mainHStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            mainHStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-
-            numberLabel.topAnchor.constraint(equalTo: mainHStackView.topAnchor),
-            numberLabel.leadingAnchor.constraint(equalTo: mainHStackView.leadingAnchor, constant: 12),
-            numberLabel.centerYAnchor.constraint(equalTo: mainHStackView.centerYAnchor),
+            numberLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            numberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            numberLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             numberLabel.widthAnchor.constraint(equalToConstant: 25),
-
-            separator.topAnchor.constraint(equalTo: mainHStackView.topAnchor, constant: 8),
-            separator.bottomAnchor.constraint(equalTo: mainHStackView.bottomAnchor, constant: 8),
+            
+            separator.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             separator.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 8),
+            separator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
             separator.widthAnchor.constraint(equalToConstant: 0.5),
-            separator.heightAnchor.constraint(equalTo: mainHStackView.heightAnchor, constant: -16),
-
-            labelsVStackView.topAnchor.constraint(equalTo: mainHStackView.topAnchor),
-            labelsVStackView.bottomAnchor.constraint(equalTo: mainHStackView.bottomAnchor),
-            labelsVStackView.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
-            labelsVStackView.trailingAnchor.constraint(equalTo: mainHStackView.trailingAnchor),
-
-            titleLabel.topAnchor.constraint(equalTo: labelsVStackView.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor, constant: -16),
-
-            curcuitLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            curcuitLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 20),
-            curcuitLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor, constant: -8),
-
+            separator.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -16),
+            
+            headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            headerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
+            headerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            
+            curcuitLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 8),
+            curcuitLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
+            curcuitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            curcuitLabel.heightAnchor.constraint(equalToConstant: 40),
+            
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
-            dateLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 20),
-            dateLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor, constant: -8),
-
-            winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
-            winnerLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 20),
-            winnerLabel.trailingAnchor.constraint(equalTo: labelsVStackView.trailingAnchor, constant: -8)
+            dateLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            dateLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
+        dateLabelBottomConstraint = dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        dateLabelBottomConstraint?.isActive = true
     }
 
     // MARK: - UI Elements
-    let mainHStackView: UIStackView = StackViewFactory.createStackView(axis: .horizontal)
-    let labelsVStackView: UIStackView = StackViewFactory.createStackView(axis: .vertical)
-
     private let separator = Separator()
 
-    private let numberLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let titleLabel = LabelFactory.createLabel(fontSize: 18, color: .appColor(.mainTextColor))
-    private let curcuitLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
-    private let dateLabel = LabelFactory.createLabel(fontSize: 16, color: .appColor(.mainTextColor))
-    private let winnerLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
+    private let numberLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
+    private let headerLabel = LabelFactory.createLabel(fontSize: FontSizes.header.rawValue, color: .appColor(.mainTextColor))
+    private let curcuitLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
+    private let dateLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
+    private let winnerLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
 
     // MARK: - Data Methods
     func configure(item: Round) {
         numberLabel.text = "\(item.round)"
 
-        titleLabel.text = item.raceName
+        headerLabel.text = item.raceName
         curcuitLabel.text = item.circuit?.name
 
         if let fp1Datetime = item.fp1Datetime, let raceDatetime = item.raceDatetime {
@@ -116,11 +116,31 @@ class ScheduleTableViewCell: UITableViewCell {
             dateLabel.text = "Нет даты"
         }
 
-        if let winnerName = item.winner?.name {
-            winnerLabel.text = "Победитель: \(winnerName)"
-            labelsVStackView.layer.opacity = 0.5
-        } else {
-            winnerLabel.removeFromSuperview()
+        if let teamName = item.teamWinner?.teamName,
+           let winnerName = item.winner?.name,
+           let winnerSurname = item.winner?.surname {
+            winnerLabel.text = "Победитель: \(winnerName) \(winnerSurname) (\(teamName))"
+            addWinnerLabel()
+            
+            numberLabel.layer.opacity = 0.5
+            headerLabel.layer.opacity = 0.5
+            curcuitLabel.layer.opacity = 0.5
+            dateLabel.layer.opacity = 0.5
+            winnerLabel.layer.opacity = 0.5
         }
+    }
+    
+    func addWinnerLabel() {
+        contentView.addSubview(winnerLabel)
+        
+        dateLabelBottomConstraint?.isActive = false
+        
+        NSLayoutConstraint.activate([
+            winnerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
+            winnerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            winnerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            winnerLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }

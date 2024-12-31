@@ -14,6 +14,8 @@ class LabelFactory {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: CGFloat(fontSize))
         label.textColor = color
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }
 }

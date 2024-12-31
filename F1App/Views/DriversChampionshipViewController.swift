@@ -99,7 +99,7 @@ class DriversChampionshipViewController: BaseViewController {
     }()
 
     private let titleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.title.rawValue, color: .appColor(.mainTextColor))
         label.text = "Личный зачет"
         return label
     }()

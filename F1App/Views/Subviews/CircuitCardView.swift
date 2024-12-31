@@ -73,10 +73,10 @@ class CircuitCardView: UIView {
         stackView.distribution = .equalSpacing
         stackView.spacing = 4
 
-        let staticLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.mainTextColor))
+        let staticLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
         staticLabel.text = text
 
-        let dataLabel = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
+        let dataLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
         dataLabel.text = "-"
 
         stackView.addArrangedSubview(staticLabel)
@@ -86,13 +86,13 @@ class CircuitCardView: UIView {
     }
 
     private let nameLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 18, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.header.rawValue, color: .appColor(.mainTextColor))
         label.text = "Нет данных о названии"
         return label
     }()
 
     private let geoLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 14, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
         label.text = "Нет данных о местоположении"
         return label
     }()

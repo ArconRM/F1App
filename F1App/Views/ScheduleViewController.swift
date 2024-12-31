@@ -28,6 +28,12 @@ class ScheduleViewController: BaseViewController {
         setupView()
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -45,8 +51,6 @@ class ScheduleViewController: BaseViewController {
 
     // MARK: - Setup View
     private func setupView() {
-        navigationController?.navigationBar.isHidden = true
-        
         view.backgroundColor = .adaptiveColor(light: .white, dark: .black)
 
         backgroundGradientView.frame = view.bounds
@@ -132,13 +136,13 @@ class ScheduleViewController: BaseViewController {
     }()
 
     private let nextRaceTitleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.title.rawValue, color: .appColor(.mainTextColor))
         label.text = "Следующий этап"
         return label
     }()
 
     private let scheduleTitleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.title.rawValue, color: .appColor(.mainTextColor))
         label.text = "Полное расписание"
         return label
     }()
@@ -153,18 +157,21 @@ class ScheduleViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
 
-        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.rowHeight)
+        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.estimatedRowHeight)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderTopPadding = 10
 
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        
+        tableView.layoutMargins = UIEdgeInsets.zero
+            tableView.separatorInset = UIEdgeInsets.zero
 
         return tableView
     }()
 
     private let noScheduleLabel: UILabel = {
-        let label = LabelFactory.createLabel(fontSize: 16, color: .appColor(.subTextColor))
+        let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
         label.text = "Полного расписания пока нет"
         label.textAlignment = .center
         return label

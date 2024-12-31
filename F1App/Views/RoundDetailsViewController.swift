@@ -60,7 +60,7 @@ class RoundDetailsViewController: BaseViewController {
         return gradientView
     }()
 
-    private let raceNameTitleLabel = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
+    private let raceNameTitleLabel = LabelFactory.createLabel(fontSize: FontSizes.title.rawValue, color: .appColor(.mainTextColor))
 
     private let circuitCardView = CircuitCardView()
 

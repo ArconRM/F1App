@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import UIKit
 
-enum Colors: String {
+enum Colors {
     case mainTextColor
     case subTextColor
 
