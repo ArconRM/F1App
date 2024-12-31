@@ -28,10 +28,10 @@ class ScheduleViewController: BaseViewController {
         setupView()
         presenter.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         navigationController?.navigationBar.isHidden = true
     }
 
@@ -163,7 +163,7 @@ class ScheduleViewController: BaseViewController {
 
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-        
+
         tableView.layoutMargins = UIEdgeInsets.zero
             tableView.separatorInset = UIEdgeInsets.zero
 

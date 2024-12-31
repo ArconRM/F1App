@@ -54,7 +54,7 @@ class RaceScheduleCardView: UIView {
             separator.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            separator.heightAnchor.constraint(equalToConstant: 1),
+            separator.heightAnchor.constraint(equalToConstant: 0.3),
 
             noScheduleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
             noScheduleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

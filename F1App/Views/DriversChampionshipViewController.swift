@@ -112,6 +112,8 @@ class DriversChampionshipViewController: BaseViewController {
         tableView.estimatedRowHeight = DriversChampionshipTableViewDelegate.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+        tableView.separatorColor = .gray
 
         tableView.layer.cornerRadius = 10
         tableView.backgroundColor = .appColor(.viewsBackgroundColor)

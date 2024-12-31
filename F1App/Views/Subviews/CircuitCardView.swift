@@ -54,11 +54,13 @@ class CircuitCardView: UIView {
 
             lengthHStackView.topAnchor.constraint(equalTo: firstParticipationHStackView.bottomAnchor, constant: 16),
             lengthHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            lengthHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            cornersHStackView.topAnchor.constraint(equalTo: firstParticipationHStackView.bottomAnchor, constant: 16),
+            cornersHStackView.topAnchor.constraint(equalTo: lengthHStackView.bottomAnchor, constant: 8),
+            cornersHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             cornersHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            lapRecordHStackView.topAnchor.constraint(equalTo: lengthHStackView.bottomAnchor, constant: 16),
+            lapRecordHStackView.topAnchor.constraint(equalTo: cornersHStackView.bottomAnchor, constant: 16),
             lapRecordHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             lapRecordHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             lapRecordHStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
@@ -78,6 +80,7 @@ class CircuitCardView: UIView {
 
         let dataLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
         dataLabel.text = "-"
+        dataLabel.textAlignment = .right
 
         stackView.addArrangedSubview(staticLabel)
         stackView.addArrangedSubview(dataLabel)

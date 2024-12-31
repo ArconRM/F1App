@@ -8,7 +8,7 @@
 import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
-    
+
     private var dateLabelBottomConstraint: NSLayoutConstraint?
 
     // MARK: - Life Cycle
@@ -23,10 +23,10 @@ class ScheduleTableViewCell: UITableViewCell {
             super.frame = frame
         }
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         let maskPath = UIBezierPath(
             roundedRect: CGRect(origin: .zero, size: self.bounds.size),
             byRoundingCorners: [.topLeft, .topRight, .bottomRight, .bottomLeft],
@@ -52,7 +52,7 @@ class ScheduleTableViewCell: UITableViewCell {
     // MARK: - Setup View
     private func setupView() {
         contentView.backgroundColor = .appColor(.viewsBackgroundColor)
-        
+
         contentView.addSubview(numberLabel)
         contentView.addSubview(separator)
         contentView.addSubview(headerLabel)
@@ -68,28 +68,28 @@ class ScheduleTableViewCell: UITableViewCell {
             numberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             numberLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             numberLabel.widthAnchor.constraint(equalToConstant: 25),
-            
+
             separator.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             separator.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 8),
             separator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
-            separator.widthAnchor.constraint(equalToConstant: 0.5),
+            separator.widthAnchor.constraint(equalToConstant: 0.3),
             separator.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -16),
-            
+
             headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             headerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             headerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            
+
             curcuitLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 8),
             curcuitLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             curcuitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             curcuitLabel.heightAnchor.constraint(equalToConstant: 40),
-            
+
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
             dateLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             dateLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
+
         dateLabelBottomConstraint = dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         dateLabelBottomConstraint?.isActive = true
     }
@@ -121,7 +121,7 @@ class ScheduleTableViewCell: UITableViewCell {
            let winnerSurname = item.winner?.surname {
             winnerLabel.text = "Победитель: \(winnerName) \(winnerSurname) (\(teamName))"
             addWinnerLabel()
-            
+
             numberLabel.layer.opacity = 0.5
             headerLabel.layer.opacity = 0.5
             curcuitLabel.layer.opacity = 0.5
@@ -129,12 +129,12 @@ class ScheduleTableViewCell: UITableViewCell {
             winnerLabel.layer.opacity = 0.5
         }
     }
-    
+
     func addWinnerLabel() {
         contentView.addSubview(winnerLabel)
-        
+
         dateLabelBottomConstraint?.isActive = false
-        
+
         NSLayoutConstraint.activate([
             winnerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             winnerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

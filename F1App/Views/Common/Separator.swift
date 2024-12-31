@@ -22,6 +22,6 @@ class Separator: UIView {
 
     private func setupView() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .gray
     }
 }
