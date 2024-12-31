@@ -43,10 +43,10 @@ class RoundDetailsViewController: BaseViewController {
             raceNameTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             raceNameTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             raceNameTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
+
             circuitCardView.topAnchor.constraint(equalTo: raceNameTitleLabel.bottomAnchor, constant: 16),
             circuitCardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            circuitCardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            circuitCardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 
@@ -59,13 +59,13 @@ class RoundDetailsViewController: BaseViewController {
     }()
 
     private let raceNameTitleLabel = LabelFactory.createLabel(fontSize: 25, color: .appColor(.mainTextColor))
-    
+
     private let circuitCardView = CircuitCardView()
 
     // MARK: - Data Methods
     func loadedBaseRoundInfo(_ round: Round) {
         raceNameTitleLabel.text = round.raceName
-        
+
         if round.circuit != nil {
             circuitCardView.configure(circuit: round.circuit!)
         }

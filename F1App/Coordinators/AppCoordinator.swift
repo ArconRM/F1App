@@ -15,19 +15,15 @@ class AppCoordinator: Coordinator {
 
     var rootViewController: RootViewController
 
-    var childCoordinators: [any Coordinator]
-
-    init(factory: DependencyFactory) {
-        self.rootViewController = UITabBarController()
-
-        self.childCoordinators = []
+    init(rootViewController: RootViewController, factory: DependencyFactory) {
+        self.rootViewController = rootViewController
         self.factory = factory
     }
 
-    func start() -> UIViewController {
-        let scheduleVC = factory.makeScheduleViewController()
-        let scheduleNavigationVC = UINavigationController(rootViewController: scheduleVC)
-        scheduleNavigationVC.tabBarItem = UITabBarItem(
+    func start() {
+        let scheduleCoordinator = ScheduleViewCoordinator(factory: factory)
+        scheduleCoordinator.start()
+        scheduleCoordinator.rootViewController.tabBarItem = UITabBarItem(
             title: "Расписание",
             image: UIImage(systemName: "calendar"),
             tag: 0
@@ -58,11 +54,10 @@ class AppCoordinator: Coordinator {
         )
 
         rootViewController.viewControllers = [
-            scheduleNavigationVC,
+            scheduleCoordinator.rootViewController,
             driversChampionshipNavigationVC,
             constructorsChampionshipNavigationVC,
             settingsNavigationVC
         ]
-        return rootViewController
     }
 }

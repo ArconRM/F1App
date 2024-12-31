@@ -18,11 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let factory = DependencyFactoryMock()
-        let coordinator = AppCoordinator(factory: factory)
-        let rootViewController = coordinator.start()
+        let coordinator = AppCoordinator(rootViewController: UITabBarController(), factory: factory)
+        coordinator.start()
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = rootViewController
+        window?.rootViewController = coordinator.rootViewController
         window?.makeKeyAndVisible()
     }
 

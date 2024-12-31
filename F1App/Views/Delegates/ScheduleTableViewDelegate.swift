@@ -45,7 +45,7 @@ extension ScheduleTableViewDelegate: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectionDelegate?.didSelectItem(at: indexPath.row)
+        selectionDelegate?.didSelectItem(at: indexPath.section)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -205,13 +205,13 @@ class RaceScheduleCardView: UIView {
 #Preview {
     let cardView = RaceScheduleCardView()
     cardView.configure(round: Round.mock)
-    
+
     let backgroundView = UIView()
     backgroundView.backgroundColor = .appColor(.backgroundPrimaryColor)
     backgroundView.addSubview(cardView)
-    
+
     cardView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
     cardView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
-    
+
     return backgroundView
 }

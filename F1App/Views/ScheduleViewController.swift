@@ -10,6 +10,8 @@ import UIKit
 
 class ScheduleViewController: BaseViewController {
 
+    var coordinator: ScheduleViewCoordinator?
+
     private var scheduleTableViewDelegate: ScheduleTableViewDelegate?
 
     // MARK: - Life Cycle
@@ -25,6 +27,12 @@ class ScheduleViewController: BaseViewController {
 
         setupView()
         presenter.viewDidLoad()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.navigationBar.isHidden = false
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -184,7 +192,9 @@ class ScheduleViewController: BaseViewController {
 // MARK: - Extensions
 extension ScheduleViewController: UITableViewSelectionDelegate {
     func didSelectItem(at index: Int) {
-        print("fuck")
+        if let item = scheduleTableViewDelegate?.items[index] {
+            coordinator?.showRoundDetails(round: item)
+        }
     }
 }
 
