@@ -29,6 +29,8 @@ class RoundDetailsViewController: BaseViewController {
 
     // MARK: - Setup View
     private func setupView() {
+        view.backgroundColor = .adaptiveColor(light: .white, dark: .black)
+
         backgroundGradientView.frame = view.bounds
 
         view.addSubview(backgroundGradientView)

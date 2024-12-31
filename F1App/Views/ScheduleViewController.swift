@@ -46,6 +46,8 @@ class ScheduleViewController: BaseViewController {
     // MARK: - Setup View
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
+        
+        view.backgroundColor = .adaptiveColor(light: .white, dark: .black)
 
         backgroundGradientView.frame = view.bounds
 
