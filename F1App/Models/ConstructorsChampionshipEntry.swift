@@ -17,6 +17,6 @@ struct ConstructorsChampionshipEntry {
     }
 
     static var mockArray: [Self] {
-        return stride(from: 0, to: 400, by: 50).map { ConstructorsChampionshipEntry(points: $0, position: $0 / 50, team: Team.mock) }
+        return stride(from: 0, to: 400, by: 50).map { .init(points: $0, position: $0 / 50, team: Team.mock) }
     }
 }

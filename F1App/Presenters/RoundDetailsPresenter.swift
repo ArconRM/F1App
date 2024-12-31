@@ -22,7 +22,18 @@ final class RoundDetailsPresenter: Presenter {
 
     func viewDidLoad() {
         view?.loadedBaseRoundInfo(round)
+        loadRoundResults()
     }
 
-//    private func 
+    func loadRoundResults() {
+        roundResultsNetworkService.fetchRoundResults(round: round, resultQueue: .main) { [weak self] result in
+            switch result {
+            case .success(let roundResults):
+                self?.view?.loadedRoundResultsInfo(roundResults)
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+//                self?.view?.showError(error)
+            }
+        }
+    }
 }

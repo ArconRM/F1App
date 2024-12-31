@@ -23,4 +23,15 @@ struct PracticeDriverResult {
             team: Team.mock
         )
     }
+    
+    static var mockArray: [Self] {
+        stride(from: 1, to: 21, by: 1).map( {
+            .init(
+                position: $0,
+                time: "00:00:00.000",
+                driver: Driver.mock,
+                team: Team.mock
+            )
+        } )
+    }
 }

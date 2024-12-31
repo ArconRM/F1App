@@ -80,7 +80,6 @@ class CircuitCardView: UIView {
 
         let dataLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
         dataLabel.text = "-"
-        dataLabel.textAlignment = .right
 
         stackView.addArrangedSubview(staticLabel)
         stackView.addArrangedSubview(dataLabel)

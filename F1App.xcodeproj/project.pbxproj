@@ -119,6 +119,7 @@
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
 		16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* DependencyFactoryMock.swift */; };
 		16F4A41F2D240A5400F75700 /* FontSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A41E2D240A5400F75700 /* FontSizes.swift */; };
+		16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */; };
 		3568857A5B93615BB51739B5 /* Pods_F1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */; };
 /* End PBXBuildFile section */
 
@@ -245,6 +246,7 @@
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		16C030C62D08192C000C258E /* DependencyFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryMock.swift; sourceTree = "<group>"; };
 		16F4A41E2D240A5400F75700 /* FontSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizes.swift; sourceTree = "<group>"; };
+		16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeResultCardView.swift; sourceTree = "<group>"; };
 		544EC18E7C3166E270529048 /* Pods-F1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.release.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.release.xcconfig"; sourceTree = "<group>"; };
 		6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -452,6 +454,7 @@
 			children = (
 				166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */,
 				16A4221C2D204E32003683CD /* CircuitCardView.swift */,
+				16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
 				163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */,
+				16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */,
 				16A422032D1F178F003683CD /* PracticeResultDecoderF1Connect.swift in Sources */,
 				168101922D0323A200D51776 /* Presenter.swift in Sources */,
 				163C4D182CF8D7B300C62F43 /* Team.swift in Sources */,

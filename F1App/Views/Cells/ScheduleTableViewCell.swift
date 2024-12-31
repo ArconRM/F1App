@@ -116,10 +116,8 @@ class ScheduleTableViewCell: UITableViewCell {
             dateLabel.text = "Нет даты"
         }
 
-        if let teamName = item.teamWinner?.teamName,
-           let winnerName = item.winner?.name,
-           let winnerSurname = item.winner?.surname {
-            winnerLabel.text = "Победитель: \(winnerName) \(winnerSurname) (\(teamName))"
+        if item.winner != nil && item.teamWinner != nil {
+            winnerLabel.text = "Победитель: \(item.winner!.fullName) (\(item.teamWinner!.teamName))"
             addWinnerLabel()
 
             numberLabel.layer.opacity = 0.5

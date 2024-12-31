@@ -23,6 +23,6 @@ struct DriversChampionshipEntry {
     }
 
     static var mockArray: [Self] {
-        return stride(from: 0, to: 400, by: 50).map { DriversChampionshipEntry(points: $0, position: $0 / 50, driver: Driver.mock, team: Team.mock) }
+        return stride(from: 0, to: 400, by: 50).map { .init(points: $0, position: $0 / 50, driver: Driver.mock, team: Team.mock) }
     }
 }

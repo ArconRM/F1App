@@ -64,25 +64,6 @@ class RaceScheduleCardView: UIView {
     }
 
     // MARK: - UI Elements
-    private static func createHorizontalStackView(with text: String) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 4
-
-        let staticLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-        staticLabel.text = text
-
-        let dataLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-        dataLabel.text = "-"
-
-        stackView.addArrangedSubview(staticLabel)
-        stackView.addArrangedSubview(dataLabel)
-
-        return stackView
-    }
-
     private let headerLabel: UILabel = {
         let label = LabelFactory.createLabel(fontSize: FontSizes.header.rawValue, color: .appColor(.mainTextColor))
         label.text = "Нет данных о названии"
@@ -109,13 +90,13 @@ class RaceScheduleCardView: UIView {
         return label
     }()
 
-    private let fp1DateHStackView = createHorizontalStackView(with: "Практика 1:")
-    private let fp2DateHStackView = createHorizontalStackView(with: "Практика 2:")
-    private let fp3DateHStackView = createHorizontalStackView(with: "Практика 3:")
-    private let sprintQualyDateHStackView = createHorizontalStackView(with: "Спринт-квалификация:")
-    private let sprintRaceDateHStackView = createHorizontalStackView(with: "Спринт:")
-    private let qualyDateHStackView = createHorizontalStackView(with: "Квалификация:")
-    private let raceDateHStackView = createHorizontalStackView(with: "Гонка:")
+    private let fp1DateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Практика 1:")
+    private let fp2DateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Практика 2:")
+    private let fp3DateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Практика 3:")
+    private let sprintQualyDateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Спринт-квалификация:")
+    private let sprintRaceDateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Спринт:")
+    private let qualyDateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Квалификация:")
+    private let raceDateHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Гонка:")
 
     private let separator = Separator()
 
