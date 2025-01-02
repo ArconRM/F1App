@@ -90,7 +90,7 @@ class ScheduleTableViewCell: UITableViewCell {
             dateLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
 
-        dateLabelBottomConstraint = dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        dateLabelBottomConstraint = dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         dateLabelBottomConstraint?.isActive = true
     }
 
@@ -134,9 +134,9 @@ class ScheduleTableViewCell: UITableViewCell {
         dateLabelBottomConstraint?.isActive = false
 
         NSLayoutConstraint.activate([
+            winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             winnerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             winnerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             winnerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             winnerLabel.heightAnchor.constraint(equalToConstant: 50)
         ])

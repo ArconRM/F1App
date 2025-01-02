@@ -16,7 +16,7 @@ struct Driver: Codable {
     var number: Int?
     var shortName: String?
     var url: String?
-    
+
     var fullName: String {
         "\(name) \(surname)"
     }
@@ -24,8 +24,8 @@ struct Driver: Codable {
     static var mock: Self {
         return .init(
             driverId: "1",
-            name: "Driver Name",
-            surname: "Drivers surname",
+            name: "Name",
+            surname: "Surname",
             nationality: "RUS",
             birthday: Date.distantPast,
             number: 69,

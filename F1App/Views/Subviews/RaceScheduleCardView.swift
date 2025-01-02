@@ -5,6 +5,7 @@
 //  Created by Artemiy MIROTVORTSEV on 08.12.2024.
 //
 
+import Foundation
 import UIKit
 
 class RaceScheduleCardView: UIView {

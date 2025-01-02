@@ -21,7 +21,7 @@ class StackViewFactory {
 
         return stackView
     }
-    
+
     static func createHorizontalStackViewWithTwoLabels(firstText text: String) -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false

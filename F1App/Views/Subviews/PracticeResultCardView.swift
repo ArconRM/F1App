@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class PracticeResultCardView: UIView {
-    
-    // MARK: - Initializersvalue
+
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -27,7 +27,7 @@ class PracticeResultCardView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.cornerRadius = 10
-        
+
         addSubview(headerLabel)
         addSubview(separator)
         addSubview(resultsVStack)
@@ -40,7 +40,7 @@ class PracticeResultCardView: UIView {
             headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             headerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            
+
             separator.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 16),
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -52,31 +52,31 @@ class PracticeResultCardView: UIView {
     private let headerLabel = LabelFactory.createLabel(fontSize: FontSizes.header.rawValue, color: .appColor(.mainTextColor))
     private let separator = Separator()
     private let resultsVStack = StackViewFactory.createStackView(axis: .vertical, spacing: 8)
-    
+
     // MARK: - Data Methods
     func configure(practiceNumber: Int, practiceResults: [PracticeDriverResult]) {
         headerLabel.text = "Практика \(practiceNumber)"
-        
+
         for practiceDriverResult in practiceResults {
             let hStackView = StackViewFactory.createStackView(axis: .horizontal)
-            
+
             let positionLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
             positionLabel.text = "\(practiceDriverResult.position)"
-            
+
             let driverLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor), multiline: false)
             driverLabel.text = practiceDriverResult.driver.fullName
-            
+
             let timeLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
             timeLabel.text = practiceDriverResult.time
-            
+
             hStackView.addArrangedSubview(positionLabel)
             hStackView.addArrangedSubview(driverLabel)
             hStackView.addArrangedSubview(timeLabel)
-            
+
             resultsVStack.addArrangedSubview(hStackView)
-            
+
             addSubview(resultsVStack)
-            
+
             NSLayoutConstraint.activate([
                 resultsVStack.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
                 resultsVStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
