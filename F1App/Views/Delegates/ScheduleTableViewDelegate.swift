@@ -10,7 +10,7 @@ import UIKit
 
 class ScheduleTableViewDelegate: NSObject {
 
-    static var estimatedRowHeight = 160
+    static var estimatedRowHeight = 140
 
     var items: [Round?] = []
     weak var selectionDelegate: UITableViewSelectionDelegate?

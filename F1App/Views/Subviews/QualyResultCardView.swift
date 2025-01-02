@@ -57,8 +57,8 @@ class QualyResultCardView: UIView {
             separator.heightAnchor.constraint(equalToConstant: 0.4),
 
             segmentedControl.topAnchor.constraint(equalTo: separator.topAnchor, constant: 16),
-            segmentedControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            segmentedControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            segmentedControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            segmentedControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             segmentedControl.heightAnchor.constraint(equalToConstant: 30),
 
             q1ResultsVStack.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
@@ -117,48 +117,45 @@ class QualyResultCardView: UIView {
     }
 
     private func adjustBottomAnchor(qualyNumber: Int) {
-//        UIView.animate(withDuration: 1) {
-            self.q1ResultsVStackBottomAnchor?.isActive = false
-            self.q2ResultsVStackBottomAnchor?.isActive = false
-            self.q3ResultsVStackBottomAnchor?.isActive = false
+        self.q1ResultsVStackBottomAnchor?.isActive = false
+        self.q2ResultsVStackBottomAnchor?.isActive = false
+        self.q3ResultsVStackBottomAnchor?.isActive = false
 
-            switch qualyNumber {
-            case 1:
-                self.q1ResultsVStackBottomAnchor?.isActive = true
-            case 2:
-                self.q2ResultsVStackBottomAnchor?.isActive = true
-            case 3:
-                self.q3ResultsVStackBottomAnchor?.isActive = true
-            default:
-                break
-            }
-//        }
-    }
-
-    // MARK: - Data Methods
-    func configure(isSprint: Bool, qualyResults: [QualyDriverResult?]) {
-        headerLabel.text = "Квалификация\(isSprint ? " (спринт)" : "")"
-
-        for driverResult in qualyResults {
-            if driverResult == nil { continue }
-
-            q1ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 1, qualyDriverResult: driverResult!))
-
-            if driverResult!.q2Time != nil {
-                q2ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 2, qualyDriverResult: driverResult!))
-            }
-
-            if driverResult!.q3Time != nil {
-                q3ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 3, qualyDriverResult: driverResult!))
-            }
+        switch qualyNumber {
+        case 1:
+            self.q1ResultsVStackBottomAnchor?.isActive = true
+        case 2:
+            self.q2ResultsVStackBottomAnchor?.isActive = true
+        case 3:
+            self.q3ResultsVStackBottomAnchor?.isActive = true
+        default:
+            break
         }
     }
 
-    private func setupResultsHStackView(qualyNumber: Int, qualyDriverResult: QualyDriverResult) -> UIStackView {
+    // MARK: - Data Methods
+    func configure(isSprint: Bool, qualyResults: [QualyDriverResult]) {
+        headerLabel.text = "Квалификация\(isSprint ? " (спринт)" : "")"
+
+        for (index, driverQ1Result) in qualyResults.sorted(by: { $0.q1Time < $1.q1Time }).enumerated() {
+            q1ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 1, position: index + 1, qualyDriverResult: driverQ1Result))
+        }
+
+        for (index, driverQ2Result) in qualyResults.filter( { $0.q2Time != nil }).sorted(by: { $0.q2Time! < $1.q2Time! }).enumerated() {
+            q2ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 2, position: index + 1, qualyDriverResult: driverQ2Result))
+        }
+
+        for driverQ3Result in qualyResults.filter( { $0.q3Time != nil }).sorted(by: { $0.q3Time! < $1.q3Time! }) {
+            q3ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 3, position: driverQ3Result.position, qualyDriverResult: driverQ3Result))
+        }
+    }
+
+    private func setupResultsHStackView(qualyNumber: Int, position: Int, qualyDriverResult: QualyDriverResult) -> UIStackView {
         let hStack = StackViewFactory.createStackView(axis: .horizontal)
 
         let positionLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-        positionLabel.text = "\(qualyDriverResult.position)"
+        positionLabel.text = "\(position)"
+        positionLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
         let driverLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor), multiline: false)
         driverLabel.text = qualyDriverResult.driver.fullName
@@ -176,6 +173,8 @@ class QualyResultCardView: UIView {
                 return "-"
             }
         }()
+        timeLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        timeLabel.textAlignment = .right
 
         hStack.addArrangedSubview(positionLabel)
         hStack.addArrangedSubview(driverLabel)

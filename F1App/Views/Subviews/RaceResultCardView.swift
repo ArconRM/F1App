@@ -62,12 +62,15 @@ class RaceResultCardView: UIView {
 
             let positionLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
             positionLabel.text = "\(raceDriverResult.position) (\(raceDriverResult.grid - raceDriverResult.position))"
+            positionLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
             let driverLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor), multiline: false)
             driverLabel.text = raceDriverResult.driver.fullName
 
             let timeLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-            timeLabel.text = "\(raceDriverResult.points)"
+            timeLabel.text = raceDriverResult.totalTime
+            timeLabel.widthAnchor.constraint(equalToConstant: 90).isActive = true
+            timeLabel.textAlignment = .right
 
             hStackView.addArrangedSubview(positionLabel)
             hStackView.addArrangedSubview(driverLabel)
