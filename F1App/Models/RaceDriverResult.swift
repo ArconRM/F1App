@@ -27,4 +27,17 @@ struct RaceDriverResult {
             team: Team.mock
         )
     }
+
+    static var mockArray: [Self] {
+        stride(from: 1, to: 21, by: 1).map({
+            .init(
+                position: $0,
+                grid: 20,
+                points: 69,
+                totalTime: "00:00:00.000",
+                driver: Driver.mock,
+                team: Team.mock
+            )
+        })
+    }
 }

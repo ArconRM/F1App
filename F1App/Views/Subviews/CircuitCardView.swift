@@ -56,7 +56,7 @@ class CircuitCardView: UIView {
             lengthHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             lengthHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            cornersHStackView.topAnchor.constraint(equalTo: lengthHStackView.bottomAnchor, constant: 8),
+            cornersHStackView.topAnchor.constraint(equalTo: lengthHStackView.bottomAnchor, constant: 16),
             cornersHStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             cornersHStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 

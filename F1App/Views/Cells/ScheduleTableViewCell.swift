@@ -82,7 +82,7 @@ class ScheduleTableViewCell: UITableViewCell {
             curcuitLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 8),
             curcuitLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             curcuitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            curcuitLabel.heightAnchor.constraint(equalToConstant: 40),
+            curcuitLabel.heightAnchor.constraint(equalToConstant: 24),
 
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
             dateLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
