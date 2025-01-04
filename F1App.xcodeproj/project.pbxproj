@@ -47,6 +47,10 @@
 		163C4D362CF8D7C200C62F43 /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D292CF8D7C200C62F43 /* drivers-championship.json */; };
 		163C4D3A2CF8D7C200C62F43 /* F1AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */; };
 		163C4D3B2CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */; };
+		16692BE12D293A920097C1CC /* DriversChampionshipViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */; };
+		16692BE32D293B2B0097C1CC /* DriverDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */; };
+		16692BE52D293BF80097C1CC /* DriverDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */; };
+		16692BE72D29408E0097C1CC /* DriverDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */; };
 		166F3C122D0600D4005A92DF /* RaceScheduleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */; };
 		1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */; };
 		1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4652D10431500400899 /* CellIdentifiers.swift */; };
@@ -184,6 +188,10 @@
 		163C4D2B2CF8D7C200C62F43 /* NetworkServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTests.swift; sourceTree = "<group>"; };
 		163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITests.swift; sourceTree = "<group>"; };
 		163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipViewCoordinator.swift; sourceTree = "<group>"; };
+		16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsViewController.swift; sourceTree = "<group>"; };
+		16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsPresenter.swift; sourceTree = "<group>"; };
+		16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsCardView.swift; sourceTree = "<group>"; };
 		166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleCardView.swift; sourceTree = "<group>"; };
 		1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 		1670B4652D10431500400899 /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -436,6 +444,7 @@
 				168101772CFDB25B00D51776 /* ScheduleViewController.swift */,
 				16A421DA2D1EE9D5003683CD /* RoundDetailsViewController.swift */,
 				168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */,
+				16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */,
 				168101812D02F4C100D51776 /* ConstructorsChampionshipViewController.swift */,
 				168101832D02F55C00D51776 /* SettingsViewController.swift */,
 			);
@@ -469,6 +478,7 @@
 				16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */,
 				1612922B2D25A393009EA9FF /* QualyResultCardView.swift */,
 				1612922D2D26D2B7009EA9FF /* RaceResultCardView.swift */,
+				16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -537,6 +547,7 @@
 				168101722CFDAFCD00D51776 /* Protocols */,
 				168101752CFDAFF500D51776 /* AppCoordinator.swift */,
 				16A4221E2D206607003683CD /* ScheduleViewCoordinator.swift */,
+				16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -611,6 +622,7 @@
 				1695A0502D04346800C25292 /* SchedulePresenter.swift */,
 				16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */,
 				1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */,
+				16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */,
 				1695A0542D0436D400C25292 /* ConstructorChampionship.swift */,
 				1695A0562D0436FC00C25292 /* SettingsPresenter.swift */,
 			);
@@ -823,7 +835,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if command -v ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null 2>&1\nthen\n    ${PODS_ROOT}/SwiftLint/swiftlint\n    ${PODS_ROOT}/SwiftLint/swiftlint --fix\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+			shellScript = "if command -v ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null 2>&1\nthen\n    ${PODS_ROOT}/SwiftLint/swiftlint\n    ${PODS_ROOT}/SwiftLint/swiftlint --fix\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 		};
 		593CA1641C6C10126E79F2CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -863,6 +875,7 @@
 				16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */,
 				16A4221F2D206607003683CD /* ScheduleViewCoordinator.swift in Sources */,
 				1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */,
+				16692BE52D293BF80097C1CC /* DriverDetailsPresenter.swift in Sources */,
 				16A422192D20209A003683CD /* CircuitDecoder.swift in Sources */,
 				1670B48B2D16DB1400400899 /* TeamDecoder.swift in Sources */,
 				166F3C122D0600D4005A92DF /* RaceScheduleCardView.swift in Sources */,
@@ -884,10 +897,13 @@
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
 				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
 				16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */,
+				16692BE32D293B2B0097C1CC /* DriverDetailsViewController.swift in Sources */,
+				16692BE12D293A920097C1CC /* DriversChampionshipViewCoordinator.swift in Sources */,
 				1670B48F2D16FE9300400899 /* DriversChampionshipDecoder.swift in Sources */,
 				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
 				163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */,
+				16692BE72D29408E0097C1CC /* DriverDetailsCardView.swift in Sources */,
 				16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */,
 				16A422032D1F178F003683CD /* PracticeResultDecoderF1Connect.swift in Sources */,
 				168101922D0323A200D51776 /* Presenter.swift in Sources */,

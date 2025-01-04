@@ -45,7 +45,7 @@ class RaceResultCardView: UIView {
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             separator.heightAnchor.constraint(equalToConstant: 0.4),
-            
+
             resultsVStack.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
             resultsVStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             resultsVStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

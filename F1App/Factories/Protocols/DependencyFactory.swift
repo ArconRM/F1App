@@ -17,6 +17,8 @@ protocol DependencyFactory {
 
     func makeDriversChampionshipViewController() -> DriversChampionshipViewController
 
+    func makeDriverDetailsViewController(driver: Driver) -> DriverDetailsViewController
+
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController
 
     func makeSettingsViewController() -> SettingsViewController

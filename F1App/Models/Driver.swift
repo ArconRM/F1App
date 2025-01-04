@@ -26,10 +26,10 @@ struct Driver: Codable {
             driverId: "1",
             name: "Name",
             surname: "Surname",
-            nationality: "RUS",
-            birthday: Date.distantPast,
+            nationality: "Russia",
+            birthday: Date.now,
             number: 69,
-            shortName: "DnD"
+            shortName: "HUY"
         )
     }
 }

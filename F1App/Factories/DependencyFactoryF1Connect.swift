@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class DependencyFactoryF1Connect: DependencyFactory {
+
     private let urlSource = UrlSourceF1Connect()
     private let driverDecoder = DriverDecoderF1Connect()
     private let teamDecoder = TeamDecoderF1Connect()
@@ -55,6 +56,14 @@ final class DependencyFactoryF1Connect: DependencyFactory {
         let presenter = DriversChampionshipPresenter(standingsNetworkService: standingsNetworkService)
 
         let viewController = DriversChampionshipViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
+
+    func makeDriverDetailsViewController(driver: Driver) -> DriverDetailsViewController {
+        let presenter = DriverDetailsPresenter(driver: driver)
+
+        let viewController = DriverDetailsViewController(presenter: presenter)
         presenter.view = viewController
         return viewController
     }

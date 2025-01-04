@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class DriversChampionshipViewController: BaseViewController {
+final class DriversChampionshipViewController: BaseViewController {
+
+    var coordinator: DriversChampionshipViewCoordinator?
 
     private var championshipTableViewDelegate: DriversChampionshipTableViewDelegate?
 
@@ -27,6 +29,18 @@ class DriversChampionshipViewController: BaseViewController {
         presenter.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.navigationBar.isHidden = false
+    }
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -37,8 +51,6 @@ class DriversChampionshipViewController: BaseViewController {
 
     // MARK: - Setup View
     private func setupView() {
-        navigationController?.navigationBar.isHidden = true
-
         backgroundGradientView.frame = view.bounds
 
         view.addSubview(backgroundGradientView)
@@ -134,7 +146,9 @@ class DriversChampionshipViewController: BaseViewController {
 // MARK: - Extensions
 extension DriversChampionshipViewController: UITableViewSelectionDelegate {
     func didSelectItem(at index: Int) {
-        print("fuck")
+        if let item = championshipTableViewDelegate?.items[index] {
+            coordinator?.showDriverDetails(driver: item.driver)
+        }
     }
 }
 

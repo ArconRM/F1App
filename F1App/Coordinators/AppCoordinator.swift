@@ -29,9 +29,9 @@ class AppCoordinator: Coordinator {
             tag: 0
         )
 
-        let driversChampionshipVC = factory.makeDriversChampionshipViewController()
-        let driversChampionshipNavigationVC = UINavigationController(rootViewController: driversChampionshipVC)
-        driversChampionshipNavigationVC.tabBarItem = UITabBarItem(
+        let driversChampionshipCoordinator = DriversChampionshipViewCoordinator(factory: factory)
+        driversChampionshipCoordinator.start()
+        driversChampionshipCoordinator.rootViewController.tabBarItem = UITabBarItem(
             title: "Личный зачёт",
             image: UIImage(systemName: "person"),
             selectedImage: UIImage(systemName: "person.fill")
@@ -55,7 +55,7 @@ class AppCoordinator: Coordinator {
 
         rootViewController.viewControllers = [
             scheduleCoordinator.rootViewController,
-            driversChampionshipNavigationVC,
+            driversChampionshipCoordinator.rootViewController,
             constructorsChampionshipNavigationVC,
             settingsNavigationVC
         ]

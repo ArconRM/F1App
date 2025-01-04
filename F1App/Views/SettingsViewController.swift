@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SettingsViewController: BaseViewController {
+final class SettingsViewController: BaseViewController {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {

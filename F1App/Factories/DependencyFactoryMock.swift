@@ -32,6 +32,13 @@ final class DependencyFactoryMock: DependencyFactory {
         return viewController
     }
 
+    func makeDriverDetailsViewController(driver: Driver) -> DriverDetailsViewController {
+        let presenter = DriverDetailsPresenter(driver: driver)
+        let viewController = DriverDetailsViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
+
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController {
         let standingsNetworkService = StandingsNetworkServiceMock()
         let presenter = ConstructorChampionshipPresenter(standingsNetworkService: standingsNetworkService)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RoundDetailsViewController: BaseViewController {
+final class RoundDetailsViewController: BaseViewController {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {

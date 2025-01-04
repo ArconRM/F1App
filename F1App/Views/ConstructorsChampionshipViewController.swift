@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ConstructorsChampionshipViewController: BaseViewController {
+final class ConstructorsChampionshipViewController: BaseViewController {
 
     private var championshipTableViewDelegate: ConstructorsChampionshipTableViewDelegate?
 

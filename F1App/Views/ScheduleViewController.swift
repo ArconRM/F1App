@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ScheduleViewController: BaseViewController {
+final class ScheduleViewController: BaseViewController {
 
     var coordinator: ScheduleViewCoordinator?
 

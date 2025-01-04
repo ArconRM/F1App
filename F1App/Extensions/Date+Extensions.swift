@@ -54,6 +54,13 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    func getFullDateString(divider: String = " ") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "d\(divider)MMMM\(divider)yyyy"
+        return dateFormatter.string(from: self)
+    }
+
     func isPassed() -> Bool {
         return Date() > Calendar.current.date(byAdding: .hour, value: 2, to: self)!
     }

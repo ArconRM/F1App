@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: Добавить общий интерфейс для ошибок
 class BaseViewController: UIViewController {
     let presenter: any Presenter
 
