@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DriversChampionshipViewCoordinator: Coordinator {
+final class DriversChampionshipViewCoordinator: Coordinator {
     typealias RootViewController = UINavigationController
 
     private let factory: DependencyFactory

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ScheduleViewCoordinator: Coordinator {
+final class ScheduleViewCoordinator: Coordinator {
     typealias RootViewController = UINavigationController
 
     private let factory: DependencyFactory

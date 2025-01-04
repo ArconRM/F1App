@@ -10,6 +10,8 @@ import UIKit
 
 final class ConstructorsChampionshipViewController: BaseViewController {
 
+    var coordinator: ConstructorsChampionshipViewCoordinator?
+
     private var championshipTableViewDelegate: ConstructorsChampionshipTableViewDelegate?
 
     // MARK: - Life Cycle
@@ -26,6 +28,18 @@ final class ConstructorsChampionshipViewController: BaseViewController {
         setupView()
 
         presenter.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.navigationBar.isHidden = false
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -135,7 +149,9 @@ final class ConstructorsChampionshipViewController: BaseViewController {
 // MARK: - Extensions
 extension ConstructorsChampionshipViewController: UITableViewSelectionDelegate {
     func didSelectItem(at index: Int) {
-        print("fuck")
+        if let item = championshipTableViewDelegate?.items[index] {
+            coordinator?.showTeamDetails(team: item.team)
+        }
     }
 }
 

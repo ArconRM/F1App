@@ -51,6 +51,10 @@
 		16692BE32D293B2B0097C1CC /* DriverDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */; };
 		16692BE52D293BF80097C1CC /* DriverDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */; };
 		16692BE72D29408E0097C1CC /* DriverDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */; };
+		16692BE92D2946850097C1CC /* ConstructorsChampionshipViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE82D2946850097C1CC /* ConstructorsChampionshipViewCoordinator.swift */; };
+		16692BEB2D2947210097C1CC /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BEA2D2947210097C1CC /* TeamDetailsViewController.swift */; };
+		16692BED2D2947D80097C1CC /* TeamDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BEC2D2947D80097C1CC /* TeamDetailsPresenter.swift */; };
+		16692BEF2D2949200097C1CC /* TeamDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BEE2D2949200097C1CC /* TeamDetailsCardView.swift */; };
 		166F3C122D0600D4005A92DF /* RaceScheduleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */; };
 		1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */; };
 		1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4652D10431500400899 /* CellIdentifiers.swift */; };
@@ -83,7 +87,7 @@
 		168101922D0323A200D51776 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101912D0323A200D51776 /* Presenter.swift */; };
 		1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0502D04346800C25292 /* SchedulePresenter.swift */; };
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
-		1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorChampionship.swift */; };
+		1695A0552D0436D400C25292 /* ConstructorChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorChampionshipPresenter.swift */; };
 		1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0562D0436FC00C25292 /* SettingsPresenter.swift */; };
 		16A421DB2D1EE9D5003683CD /* RoundDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421DA2D1EE9D5003683CD /* RoundDetailsViewController.swift */; };
 		16A421DD2D1EEB40003683CD /* RoundDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */; };
@@ -192,6 +196,10 @@
 		16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsViewController.swift; sourceTree = "<group>"; };
 		16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsPresenter.swift; sourceTree = "<group>"; };
 		16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsCardView.swift; sourceTree = "<group>"; };
+		16692BE82D2946850097C1CC /* ConstructorsChampionshipViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsChampionshipViewCoordinator.swift; sourceTree = "<group>"; };
+		16692BEA2D2947210097C1CC /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		16692BEC2D2947D80097C1CC /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
+		16692BEE2D2949200097C1CC /* TeamDetailsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsCardView.swift; sourceTree = "<group>"; };
 		166F3C112D0600D4005A92DF /* RaceScheduleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleCardView.swift; sourceTree = "<group>"; };
 		1670B4622D103EFC00400899 /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 		1670B4652D10431500400899 /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
@@ -224,7 +232,7 @@
 		168101912D0323A200D51776 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		1695A0502D04346800C25292 /* SchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePresenter.swift; sourceTree = "<group>"; };
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
-		1695A0542D0436D400C25292 /* ConstructorChampionship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionship.swift; sourceTree = "<group>"; };
+		1695A0542D0436D400C25292 /* ConstructorChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0562D0436FC00C25292 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		16A421DA2D1EE9D5003683CD /* RoundDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailsViewController.swift; sourceTree = "<group>"; };
 		16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -446,6 +454,7 @@
 				168101792CFDB31600D51776 /* DriversChampionshipViewController.swift */,
 				16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */,
 				168101812D02F4C100D51776 /* ConstructorsChampionshipViewController.swift */,
+				16692BEA2D2947210097C1CC /* TeamDetailsViewController.swift */,
 				168101832D02F55C00D51776 /* SettingsViewController.swift */,
 			);
 			path = Views;
@@ -479,6 +488,7 @@
 				1612922B2D25A393009EA9FF /* QualyResultCardView.swift */,
 				1612922D2D26D2B7009EA9FF /* RaceResultCardView.swift */,
 				16692BE62D29408E0097C1CC /* DriverDetailsCardView.swift */,
+				16692BEE2D2949200097C1CC /* TeamDetailsCardView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -548,6 +558,7 @@
 				168101752CFDAFF500D51776 /* AppCoordinator.swift */,
 				16A4221E2D206607003683CD /* ScheduleViewCoordinator.swift */,
 				16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */,
+				16692BE82D2946850097C1CC /* ConstructorsChampionshipViewCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -623,7 +634,8 @@
 				16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */,
 				1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */,
 				16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */,
-				1695A0542D0436D400C25292 /* ConstructorChampionship.swift */,
+				1695A0542D0436D400C25292 /* ConstructorChampionshipPresenter.swift */,
+				16692BEC2D2947D80097C1CC /* TeamDetailsPresenter.swift */,
 				1695A0562D0436FC00C25292 /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
@@ -868,6 +880,7 @@
 			files = (
 				16A422152D20191B003683CD /* RoundResultsNetworkServiceImpl.swift in Sources */,
 				163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */,
+				16692BED2D2947D80097C1CC /* TeamDetailsPresenter.swift in Sources */,
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
 				1670B47D2D1491F300400899 /* GradientView.swift in Sources */,
 				1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */,
@@ -893,6 +906,7 @@
 				16087C782D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift in Sources */,
 				162B5E512D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift in Sources */,
 				1612922C2D25A393009EA9FF /* QualyResultCardView.swift in Sources */,
+				16692BE92D2946850097C1CC /* ConstructorsChampionshipViewCoordinator.swift in Sources */,
 				16A4221B2D202128003683CD /* CircuitDecoderF1Connect.swift in Sources */,
 				163C4D162CF8D7B300C62F43 /* Circuit.swift in Sources */,
 				1670B4682D106FB900400899 /* UITableViewSelectionDelegate.swift in Sources */,
@@ -916,9 +930,10 @@
 				168101802CFEFBFA00D51776 /* DependencyFactoryF1Connect.swift in Sources */,
 				163C4D192CF8D7B300C62F43 /* StandingsNetworkService.swift in Sources */,
 				168101842D02F55C00D51776 /* SettingsViewController.swift in Sources */,
-				1695A0552D0436D400C25292 /* ConstructorChampionship.swift in Sources */,
+				1695A0552D0436D400C25292 /* ConstructorChampionshipPresenter.swift in Sources */,
 				1670B4892D16DB0700400899 /* DriverDecoderF1Connect.swift in Sources */,
 				163C4D1A2CF8D7B300C62F43 /* RacesNetworkService.swift in Sources */,
+				16692BEB2D2947210097C1CC /* TeamDetailsViewController.swift in Sources */,
 				1670B4632D103EFC00400899 /* ScheduleTableViewDelegate.swift in Sources */,
 				1681017E2CFEFA4000D51776 /* DependencyFactory.swift in Sources */,
 				16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */,
@@ -939,6 +954,7 @@
 				1670B4852D16C69400400899 /* DriverDecoder.swift in Sources */,
 				1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */,
 				16A421F32D1F051A003683CD /* QualyDriverResult.swift in Sources */,
+				16692BEF2D2949200097C1CC /* TeamDetailsCardView.swift in Sources */,
 				16A4220D2D1F31DF003683CD /* RaceResultDecoderF1Connect.swift in Sources */,
 				1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */,
 				1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */,

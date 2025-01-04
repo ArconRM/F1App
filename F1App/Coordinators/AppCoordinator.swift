@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     typealias RootViewController = UITabBarController
 
     private let factory: DependencyFactory
@@ -37,9 +37,9 @@ class AppCoordinator: Coordinator {
             selectedImage: UIImage(systemName: "person.fill")
         )
 
-        let constructorsChampionshipVC = factory.makeConstructorChampionshipViewController()
-        let constructorsChampionshipNavigationVC = UINavigationController(rootViewController: constructorsChampionshipVC)
-        constructorsChampionshipVC.tabBarItem = UITabBarItem(
+        let constructorsChampionshipCoordinator = ConstructorsChampionshipViewCoordinator(factory: factory)
+        constructorsChampionshipCoordinator.start()
+        constructorsChampionshipCoordinator.rootViewController.tabBarItem = UITabBarItem(
             title: "Командный зачет",
             image: UIImage(systemName: "person.3"),
             selectedImage: UIImage(systemName: "person.3.fill")
@@ -56,7 +56,7 @@ class AppCoordinator: Coordinator {
         rootViewController.viewControllers = [
             scheduleCoordinator.rootViewController,
             driversChampionshipCoordinator.rootViewController,
-            constructorsChampionshipNavigationVC,
+            constructorsChampionshipCoordinator.rootViewController,
             settingsNavigationVC
         ]
     }

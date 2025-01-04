@@ -82,6 +82,14 @@ final class DependencyFactoryF1Connect: DependencyFactory {
         return viewController
     }
 
+    func makeTeamDetailsViewController(team: Team) -> TeamDetailsViewController {
+        let presenter = TeamDetailsPresenter(team: team)
+
+        let viewController = TeamDetailsViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
+
     func makeSettingsViewController() -> SettingsViewController {
         let presenter = SettingsPresenter()
 

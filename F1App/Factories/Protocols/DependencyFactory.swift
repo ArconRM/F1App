@@ -21,5 +21,7 @@ protocol DependencyFactory {
 
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController
 
+    func makeTeamDetailsViewController(team: Team) -> TeamDetailsViewController
+
     func makeSettingsViewController() -> SettingsViewController
 }
