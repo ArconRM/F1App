@@ -74,9 +74,9 @@ class QualyResultCardView: UIView {
             q3ResultsVStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
 
-        q1ResultsVStackBottomAnchor = q1ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-        q2ResultsVStackBottomAnchor = q2ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-        q3ResultsVStackBottomAnchor = q3ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+        q1ResultsVStackBottomAnchor = q1ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+        q2ResultsVStackBottomAnchor = q2ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+        q3ResultsVStackBottomAnchor = q3ResultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
 
         q3ResultsVStackBottomAnchor?.isActive = true
     }

@@ -44,7 +44,12 @@ class RaceResultCardView: UIView {
             separator.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 16),
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            separator.heightAnchor.constraint(equalToConstant: 0.4)
+            separator.heightAnchor.constraint(equalToConstant: 0.4),
+            
+            resultsVStack.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
+            resultsVStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            resultsVStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            resultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 
@@ -77,15 +82,6 @@ class RaceResultCardView: UIView {
             hStackView.addArrangedSubview(timeLabel)
 
             resultsVStack.addArrangedSubview(hStackView)
-
-            addSubview(resultsVStack)
-
-            NSLayoutConstraint.activate([
-                resultsVStack.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8),
-                resultsVStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                resultsVStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                resultsVStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-            ])
         }
     }
 }
