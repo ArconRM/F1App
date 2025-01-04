@@ -401,18 +401,7 @@
 		163C4D2A2CF8D7C200C62F43 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				16087C6A2D1A087600654DE0 /* 1.json */,
-				16A421E12D1EFBA6003683CD /* fp1.json */,
-				16A421E22D1EFBA6003683CD /* fp2.json */,
-				16A421E32D1EFBA6003683CD /* fp3.json */,
-				16A421F82D1F08F2003683CD /* sprint-qualy.json */,
-				16A421F92D1F08F2003683CD /* sprint-race.json */,
-				16A421E42D1EFBA6003683CD /* qualy.json */,
-				16A421E52D1EFBA6003683CD /* race.json */,
-				16A421DE2D1EECCF003683CD /* 2025.json */,
-				163C4D262CF8D7C200C62F43 /* 2024.json */,
-				163C4D292CF8D7C200C62F43 /* drivers-championship.json */,
-				163C4D272CF8D7C200C62F43 /* constructors-championship.json */,
+				16692BDE2D2932D40097C1CC /* F1Connect */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -451,6 +440,25 @@
 				168101832D02F55C00D51776 /* SettingsViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		16692BDE2D2932D40097C1CC /* F1Connect */ = {
+			isa = PBXGroup;
+			children = (
+				16087C6A2D1A087600654DE0 /* 1.json */,
+				16A421E12D1EFBA6003683CD /* fp1.json */,
+				16A421E22D1EFBA6003683CD /* fp2.json */,
+				16A421E32D1EFBA6003683CD /* fp3.json */,
+				16A421F82D1F08F2003683CD /* sprint-qualy.json */,
+				16A421F92D1F08F2003683CD /* sprint-race.json */,
+				16A421E42D1EFBA6003683CD /* qualy.json */,
+				16A421E52D1EFBA6003683CD /* race.json */,
+				16A421DE2D1EECCF003683CD /* 2025.json */,
+				163C4D262CF8D7C200C62F43 /* 2024.json */,
+				163C4D292CF8D7C200C62F43 /* drivers-championship.json */,
+				163C4D272CF8D7C200C62F43 /* constructors-championship.json */,
+			);
+			path = F1Connect;
 			sourceTree = "<group>";
 		};
 		166F3C0E2D060047005A92DF /* Subviews */ = {

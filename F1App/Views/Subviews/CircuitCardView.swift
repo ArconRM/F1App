@@ -68,25 +68,6 @@ class CircuitCardView: UIView {
     }
 
     // MARK: - UI Elements
-    private static func createHorizontalStackView(with text: String) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 4
-
-        let staticLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-        staticLabel.text = text
-
-        let dataLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
-        dataLabel.text = "-"
-
-        stackView.addArrangedSubview(staticLabel)
-        stackView.addArrangedSubview(dataLabel)
-
-        return stackView
-    }
-
     private let nameLabel: UILabel = {
         let label = LabelFactory.createLabel(fontSize: FontSizes.header.rawValue, color: .appColor(.mainTextColor))
         label.text = "Нет данных о названии"
@@ -99,10 +80,10 @@ class CircuitCardView: UIView {
         return label
     }()
 
-    private let firstParticipationHStackView = createHorizontalStackView(with: "Год дебюта трассы: ")
-    private let lengthHStackView = createHorizontalStackView(with: "Длина: ")
-    private let cornersHStackView = createHorizontalStackView(with: "Повороты: ")
-    private let lapRecordHStackView = createHorizontalStackView(with: "Рекорд трассы: ")
+    private let firstParticipationHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Год дебюта трассы: ")
+    private let lengthHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Длина: ")
+    private let cornersHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Повороты: ")
+    private let lapRecordHStackView = StackViewFactory.createHorizontalStackViewWithTwoLabels(firstText: "Рекорд трассы: ")
 
     // MARK: - Data Methods
     func configure(circuit: Circuit) {
