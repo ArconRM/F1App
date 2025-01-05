@@ -53,8 +53,6 @@ final class ScheduleViewController: BaseViewController {
     private func setupView() {
         view.backgroundColor = .adaptiveColor(light: .white, dark: .black)
 
-        backgroundGradientView.frame = view.bounds
-
         scheduleTableView.isHidden = true
 
         view.addSubview(backgroundGradientView)
@@ -74,8 +72,13 @@ final class ScheduleViewController: BaseViewController {
 
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
+            backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 
@@ -116,6 +119,7 @@ final class ScheduleViewController: BaseViewController {
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         gradientView.opacity = 0.3
         return gradientView

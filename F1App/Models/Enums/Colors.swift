@@ -15,4 +15,5 @@ enum Colors {
     case backgroundSecondaryColor
 
     case viewsBackgroundColor
+    case tabBarBackgroundColor
 }

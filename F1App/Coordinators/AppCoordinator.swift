@@ -21,6 +21,8 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
+        rootViewController.tabBar.isTranslucent = true
+
         let scheduleCoordinator = ScheduleViewCoordinator(factory: factory)
         scheduleCoordinator.start()
         scheduleCoordinator.rootViewController.tabBarItem = UITabBarItem(

@@ -51,8 +51,6 @@ final class DriversChampionshipViewController: BaseViewController {
 
     // MARK: - Setup View
     private func setupView() {
-        backgroundGradientView.frame = view.bounds
-
         view.addSubview(backgroundGradientView)
         view.addSubview(titleLabel)
         view.addSubview(scrollView)
@@ -66,6 +64,11 @@ final class DriversChampionshipViewController: BaseViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -73,7 +76,7 @@ final class DriversChampionshipViewController: BaseViewController {
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
             scrollContainerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollContainerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -91,6 +94,7 @@ final class DriversChampionshipViewController: BaseViewController {
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         gradientView.opacity = 0.3
         return gradientView

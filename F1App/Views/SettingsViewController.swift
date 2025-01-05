@@ -31,8 +31,6 @@ final class SettingsViewController: BaseViewController {
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
 
-        backgroundGradientView.frame = view.bounds
-
         view.addSubview(backgroundGradientView)
         view.addSubview(titleLabel)
 
@@ -41,6 +39,11 @@ final class SettingsViewController: BaseViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
@@ -50,6 +53,7 @@ final class SettingsViewController: BaseViewController {
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         gradientView.opacity = 0.3
         return gradientView

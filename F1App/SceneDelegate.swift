@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let factory = DependencyFactoryMock()
+        UITabBar.setBackground()
         let coordinator = AppCoordinator(rootViewController: UITabBarController(), factory: factory)
         coordinator.start()
 

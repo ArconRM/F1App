@@ -31,8 +31,6 @@ final class TeamDetailsViewController: BaseViewController {
     private func setupView() {
         view.backgroundColor = .adaptiveColor(light: .white, dark: .black)
 
-        backgroundGradientView.frame = view.bounds
-
         view.addSubview(backgroundGradientView)
         view.addSubview(nameTitleLabel)
         view.addSubview(teamDetailsCardView)
@@ -42,19 +40,25 @@ final class TeamDetailsViewController: BaseViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            nameTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            nameTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            nameTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            nameTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
             teamDetailsCardView.topAnchor.constraint(equalTo: nameTitleLabel.bottomAnchor, constant: 16),
-            teamDetailsCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            teamDetailsCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            teamDetailsCardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            teamDetailsCardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 
     // MARK: - UI Elements
     private let backgroundGradientView: GradientView = {
         let gradientView = GradientView()
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
         gradientView.colors = UIColor.appGradientColors(.mainGradientColors)
         gradientView.opacity = 0.3
         return gradientView

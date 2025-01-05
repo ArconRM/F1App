@@ -24,7 +24,10 @@ extension UIColor {
             return .adaptiveColor(light: .systemIndigo.withAlphaComponent(0.5), dark: .systemIndigo.withAlphaComponent(0.3))
 
         case .viewsBackgroundColor:
-            return .adaptiveColor(light: .white.withAlphaComponent(0.7), dark: .gray.withAlphaComponent(0.3))
+            return .adaptiveColor(light: .white.withAlphaComponent(0.8), dark: .gray.withAlphaComponent(0.3))
+
+        case .tabBarBackgroundColor:
+            return .adaptiveColor(light: .white.withAlphaComponent(0.2), dark: .gray.withAlphaComponent(0.2))
         }
     }
 
