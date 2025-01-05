@@ -141,9 +141,11 @@ final class DriversChampionshipViewController: BaseViewController {
     func loadedDriversChampionship(_ driversChampionship: [DriversChampionshipEntry?]) {
         championshipTableViewDelegate?.setItems(items: driversChampionship)
 
-        championshipTableView.reloadData()
-        championshipTableView.layoutIfNeeded()
-        championshipTableView.heightAnchor.constraint(equalToConstant: championshipTableView.contentSize.height).isActive = true
+        DispatchQueue.main.async {
+            self.championshipTableView.reloadData()
+            self.championshipTableView.layoutIfNeeded()
+            self.championshipTableView.heightAnchor.constraint(equalToConstant: self.championshipTableView.contentSize.height).isActive = true
+        }
     }
 }
 

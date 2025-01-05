@@ -196,9 +196,11 @@ final class ScheduleViewController: BaseViewController {
 
         scheduleTableViewDelegate?.setItems(items: races)
 
-        scheduleTableView.reloadData()
-        scheduleTableView.layoutIfNeeded()
-        scheduleTableView.heightAnchor.constraint(equalToConstant: scheduleTableView.contentSize.height).isActive = true
+        DispatchQueue.main.async {
+            self.scheduleTableView.reloadData()
+            self.scheduleTableView.layoutIfNeeded()
+            self.scheduleTableView.heightAnchor.constraint(equalToConstant: self.scheduleTableView.contentSize.height).isActive = true
+        }
     }
 }
 

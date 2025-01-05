@@ -144,9 +144,11 @@ final class ConstructorsChampionshipViewController: BaseViewController {
     func loadedConstructorsChampionship(_ constructorsChampionship: [ConstructorsChampionshipEntry?]) {
         championshipTableViewDelegate?.setItems(items: constructorsChampionship)
 
-        championshipTableView.reloadData()
-        championshipTableView.layoutIfNeeded()
-        championshipTableView.heightAnchor.constraint(equalToConstant: championshipTableView.contentSize.height).isActive = true
+        DispatchQueue.main.async {
+            self.championshipTableView.reloadData()
+            self.championshipTableView.layoutIfNeeded()
+            self.championshipTableView.heightAnchor.constraint(equalToConstant: self.championshipTableView.contentSize.height).isActive = true
+        }
     }
 }
 
