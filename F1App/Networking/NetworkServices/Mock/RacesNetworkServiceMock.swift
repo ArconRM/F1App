@@ -24,7 +24,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
                 let races = try raceDecoder.decodeRaces(from: data)
                 completionHandler(.success(races[22]))
             } catch let error {
-                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+                completionHandler(.failure(error))
             }
         }
     }
@@ -39,7 +39,7 @@ struct RacesNetworkServiceMock: RacesNetworkService {
                 let races = try raceDecoder.decodeRaces(from: data)
                 completionHandler(.success(races))
             } catch let error {
-                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+                completionHandler(.failure(error))
             }
         }
     }

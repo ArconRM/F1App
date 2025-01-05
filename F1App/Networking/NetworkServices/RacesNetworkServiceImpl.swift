@@ -39,7 +39,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
                 let race = try self.raceDecoder.decodeRace(from: data)
                 completionHandler(.success(race))
             } catch let error {
-                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+                completionHandler(.failure(error))
             }
         }.resume()
     }
@@ -66,7 +66,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
                 let races = try self.raceDecoder.decodeRaces(from: data)
                 completionHandler(.success(races))
             } catch let error {
-                completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+                completionHandler(.failure(error))
             }
         }.resume()
     }

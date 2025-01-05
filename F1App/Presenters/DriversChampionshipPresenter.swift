@@ -23,12 +23,12 @@ final class DriversChampionshipPresenter: Presenter {
     }
 
     private func loadDriversChampionship() {
-        standingsNetworkService.fetchCurrentDriversChampionship(resultQueue: .main) { result in
+        standingsNetworkService.fetchCurrentDriversChampionship(resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let driversChampionship):
-                self.view?.loadedDriversChampionship(driversChampionship)
+                self?.view?.loadedDriversChampionship(driversChampionship)
             case .failure(let error):
-                print(error)
+                self?.view?.showNetworkError(error)
             }
         }
     }

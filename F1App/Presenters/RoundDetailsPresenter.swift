@@ -31,8 +31,7 @@ final class RoundDetailsPresenter: Presenter {
             case .success(let roundResults):
                 self?.view?.loadedRoundResultsInfo(roundResults)
             case .failure(let error):
-                fatalError(error.localizedDescription)
-//                self?.view?.showError(error)
+                self?.view?.showNetworkError(error)
             }
         }
     }

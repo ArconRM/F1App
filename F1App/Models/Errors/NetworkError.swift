@@ -30,7 +30,7 @@ enum NetworkError: Error, LocalizedError {
         case .fetchError(let error):
             return "Не удалось получить данные с сайта. Ошибка: \(error)."
         case .unexpectedError(let error):
-            return "Неожиданная ошибка при получении данных с сайта. Ошибка: \(error)."
+            return "Неизвестная ошибка при получении данных с сайта. Ошибка: \(error)."
         }
     }
 }

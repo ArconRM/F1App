@@ -52,7 +52,7 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
             completionHandler(.success(roundResults))
 
         } catch let error {
-            completionHandler(.failure(NetworkError.fetchError(error.localizedDescription)))
+            completionHandler(.failure(error))
         }
     }
 

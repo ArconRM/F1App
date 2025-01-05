@@ -28,8 +28,8 @@ final class SchedulePresenter: Presenter {
             switch result {
             case .success(let race):
                 self?.view?.loadedCurrentRace(round: race)
-            case .failure:
-                fatalError("Failed to load race")
+            case .failure(let error):
+                self?.view?.showNetworkError(error)
             }
         }
     }
@@ -39,8 +39,8 @@ final class SchedulePresenter: Presenter {
             switch result {
             case .success(let races):
                 self?.view?.loadedAllRaces(races: self?.sortRaces(races) ?? [])
-            case .failure:
-                fatalError("Failed to load races")
+            case .failure(let error):
+                self?.view?.showNetworkError(NetworkError.fetchError(error.localizedDescription))
             }
         }
     }
