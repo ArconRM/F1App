@@ -25,7 +25,6 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
     ) {
         if let path = Bundle.main.path(forResource: "drivers-championship", ofType: "json") {
             do {
-                throw NetworkError.fetchError("I wanna fuck you")
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let championship = try driversChampionshipDecoder.decodeDriversChampionship(from: data)
                 completionHandler(.success(championship))
