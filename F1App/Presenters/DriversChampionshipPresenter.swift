@@ -23,7 +23,7 @@ final class DriversChampionshipPresenter: Presenter {
     }
 
     private func loadDriversChampionship() {
-        standingsNetworkService.fetchDriversChampionship(year: 2024, resultQueue: .main) { [weak self] result in
+        standingsNetworkService.fetchDriversChampionship(year: nil, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let driversChampionship):
                 self?.view?.loadedDriversChampionship(driversChampionship)

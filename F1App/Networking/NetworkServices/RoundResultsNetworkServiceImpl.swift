@@ -28,7 +28,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
 
     // TODO: Мб как то получше придумать
     func fetchRoundResults(
-        year: Int?,
+        year: Int,
         roundNumber: Int,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<RoundResults, any Error>) -> Void
@@ -163,7 +163,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
     }
 
     private func fetchPracticeResults(
-        year: Int?,
+        year: Int,
         roundNumber: Int,
         practiceNumber: Int,
         completionHandler: @escaping (Result<[PracticeDriverResult], any Error>) -> Void
@@ -191,7 +191,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
     }
 
     private func fetchQualyResults(
-        year: Int?,
+        year: Int,
         roundNumber: Int,
         isSprint: Bool,
         completionHandler: @escaping (Result<[QualyDriverResult], any Error>) -> Void
@@ -221,7 +221,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
     }
 
     private func fetchRaceResults(
-        year: Int?,
+        year: Int,
         roundNumber: Int,
         isSprint: Bool,
         completionHandler: @escaping (Result<[RaceDriverResult], any Error>) -> Void

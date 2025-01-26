@@ -25,7 +25,7 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
     }
 
     func fetchRoundResults(
-        year: Int? = nil,
+        year: Int,
         roundNumber round: Int,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<RoundResults, any Error>) -> Void

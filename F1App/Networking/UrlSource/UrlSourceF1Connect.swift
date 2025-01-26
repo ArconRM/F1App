@@ -29,24 +29,24 @@ struct UrlSourceF1Connect: UrlSource {
     }
 
     // MARK: - RoundResults
-    func getPracticeResultsUrl(year: Int?, practiceNumber: Int, roundNumber: Int) -> URL {
-        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/fp\(practiceNumber)")
+    func getPracticeResultsUrl(year: Int, practiceNumber: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(year)/\(roundNumber)/fp\(practiceNumber)")
     }
 
-    func getSprintQualyResultsUrl(year: Int?, roundNumber: Int) -> URL {
-        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/sprint/qualy")
+    func getSprintQualyResultsUrl(year: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(year)/\(roundNumber)/sprint/qualy")
     }
 
-    func getSprintRaceResultsUrl(year: Int?, roundNumber: Int) -> URL {
-        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/sprint/race")
+    func getSprintRaceResultsUrl(year: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(year)/\(roundNumber)/sprint/race")
     }
 
-    func getQualyResultsUrl(year: Int?, roundNumber: Int) -> URL {
-        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/qualy")
+    func getQualyResultsUrl(year: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(year)/\(roundNumber)/qualy")
     }
 
-    func getRaceResultsUrl(year: Int?, roundNumber: Int) -> URL {
-        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/race")
+    func getRaceResultsUrl(year: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(year)/\(roundNumber)/race")
     }
 
     private func getYearComponent(_ year: Int?) -> String {

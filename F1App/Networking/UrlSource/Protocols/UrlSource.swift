@@ -22,9 +22,9 @@ protocol UrlSource {
     func getConstructorsChampionshipUrl(year: Int?) -> URL
 
     // MARK: - RoundResults
-    func getPracticeResultsUrl(year: Int?, practiceNumber: Int, roundNumber: Int) -> URL
-    func getSprintQualyResultsUrl(year: Int?, roundNumber: Int) -> URL
-    func getSprintRaceResultsUrl(year: Int?, roundNumber: Int) -> URL
-    func getQualyResultsUrl(year: Int?, roundNumber: Int) -> URL
-    func getRaceResultsUrl(year: Int?, roundNumber: Int) -> URL
+    func getPracticeResultsUrl(year: Int, practiceNumber: Int, roundNumber: Int) -> URL
+    func getSprintQualyResultsUrl(year: Int, roundNumber: Int) -> URL
+    func getSprintRaceResultsUrl(year: Int, roundNumber: Int) -> URL
+    func getQualyResultsUrl(year: Int, roundNumber: Int) -> URL
+    func getRaceResultsUrl(year: Int, roundNumber: Int) -> URL
 }
