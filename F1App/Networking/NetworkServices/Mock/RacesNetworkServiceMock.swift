@@ -29,7 +29,8 @@ struct RacesNetworkServiceMock: RacesNetworkService {
         }
     }
 
-    func fetchCurrentSeasonRaces(
+    func fetchSeasonRaces(
+        year: Int? = nil,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {

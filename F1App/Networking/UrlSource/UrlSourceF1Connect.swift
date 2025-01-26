@@ -8,13 +8,48 @@
 import Foundation
 
 struct UrlSourceF1Connect: UrlSource {
-    let baseUrl: String = "https://f1connectapi.vercel.app/api"
+    let baseUrl: URL = URL(string: "https://f1api.dev/api")!
 
-    func getCurrentSeasonRacesUrl() -> String {
-        return baseUrl + "/current"
+    // MARK: - Races
+    func getSeasonRacesUrl(year: Int?) -> URL {
+        return baseUrl.appendingPathComponent((year == nil ? "/current" : "/\(year!)"))
     }
 
-    func getNextSeasonRaceUrl() -> String {
-        return baseUrl + "/current/next"
+    func getNextSeasonRaceUrl() -> URL {
+        return baseUrl.appendingPathComponent("/current/next")
+    }
+
+    // MARK: - Standings
+    func getDriversChampionshipUrl(year: Int?) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/drivers-championship")
+    }
+
+    func getConstructorsChampionshipUrl(year: Int?) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/constructors-championship")
+    }
+
+    // MARK: - RoundResults
+    func getPracticeResultsUrl(year: Int?, practiceNumber: Int, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/fp\(practiceNumber)")
+    }
+
+    func getSprintQualyResultsUrl(year: Int?, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/sprint/qualy")
+    }
+
+    func getSprintRaceResultsUrl(year: Int?, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/sprint/race")
+    }
+
+    func getQualyResultsUrl(year: Int?, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/qualy")
+    }
+
+    func getRaceResultsUrl(year: Int?, roundNumber: Int) -> URL {
+        return baseUrl.appendingPathComponent("/\(getYearComponent(year))/\(roundNumber)/race")
+    }
+
+    private func getYearComponent(_ year: Int?) -> String {
+        return year == nil ? "current" : "\(year!)"
     }
 }

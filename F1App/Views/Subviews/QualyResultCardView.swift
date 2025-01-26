@@ -137,7 +137,12 @@ class QualyResultCardView: UIView {
     func configure(isSprint: Bool, qualyResults: [QualyDriverResult]) {
         headerLabel.text = "Квалификация\(isSprint ? " (спринт)" : "")"
 
-        for (index, driverQ1Result) in qualyResults.sorted(by: { $0.q1Time < $1.q1Time }).enumerated() {
+        for (index, driverQ1Result) in qualyResults.sorted(by: {
+            guard let time1 = $0.q1Time, let time2 = $1.q1Time else {
+                return $0.q1Time != nil
+            }
+            return time1 < time2
+        }).enumerated() {
             q1ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 1, position: index + 1, qualyDriverResult: driverQ1Result))
         }
 

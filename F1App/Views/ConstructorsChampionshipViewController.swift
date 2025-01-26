@@ -61,6 +61,7 @@ final class ConstructorsChampionshipViewController: BaseViewController {
         scrollView.addSubview(scrollContainerView)
 
         scrollContainerView.addSubview(championshipTableView)
+        scrollContainerView.addSubview(loadingLabel)
 
         setupConstraints()
     }
@@ -86,6 +87,10 @@ final class ConstructorsChampionshipViewController: BaseViewController {
             scrollContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             scrollContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollContainerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            loadingLabel.topAnchor.constraint(equalTo: scrollContainerView.topAnchor),
+            loadingLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
+            loadingLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
 
             championshipTableView.topAnchor.constraint(equalTo: scrollContainerView.topAnchor),
             championshipTableView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
@@ -122,6 +127,13 @@ final class ConstructorsChampionshipViewController: BaseViewController {
         label.text = "Командный зачет"
         return label
     }()
+    
+    private let loadingLabel: UILabel = {
+        let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
+        label.text = "Загрузка..."
+        label.textAlignment = .center
+        return label
+    }()
 
     private let championshipTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -142,6 +154,8 @@ final class ConstructorsChampionshipViewController: BaseViewController {
 
     // MARK: - Data Methods
     func loadedConstructorsChampionship(_ constructorsChampionship: [ConstructorsChampionshipEntry?]) {
+        loadingLabel.removeFromSuperview()
+        
         championshipTableViewDelegate?.setItems(items: constructorsChampionship)
 
         DispatchQueue.main.async {

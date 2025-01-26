@@ -106,7 +106,7 @@ class RaceScheduleCardView: UIView {
         noScheduleLabel.removeFromSuperview()
 
         headerLabel.text = round.raceName
-        roundLabel.text = "\(round.round) этап"
+        roundLabel.text = "\(round.roundNumber) этап"
         curcuitLabel.text = round.circuit?.name
 
         if let fp1Label = fp1DateHStackView.arrangedSubviews[1] as? UILabel {

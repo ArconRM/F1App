@@ -58,6 +58,7 @@ final class DriversChampionshipViewController: BaseViewController {
         scrollView.addSubview(scrollContainerView)
 
         scrollContainerView.addSubview(championshipTableView)
+        scrollContainerView.addSubview(loadingLabel)
 
         setupConstraints()
     }
@@ -83,6 +84,10 @@ final class DriversChampionshipViewController: BaseViewController {
             scrollContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             scrollContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollContainerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            loadingLabel.topAnchor.constraint(equalTo: scrollContainerView.topAnchor),
+            loadingLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
+            loadingLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
 
             championshipTableView.topAnchor.constraint(equalTo: scrollContainerView.topAnchor),
             championshipTableView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
@@ -136,9 +141,18 @@ final class DriversChampionshipViewController: BaseViewController {
 
         return tableView
     }()
+    
+    private let loadingLabel: UILabel = {
+        let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
+        label.text = "Загрузка..."
+        label.textAlignment = .center
+        return label
+    }()
 
     // MARK: - Data Methods
     func loadedDriversChampionship(_ driversChampionship: [DriversChampionshipEntry?]) {
+        loadingLabel.removeFromSuperview()
+        
         championshipTableViewDelegate?.setItems(items: driversChampionship)
 
         DispatchQueue.main.async {

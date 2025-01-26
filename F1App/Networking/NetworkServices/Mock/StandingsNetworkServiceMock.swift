@@ -19,7 +19,8 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
         constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: teamDecoder)
     }
 
-    func fetchCurrentDriversChampionship(
+    func fetchDriversChampionship(
+        year: Int? = nil,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[DriversChampionshipEntry?], any Error>) -> Void
     ) {
@@ -34,7 +35,8 @@ struct StandingsNetworkServiceMock: StandingsNetworkService {
         }
     }
 
-    func fetchCurrentConstructorsChampionship(
+    func fetchConstructorsChampionship(
+        year: Int? = nil,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[ConstructorsChampionshipEntry?], any Error>) -> Void
     ) {

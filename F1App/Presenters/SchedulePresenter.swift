@@ -35,7 +35,7 @@ final class SchedulePresenter: Presenter {
     }
 
     private func loadAllRaces() {
-        raceNetworkService.fetchCurrentSeasonRaces(resultQueue: .main) { [weak self] result in
+        raceNetworkService.fetchSeasonRaces(year: 2024, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let races):
                 self?.view?.loadedAllRaces(races: self?.sortRaces(races) ?? [])

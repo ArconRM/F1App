@@ -25,34 +25,39 @@ struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
     }
 
     func fetchRoundResults(
-        round: Round,
+        year: Int? = nil,
+        roundNumber round: Int,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<RoundResults, any Error>) -> Void
     ) {
-        do {
-            let fp1Results = try fetchPracticeResults(practiceNumber: 1)
-            let fp2Results = try fetchPracticeResults(practiceNumber: 2)
-            let fp3Results = try fetchPracticeResults(practiceNumber: 3)
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let fp1Results = try fetchPracticeResults(practiceNumber: 1)
+                let fp2Results = try fetchPracticeResults(practiceNumber: 2)
+                let fp3Results = try fetchPracticeResults(practiceNumber: 3)
 
-            let sprintQualyResults = try fetchQualyResults(isSprint: true)
-            let sprintRaceResults = try fetchRaceResults(isSprint: true)
+                let sprintQualyResults = try fetchQualyResults(isSprint: true)
+                let sprintRaceResults = try fetchRaceResults(isSprint: true)
 
-            let qualyResults = try fetchQualyResults(isSprint: false)
-            let raceResults = try fetchRaceResults(isSprint: false)
+                let qualyResults = try fetchQualyResults(isSprint: false)
+                let raceResults = try fetchRaceResults(isSprint: false)
 
-            let roundResults = RoundResults(
-                fp1Results: fp1Results,
-                fp2Results: fp2Results,
-                fp3Results: fp3Results,
-                sprintQualyResults: sprintQualyResults,
-                sprintRaceResults: sprintRaceResults,
-                qualyResults: qualyResults,
-                raceResults: raceResults
-            )
-            completionHandler(.success(roundResults))
+                Thread.sleep(forTimeInterval: 2)
 
-        } catch let error {
-            completionHandler(.failure(error))
+                let roundResults = RoundResults(
+                    fp1Results: fp1Results,
+                    fp2Results: fp2Results,
+                    fp3Results: fp3Results,
+                    sprintQualyResults: sprintQualyResults,
+                    sprintRaceResults: sprintRaceResults,
+                    qualyResults: qualyResults,
+                    raceResults: raceResults
+                )
+                resultQueue.async { completionHandler(.success(roundResults)) }
+
+            } catch let error {
+                resultQueue.async { completionHandler(.failure(error)) }
+            }
         }
     }
 

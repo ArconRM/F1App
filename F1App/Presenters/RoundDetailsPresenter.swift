@@ -26,7 +26,7 @@ final class RoundDetailsPresenter: Presenter {
     }
 
     private func loadRoundResults() {
-        roundResultsNetworkService.fetchRoundResults(round: round, resultQueue: .main) { [weak self] result in
+        roundResultsNetworkService.fetchRoundResults(year: 2024, roundNumber: round.roundNumber, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let roundResults):
                 self?.view?.loadedRoundResultsInfo(roundResults)

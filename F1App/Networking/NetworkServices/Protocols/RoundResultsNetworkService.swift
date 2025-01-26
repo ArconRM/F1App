@@ -9,7 +9,8 @@ import Foundation
 
 protocol RoundResultsNetworkService {
     func fetchRoundResults(
-        round: Round,
+        year: Int?,
+        roundNumber: Int,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<RoundResults, Error>) -> Void
     )

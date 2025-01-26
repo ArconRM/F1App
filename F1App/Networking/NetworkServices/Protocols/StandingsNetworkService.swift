@@ -9,12 +9,14 @@ import Foundation
 
 protocol StandingsNetworkService {
 
-    func fetchCurrentDriversChampionship(
+    func fetchDriversChampionship(
+        year: Int?,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[DriversChampionshipEntry?], Error>) -> Void
     )
 
-    func fetchCurrentConstructorsChampionship(
+    func fetchConstructorsChampionship(
+        year: Int?,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[ConstructorsChampionshipEntry?], Error>) -> Void
     )

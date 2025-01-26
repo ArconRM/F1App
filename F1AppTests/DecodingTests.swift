@@ -8,7 +8,7 @@
 import XCTest
 @testable import F1App
 
-class DecodingTests: XCTestCase {
+final class DecodingTests: XCTestCase {
     let circuitDecoder = CircuitDecoderF1Connect()
     let driversDecoder = DriverDecoderF1Connect()
     let teamDecoder = TeamDecoderF1Connect()
@@ -35,6 +35,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -52,6 +54,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -69,6 +73,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -86,6 +92,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -103,6 +111,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -120,6 +130,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -137,6 +149,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -154,6 +168,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
     
@@ -171,6 +187,8 @@ class DecodingTests: XCTestCase {
                 print(error)
                 XCTAssert(false)
             }
+        } else {
+            XCTAssert(false)
         }
     }
 }

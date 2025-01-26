@@ -38,21 +38,22 @@ struct RaceResultDecoderF1Connect: RaceResultsDecoder {
     }
 
     func decodeRaceDriverResultFromJson(_ json: [String: Any?]) throws -> RaceDriverResult {
-        guard let position = json["position"] as? Int else {
+        var position: String
+        if let positionInt = json["position"] as? Int {
+            position = "\(positionInt)"
+        } else if let positionStr = json["position"] as? String {
+            position = positionStr
+        } else {
             throw SerializationError.missing(key: "position")
         }
 
-        guard let grid = json["grid"] as? Int else {
-            throw SerializationError.missing(key: "grid")
-        }
+        let grid = json["gridPosition"] as? Int ?? json["grid"] as? Int
 
         guard let points = json["points"] as? Int else {
             throw SerializationError.missing(key: "points")
         }
 
-        guard let time = json["time"] as? String else {
-            throw SerializationError.missing(key: "time")
-        }
+        let time = json["time"] as? String
 
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
             throw SerializationError.invalid(key: "driver")

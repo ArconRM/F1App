@@ -8,8 +8,23 @@
 import Foundation
 
 protocol UrlSource {
-    var baseUrl: String { get }
+    var baseUrl: URL { get }
 
-    func getCurrentSeasonRacesUrl() -> String
-    func getNextSeasonRaceUrl() -> String
+    // MARK: - Races
+    func getSeasonRacesUrl(year: Int?) -> URL
+
+    /// With using current endpoint
+    func getNextSeasonRaceUrl() -> URL
+
+    // MARK: - Standings
+    func getDriversChampionshipUrl(year: Int?) -> URL
+
+    func getConstructorsChampionshipUrl(year: Int?) -> URL
+
+    // MARK: - RoundResults
+    func getPracticeResultsUrl(year: Int?, practiceNumber: Int, roundNumber: Int) -> URL
+    func getSprintQualyResultsUrl(year: Int?, roundNumber: Int) -> URL
+    func getSprintRaceResultsUrl(year: Int?, roundNumber: Int) -> URL
+    func getQualyResultsUrl(year: Int?, roundNumber: Int) -> URL
+    func getRaceResultsUrl(year: Int?, roundNumber: Int) -> URL
 }

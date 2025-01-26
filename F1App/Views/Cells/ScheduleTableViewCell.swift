@@ -71,7 +71,6 @@ class ScheduleTableViewCell: UITableViewCell {
 
             separator.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             separator.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 8),
-            separator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
             separator.widthAnchor.constraint(equalToConstant: 0.3),
             separator.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -16),
 
@@ -105,7 +104,7 @@ class ScheduleTableViewCell: UITableViewCell {
 
     // MARK: - Data Methods
     func configure(item: Round) {
-        numberLabel.text = "\(item.round)"
+        numberLabel.text = "\(item.roundNumber)"
 
         headerLabel.text = item.raceName
         curcuitLabel.text = item.circuit?.name

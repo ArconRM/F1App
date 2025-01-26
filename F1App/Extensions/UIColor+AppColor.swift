@@ -27,7 +27,7 @@ extension UIColor {
             return .adaptiveColor(light: .white.withAlphaComponent(0.8), dark: .gray.withAlphaComponent(0.3))
 
         case .tabBarBackgroundColor:
-            return .adaptiveColor(light: .white.withAlphaComponent(0.2), dark: .gray.withAlphaComponent(0.2))
+            return .adaptiveColor(light: .white.withAlphaComponent(0.2), dark: .black.withAlphaComponent(0.4))
         }
     }
 

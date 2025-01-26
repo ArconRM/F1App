@@ -27,11 +27,13 @@ struct RaceDecoderF1Connect: RaceDecoder {
     }
 
     func decodeRace(from json: [String: Any?]) throws -> Round? {
-        guard let yearString = json["season"] as? String else {
+        var year: Int
+        if let yearInt = json["season"] as? Int {
+            year = yearInt
+        } else if let yearStr = json["season"] as? String, let yearInt = Int(yearStr) {
+            year = yearInt
+        } else {
             throw SerializationError.missing(key: "season")
-        }
-        guard let year = Int(yearString) else {
-            throw SerializationError.invalid(key: "season")
         }
 
         if let racesJson = json["race"] as? [[String: Any?]], racesJson.count == 1 {
@@ -53,11 +55,13 @@ struct RaceDecoderF1Connect: RaceDecoder {
     }
 
     func decodeRaces(from json: [String: Any?]) throws -> [Round] {
-        guard let yearString = json["season"] as? String else {
+        var year: Int
+        if let yearInt = json["season"] as? Int {
+            year = yearInt
+        } else if let yearStr = json["season"] as? String, let yearInt = Int(yearStr) {
+            year = yearInt
+        } else {
             throw SerializationError.missing(key: "season")
-        }
-        guard let year = Int(yearString) else {
-            throw SerializationError.invalid(key: "season")
         }
 
         if let racesJsonArray = json["races"] as? [[String: Any?]] {
@@ -75,9 +79,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
         // Not nested props
         let raceId = json["raceId"] as? String
 
-        guard let raceName = json["raceName"] as? String else {
-            throw SerializationError.missing(key: "raceName")
-        }
+        let raceName = json["raceName"] as? String
 
         let laps = json["laps"] as? Int
 
@@ -155,7 +157,7 @@ struct RaceDecoderF1Connect: RaceDecoder {
             raceId: raceId,
             raceName: raceName,
             laps: laps,
-            round: round,
+            roundNumber: round,
             year: year,
             url: url,
             circuit: circuit,
@@ -172,11 +174,11 @@ struct RaceDecoderF1Connect: RaceDecoder {
     }
 
     private func getDateTime(date: String?, time: String?) -> Date? {
-        guard let date = date, let time = time else {
+        guard let date = date else {
             return nil
         }
 
-        let dateTimeString = "\(date)T\(time)"
+        let dateTimeString = "\(date)T\(time ?? "00:00:00Z")"
         let formatter = ISO8601DateFormatter()
         return formatter.date(from: dateTimeString)
     }

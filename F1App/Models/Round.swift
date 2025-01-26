@@ -9,9 +9,9 @@ import Foundation
 
 struct Round {
     var raceId: String?
-    var raceName: String
+    var raceName: String?
     var laps: Int?
-    var round: Int
+    var roundNumber: Int
     var year: Int
     var url: String?
 
@@ -46,7 +46,7 @@ struct Round {
         //            raceId: "bahrein_2024",
         //            raceName: "Gulf Air Bahrain Grand Prix 2024",
         //            laps: 57,
-        //            round: 1,
+        //            roundNumber: 1,
         //            year: 2024,
         //            url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
         //            circuit: Circuit.mock,
@@ -65,7 +65,7 @@ struct Round {
             raceId: "bahrein_2024",
             raceName: "Gulf Air Bahrain Grand Prix 2024",
             laps: 57,
-            round: 1,
+            roundNumber: 1,
             year: 2024,
             url: "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix",
             circuit: Circuit.mock,

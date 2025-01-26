@@ -8,7 +8,7 @@
 import Foundation
 
 struct Team: Codable {
-    var teamId: String
+    var teamId: String?
     var teamName: String
     var country: String
     var constructorsChampionships: Int?

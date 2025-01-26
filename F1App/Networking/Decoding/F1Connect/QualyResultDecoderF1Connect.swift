@@ -38,17 +38,15 @@ struct QualyResultDecoderF1Connect: QualyResultsDecoder {
     }
 
     private func decodeQualyDriverResultFromJson(_ json: [String: Any?], isSprint: Bool) throws -> QualyDriverResult {
-        guard let position = json["Grid_Position"] as? Int else {
+        guard let position = json["gridPosition"] as? Int else {
             throw SerializationError.missing(key: "position")
         }
 
-        guard let q1Time = json[isSprint ? "SQ1_Time" : "Q1_Time"] as? String else {
-            throw SerializationError.missing(key: "q1Time")
-        }
+        let q1Time = (json[isSprint ? "sq1" : "q1"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let q2Time = json[isSprint ? "SQ2_Time" : "Q2_Time"] as? String
+        let q2Time = (json[isSprint ? "sq2" : "q2"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let q3Time = json[isSprint ? "SQ3_Time" : "Q3_Time"] as? String
+        let q3Time = (json[isSprint ? "Sq3" : "q3"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
             throw SerializationError.invalid(key: "driver")

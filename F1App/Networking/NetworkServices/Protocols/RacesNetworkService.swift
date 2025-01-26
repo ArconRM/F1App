@@ -14,7 +14,8 @@ protocol RacesNetworkService {
         completionHandler: @escaping (Result<Round?, Error>) -> Void
     )
 
-    func fetchCurrentSeasonRaces(
+    func fetchSeasonRaces(
+        year: Int?,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[Round?], Error>) -> Void
     )

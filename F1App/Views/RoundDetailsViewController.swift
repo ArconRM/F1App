@@ -37,7 +37,8 @@ final class RoundDetailsViewController: BaseViewController {
 
         scrollView.addSubview(scrollContainerView)
 
-        scrollContainerView.addSubview(circuitCardView)
+        scrollContainerView.addArrangedSubview(circuitCardView)
+        scrollContainerView.addArrangedSubview(loadingLabel)
 
         setupConstraints()
     }
@@ -65,8 +66,11 @@ final class RoundDetailsViewController: BaseViewController {
             scrollContainerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             circuitCardView.topAnchor.constraint(equalTo: scrollContainerView.topAnchor, constant: 16),
-            circuitCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            circuitCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            circuitCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
+            circuitCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
+            
+            loadingLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
+            loadingLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16)
         ])
     }
 
@@ -87,11 +91,7 @@ final class RoundDetailsViewController: BaseViewController {
         return scrollView
     }()
 
-    private let scrollContainerView: UIView = {
-        let scrollContainerView = UIView()
-        scrollContainerView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollContainerView
-    }()
+    private let scrollContainerView = StackViewFactory.createStackView(axis: .vertical, alignment: .center, spacing: 16)
 
     private let raceNameTitleLabel = LabelFactory.createLabel(fontSize: FontSizes.title.rawValue, color: .appColor(.mainTextColor))
 
@@ -107,6 +107,13 @@ final class RoundDetailsViewController: BaseViewController {
     private let qualyResultCardView = QualyResultCardView()
     private let raceResultCardView = RaceResultCardView()
 
+    private let loadingLabel: UILabel = {
+        let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
+        label.text = "Загрузка..."
+        label.textAlignment = .center
+        return label
+    }()
+
     // MARK: - Data Methods
     func loadedBaseRoundInfo(_ round: Round) {
         raceNameTitleLabel.text = round.raceName
@@ -117,56 +124,59 @@ final class RoundDetailsViewController: BaseViewController {
     }
 
     func loadedRoundResultsInfo(_ roundResults: RoundResults) {
-        fp1ResultCardView.configure(practiceNumber: 1, practiceResults: roundResults.fp1Results)
-        fp2ResultCardView.configure(practiceNumber: 2, practiceResults: roundResults.fp2Results)
-        fp3ResultCardView.configure(practiceNumber: 3, practiceResults: roundResults.fp3Results)
+        loadingLabel.removeFromSuperview()
 
-        sprintQualyResultCardView.configure(isSprint: true, qualyResults: roundResults.sprintQualyResults)
-        sprintRaceResultCardView.configure(isSprint: true, raceResults: roundResults.sprintRaceResults)
+        if !roundResults.fp1Results.isEmpty {
+            fp1ResultCardView.configure(practiceNumber: 1, practiceResults: roundResults.fp1Results)
 
-        qualyResultCardView.configure(isSprint: false, qualyResults: roundResults.qualyResults)
-        raceResultCardView.configure(isSprint: false, raceResults: roundResults.raceResults)
+            scrollContainerView.addArrangedSubview(fp1ResultCardView)
+            fp1ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            fp1ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
+        if !roundResults.fp2Results.isEmpty {
+            fp2ResultCardView.configure(practiceNumber: 2, practiceResults: roundResults.fp2Results)
 
-        scrollContainerView.addSubview(fp1ResultCardView)
-        scrollContainerView.addSubview(fp2ResultCardView)
-        scrollContainerView.addSubview(fp3ResultCardView)
+            scrollContainerView.addArrangedSubview(fp2ResultCardView)
+            fp2ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            fp2ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
+        if !roundResults.fp3Results.isEmpty {
+            fp3ResultCardView.configure(practiceNumber: 3, practiceResults: roundResults.fp3Results)
 
-        scrollContainerView.addSubview(sprintQualyResultCardView)
-        scrollContainerView.addSubview(sprintRaceResultCardView)
+            scrollContainerView.addArrangedSubview(fp3ResultCardView)
+            fp3ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            fp3ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
 
-        scrollContainerView.addSubview(qualyResultCardView)
-        scrollContainerView.addSubview(raceResultCardView)
+        if !roundResults.sprintQualyResults.isEmpty {
+            sprintQualyResultCardView.configure(isSprint: true, qualyResults: roundResults.sprintQualyResults)
 
-        NSLayoutConstraint.activate([
-            fp1ResultCardView.topAnchor.constraint(equalTo: circuitCardView.bottomAnchor, constant: 16),
-            fp1ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            fp1ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            scrollContainerView.addArrangedSubview(sprintQualyResultCardView)
+            sprintQualyResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            sprintQualyResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
+        if !roundResults.sprintRaceResults.isEmpty {
+            sprintRaceResultCardView.configure(isSprint: true, raceResults: roundResults.sprintRaceResults)
 
-            fp2ResultCardView.topAnchor.constraint(equalTo: fp1ResultCardView.bottomAnchor, constant: 16),
-            fp2ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            fp2ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            scrollContainerView.addArrangedSubview(sprintRaceResultCardView)
+            sprintRaceResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            sprintRaceResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
 
-            fp3ResultCardView.topAnchor.constraint(equalTo: fp2ResultCardView.bottomAnchor, constant: 16),
-            fp3ResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            fp3ResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+        if !roundResults.qualyResults.isEmpty {
+            qualyResultCardView.configure(isSprint: false, qualyResults: roundResults.qualyResults)
 
-            sprintQualyResultCardView.topAnchor.constraint(equalTo: fp3ResultCardView.bottomAnchor, constant: 16),
-            sprintQualyResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            sprintQualyResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            scrollContainerView.addArrangedSubview(qualyResultCardView)
+            qualyResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            qualyResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
+        if !roundResults.raceResults.isEmpty {
+            raceResultCardView.configure(isSprint: false, raceResults: roundResults.raceResults)
 
-            sprintRaceResultCardView.topAnchor.constraint(equalTo: sprintQualyResultCardView.bottomAnchor, constant: 16),
-            sprintRaceResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            sprintRaceResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-
-            qualyResultCardView.topAnchor.constraint(equalTo: sprintRaceResultCardView.bottomAnchor, constant: 16),
-            qualyResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            qualyResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-
-            raceResultCardView.topAnchor.constraint(equalTo: qualyResultCardView.bottomAnchor, constant: 16),
-            raceResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            raceResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            raceResultCardView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor, constant: -16)
-        ])
+            scrollContainerView.addArrangedSubview(raceResultCardView)
+            raceResultCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16).isActive = true
+            raceResultCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16).isActive = true
+        }
     }
 }
 

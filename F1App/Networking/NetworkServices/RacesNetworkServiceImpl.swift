@@ -21,52 +21,51 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<Round?, any Error>) -> Void
     ) {
-        guard let url = URL(string: urlSource.getNextSeasonRaceUrl()) else {
-            resultQueue.async {
-                completionHandler(.failure(NetworkError.urlError))
-            }
-            return
-        }
+        let nextSeasonRaceUrl = urlSource.getNextSeasonRaceUrl()
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        URLSession.shared.dataTask(with: nextSeasonRaceUrl) { data, _, error in
             guard error == nil else {
-                completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription)))
+                resultQueue.async { completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription))) }
+                return
+            }
+
+            guard data != nil else {
+                resultQueue.async { completionHandler(.success(nil)) }
                 return
             }
 
             do {
-                let data = try Data(contentsOf: url)
-                let race = try self.raceDecoder.decodeRace(from: data)
-                completionHandler(.success(race))
+                let race = try self.raceDecoder.decodeRace(from: data!)
+                resultQueue.async { completionHandler(.success(race)) }
             } catch let error {
-                completionHandler(.failure(error))
+                resultQueue.async { completionHandler(.failure(NetworkError.parserError(error.localizedDescription))) }
             }
         }.resume()
     }
 
-    func fetchCurrentSeasonRaces(
+    func fetchSeasonRaces(
+        year: Int?,
         resultQueue: DispatchQueue,
         completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
-        guard let url = URL(string: urlSource.getCurrentSeasonRacesUrl()) else {
-            resultQueue.async {
-                completionHandler(.failure(NetworkError.urlError))
-            }
-            return
-        }
+        let seasonRacesUrl = urlSource.getSeasonRacesUrl(year: year)
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        URLSession.shared.dataTask(with: seasonRacesUrl) { data, _, error in
             guard error == nil else {
-                completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription)))
+                resultQueue.async { completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription))) }
+                return
+            }
+
+            guard data != nil else {
+                resultQueue.async { completionHandler(.success([])) }
                 return
             }
 
             do {
-                let data = try Data(contentsOf: url)
-                let races = try self.raceDecoder.decodeRaces(from: data)
-                completionHandler(.success(races))
+                let races = try self.raceDecoder.decodeRaces(from: data!)
+                resultQueue.async { completionHandler(.success(races)) }
             } catch let error {
-                completionHandler(.failure(error))
+                resultQueue.async { completionHandler(.failure(NetworkError.parserError(error.localizedDescription))) }
             }
         }.resume()
     }

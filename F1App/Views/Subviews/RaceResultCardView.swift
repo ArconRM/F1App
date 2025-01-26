@@ -66,8 +66,14 @@ class RaceResultCardView: UIView {
             let hStackView = StackViewFactory.createStackView(axis: .horizontal)
 
             let positionLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
-            positionLabel.text = "\(raceDriverResult.position) (\(raceDriverResult.grid - raceDriverResult.position))"
-            positionLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+
+            if let grid = raceDriverResult.grid, let position = Int(raceDriverResult.position) {
+                positionLabel.text = "\(raceDriverResult.position) (\(grid - position))"
+            } else {
+                positionLabel.text = raceDriverResult.position
+            }
+
+            positionLabel.widthAnchor.constraint(equalToConstant: 65).isActive = true
 
             let driverLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor), multiline: false)
             driverLabel.text = raceDriverResult.driver.fullName

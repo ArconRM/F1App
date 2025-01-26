@@ -8,7 +8,7 @@
 import Foundation
 
 struct Driver: Codable {
-    var driverId: String
+    var driverId: String?
     var name: String
     var surname: String
     var nationality: String

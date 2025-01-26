@@ -63,7 +63,7 @@ final class ScheduleViewController: BaseViewController {
         scrollContainerView.addSubview(nextRaceTitleLabel)
         scrollContainerView.addSubview(currentRaceCard)
         scrollContainerView.addSubview(separator)
-        scrollContainerView.addSubview(noScheduleLabel)
+        scrollContainerView.addSubview(loadingLabel)
         scrollContainerView.addSubview(scheduleTitleLabel)
         scrollContainerView.addSubview(scheduleTableView)
 
@@ -101,13 +101,13 @@ final class ScheduleViewController: BaseViewController {
             separator.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
             separator.heightAnchor.constraint(equalToConstant: 1),
 
-            noScheduleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 16),
-            noScheduleLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
-            noScheduleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
-
             scheduleTitleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 16),
             scheduleTitleLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             scheduleTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
+
+            loadingLabel.topAnchor.constraint(equalTo: scheduleTitleLabel.bottomAnchor, constant: 16),
+            loadingLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
+            loadingLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
 
             scheduleTableView.topAnchor.constraint(equalTo: scheduleTitleLabel.bottomAnchor),
             scheduleTableView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor),
@@ -174,9 +174,9 @@ final class ScheduleViewController: BaseViewController {
         return tableView
     }()
 
-    private let noScheduleLabel: UILabel = {
+    private let loadingLabel: UILabel = {
         let label = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.subTextColor))
-        label.text = "Полного расписания пока нет"
+        label.text = "Загрузка..."
         label.textAlignment = .center
         return label
     }()
@@ -191,15 +191,18 @@ final class ScheduleViewController: BaseViewController {
     }
 
     func loadedAllRaces(races: [Round?]) {
-        noScheduleLabel.isHidden = true
-        scheduleTableView.isHidden = false
+        if races.isEmpty {
+            loadingLabel.text = "Полного расписания пока нет"
+        } else {
+            loadingLabel.isHidden = true
+            scheduleTableView.isHidden = false
+            scheduleTableViewDelegate?.setItems(items: races)
 
-        scheduleTableViewDelegate?.setItems(items: races)
-
-        DispatchQueue.main.async {
-            self.scheduleTableView.reloadData()
-            self.scheduleTableView.layoutIfNeeded()
-            self.scheduleTableView.heightAnchor.constraint(equalToConstant: self.scheduleTableView.contentSize.height).isActive = true
+            DispatchQueue.main.async {
+                self.scheduleTableView.reloadData()
+                self.scheduleTableView.layoutIfNeeded()
+                self.scheduleTableView.heightAnchor.constraint(equalToConstant: self.scheduleTableView.contentSize.height).isActive = true
+            }
         }
     }
 }

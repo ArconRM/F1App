@@ -25,7 +25,7 @@ struct PracticeResultDecoderF1Connect: PracticeResultsDecoder {
 
     func decodePracticeResults(from json: [String: Any?], practiceNumber: Int) throws -> [PracticeDriverResult] {
         if let roundJson = json["races"] as? [String: Any?],
-           let practiceResultsJsonArray = roundJson["FP\(practiceNumber)_Results"] as? [[String: Any?]] {
+           let practiceResultsJsonArray = roundJson["fp\(practiceNumber)Results"] as? [[String: Any?]] {
 
             var result: [PracticeDriverResult] = []
             for (position, json) in practiceResultsJsonArray.enumerated() {

@@ -49,9 +49,10 @@ struct DriverDecoderF1Connect: DriverDecoder {
 
     private func decodeDriverFromJson(_ json: [String: Any?]) throws -> Driver {
 
-        guard let driverId = json["driverId"] as? String else {
-            throw SerializationError.missing(key: "driverId")
-        }
+//        guard let driverId = json["driverId"] as? String else {
+//            throw SerializationError.missing(key: "driverId")
+//        }
+        let driverId = json["driverId"] as? String
 
         guard let name = json["name"] as? String else {
             throw SerializationError.missing(key: "name")

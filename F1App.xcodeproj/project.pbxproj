@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16087C6B2D1A087600654DE0 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16087C6A2D1A087600654DE0 /* 1.json */; };
-		16087C6C2D1A087600654DE0 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16087C6A2D1A087600654DE0 /* 1.json */; };
 		16087C6E2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C6D2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift */; };
 		16087C702D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C6F2D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift */; };
 		16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16087C712D1B30F500654DE0 /* LabelFactory.swift */; };
@@ -38,13 +36,7 @@
 		163C4D202CF8D7B300C62F43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D0F2CF8D7B300C62F43 /* SceneDelegate.swift */; };
 		163C4D222CF8D7B300C62F43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D092CF8D7B300C62F43 /* Assets.xcassets */; };
 		163C4D242CF8D7B300C62F43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D0C2CF8D7B300C62F43 /* LaunchScreen.storyboard */; };
-		163C4D2E2CF8D7C200C62F43 /* 2024.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D262CF8D7C200C62F43 /* 2024.json */; };
-		163C4D2F2CF8D7C200C62F43 /* constructors-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D272CF8D7C200C62F43 /* constructors-championship.json */; };
-		163C4D312CF8D7C200C62F43 /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D292CF8D7C200C62F43 /* drivers-championship.json */; };
 		163C4D322CF8D7C200C62F43 /* NetworkServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D2B2CF8D7C200C62F43 /* NetworkServicesTests.swift */; };
-		163C4D332CF8D7C200C62F43 /* constructors-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D272CF8D7C200C62F43 /* constructors-championship.json */; };
-		163C4D352CF8D7C200C62F43 /* 2024.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D262CF8D7C200C62F43 /* 2024.json */; };
-		163C4D362CF8D7C200C62F43 /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D292CF8D7C200C62F43 /* drivers-championship.json */; };
 		163C4D3A2CF8D7C200C62F43 /* F1AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */; };
 		163C4D3B2CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */; };
 		16692BE12D293A920097C1CC /* DriversChampionshipViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */; };
@@ -92,26 +84,10 @@
 		1695A0572D0436FC00C25292 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0562D0436FC00C25292 /* SettingsPresenter.swift */; };
 		16A421DB2D1EE9D5003683CD /* RoundDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421DA2D1EE9D5003683CD /* RoundDetailsViewController.swift */; };
 		16A421DD2D1EEB40003683CD /* RoundDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */; };
-		16A421DF2D1EECCF003683CD /* 2025.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421DE2D1EECCF003683CD /* 2025.json */; };
-		16A421E02D1EECCF003683CD /* 2025.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421DE2D1EECCF003683CD /* 2025.json */; };
-		16A421E62D1EFBA6003683CD /* qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E42D1EFBA6003683CD /* qualy.json */; };
-		16A421E72D1EFBA6003683CD /* fp2.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E22D1EFBA6003683CD /* fp2.json */; };
-		16A421E82D1EFBA6003683CD /* fp1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E12D1EFBA6003683CD /* fp1.json */; };
-		16A421E92D1EFBA6003683CD /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E52D1EFBA6003683CD /* race.json */; };
-		16A421EA2D1EFBA6003683CD /* fp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E32D1EFBA6003683CD /* fp3.json */; };
-		16A421EB2D1EFBA6003683CD /* qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E42D1EFBA6003683CD /* qualy.json */; };
-		16A421EC2D1EFBA6003683CD /* fp2.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E22D1EFBA6003683CD /* fp2.json */; };
-		16A421ED2D1EFBA6003683CD /* fp1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E12D1EFBA6003683CD /* fp1.json */; };
-		16A421EE2D1EFBA6003683CD /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E52D1EFBA6003683CD /* race.json */; };
-		16A421EF2D1EFBA6003683CD /* fp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421E32D1EFBA6003683CD /* fp3.json */; };
 		16A421F12D1EFD86003683CD /* PracticeDriverResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421F02D1EFD86003683CD /* PracticeDriverResult.swift */; };
 		16A421F32D1F051A003683CD /* QualyDriverResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421F22D1F051A003683CD /* QualyDriverResult.swift */; };
 		16A421F52D1F05D9003683CD /* RaceDriverResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421F42D1F05D9003683CD /* RaceDriverResult.swift */; };
 		16A421F72D1F080D003683CD /* RoundResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A421F62D1F080D003683CD /* RoundResults.swift */; };
-		16A421FA2D1F08F2003683CD /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421F82D1F08F2003683CD /* sprint-qualy.json */; };
-		16A421FB2D1F08F2003683CD /* sprint-race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421F92D1F08F2003683CD /* sprint-race.json */; };
-		16A421FC2D1F08F2003683CD /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421F82D1F08F2003683CD /* sprint-qualy.json */; };
-		16A421FD2D1F08F2003683CD /* sprint-race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A421F92D1F08F2003683CD /* sprint-race.json */; };
 		16A422032D1F178F003683CD /* PracticeResultDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422022D1F178F003683CD /* PracticeResultDecoderF1Connect.swift */; };
 		16A422052D1F17B7003683CD /* PracticeResultsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422042D1F17B7003683CD /* PracticeResultsDecoder.swift */; };
 		16A422072D1F2277003683CD /* QualyResultsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A422062D1F2277003683CD /* QualyResultsDecoder.swift */; };
@@ -129,6 +105,28 @@
 		16BD5B412D1C434B00B13974 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD5B402D1C434B00B13974 /* GradientColors.swift */; };
 		16C030C52D072DE4000C258E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C42D072DE4000C258E /* Date+Extensions.swift */; };
 		16C030C72D08192C000C258E /* DependencyFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C030C62D08192C000C258E /* DependencyFactoryMock.swift */; };
+		16CEC0D52D463E6100EF668E /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D32D463E6000EF668E /* race.json */; };
+		16CEC0D62D463E6100EF668E /* constructors-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CD2D463E6000EF668E /* constructors-championship.json */; };
+		16CEC0D72D463E6100EF668E /* fp1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CF2D463E6000EF668E /* fp1.json */; };
+		16CEC0D82D463E6100EF668E /* fp2.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D02D463E6000EF668E /* fp2.json */; };
+		16CEC0D92D463E6100EF668E /* fp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D12D463E6000EF668E /* fp3.json */; };
+		16CEC0DA2D463E6100EF668E /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CE2D463E6000EF668E /* drivers-championship.json */; };
+		16CEC0DB2D463E6100EF668E /* sprint-race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D42D463E6000EF668E /* sprint-race.json */; };
+		16CEC0DC2D463E6100EF668E /* qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D22D463E6000EF668E /* qualy.json */; };
+		16CEC0DD2D463E6100EF668E /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D32D463E6000EF668E /* race.json */; };
+		16CEC0DE2D463E6100EF668E /* constructors-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CD2D463E6000EF668E /* constructors-championship.json */; };
+		16CEC0DF2D463E6100EF668E /* fp1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CF2D463E6000EF668E /* fp1.json */; };
+		16CEC0E02D463E6100EF668E /* fp2.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D02D463E6000EF668E /* fp2.json */; };
+		16CEC0E12D463E6100EF668E /* fp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D12D463E6000EF668E /* fp3.json */; };
+		16CEC0E22D463E6100EF668E /* drivers-championship.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0CE2D463E6000EF668E /* drivers-championship.json */; };
+		16CEC0E32D463E6100EF668E /* sprint-race.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D42D463E6000EF668E /* sprint-race.json */; };
+		16CEC0E42D463E6100EF668E /* qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0D22D463E6000EF668E /* qualy.json */; };
+		16CEC0E62D463EA100EF668E /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0E52D463EA100EF668E /* 1.json */; };
+		16CEC0E72D463EA100EF668E /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0E52D463EA100EF668E /* 1.json */; };
+		16CEC0E92D463F2900EF668E /* 2024.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0E82D463F2900EF668E /* 2024.json */; };
+		16CEC0EA2D463F2900EF668E /* 2024.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0E82D463F2900EF668E /* 2024.json */; };
+		16CEC0EC2D463F5900EF668E /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0EB2D463F5900EF668E /* sprint-qualy.json */; };
+		16CEC0ED2D463F5900EF668E /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0EB2D463F5900EF668E /* sprint-qualy.json */; };
 		16F4A41F2D240A5400F75700 /* FontSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A41E2D240A5400F75700 /* FontSizes.swift */; };
 		16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */; };
 		3568857A5B93615BB51739B5 /* Pods_F1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */; };
@@ -153,7 +151,6 @@
 
 /* Begin PBXFileReference section */
 		023B0ADB0586B228B6E6864E /* Pods-F1App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.debug.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.debug.xcconfig"; sourceTree = "<group>"; };
-		16087C6A2D1A087600654DE0 /* 1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
 		16087C6D2D1B2C1100654DE0 /* StandingsNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNetworkServiceMock.swift; sourceTree = "<group>"; };
 		16087C6F2D1B2FB400654DE0 /* DriversChampionshipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipTableViewCell.swift; sourceTree = "<group>"; };
 		16087C712D1B30F500654DE0 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
@@ -187,9 +184,6 @@
 		163C4D0A2CF8D7B300C62F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		163C4D0B2CF8D7B300C62F43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		163C4D0F2CF8D7B300C62F43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		163C4D262CF8D7C200C62F43 /* 2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 2024.json; sourceTree = "<group>"; };
-		163C4D272CF8D7C200C62F43 /* constructors-championship.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constructors-championship.json"; sourceTree = "<group>"; };
-		163C4D292CF8D7C200C62F43 /* drivers-championship.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "drivers-championship.json"; sourceTree = "<group>"; };
 		163C4D2B2CF8D7C200C62F43 /* NetworkServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTests.swift; sourceTree = "<group>"; };
 		163C4D372CF8D7C200C62F43 /* F1AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITests.swift; sourceTree = "<group>"; };
 		163C4D382CF8D7C200C62F43 /* F1AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -238,18 +232,10 @@
 		1695A0562D0436FC00C25292 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		16A421DA2D1EE9D5003683CD /* RoundDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailsViewController.swift; sourceTree = "<group>"; };
 		16A421DC2D1EEB40003683CD /* RoundDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDetailsPresenter.swift; sourceTree = "<group>"; };
-		16A421DE2D1EECCF003683CD /* 2025.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 2025.json; sourceTree = "<group>"; };
-		16A421E12D1EFBA6003683CD /* fp1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp1.json; sourceTree = "<group>"; };
-		16A421E22D1EFBA6003683CD /* fp2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp2.json; sourceTree = "<group>"; };
-		16A421E32D1EFBA6003683CD /* fp3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp3.json; sourceTree = "<group>"; };
-		16A421E42D1EFBA6003683CD /* qualy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = qualy.json; sourceTree = "<group>"; };
-		16A421E52D1EFBA6003683CD /* race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
 		16A421F02D1EFD86003683CD /* PracticeDriverResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeDriverResult.swift; sourceTree = "<group>"; };
 		16A421F22D1F051A003683CD /* QualyDriverResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualyDriverResult.swift; sourceTree = "<group>"; };
 		16A421F42D1F05D9003683CD /* RaceDriverResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDriverResult.swift; sourceTree = "<group>"; };
 		16A421F62D1F080D003683CD /* RoundResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResults.swift; sourceTree = "<group>"; };
-		16A421F82D1F08F2003683CD /* sprint-qualy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sprint-qualy.json"; sourceTree = "<group>"; };
-		16A421F92D1F08F2003683CD /* sprint-race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sprint-race.json"; sourceTree = "<group>"; };
 		16A422022D1F178F003683CD /* PracticeResultDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeResultDecoderF1Connect.swift; sourceTree = "<group>"; };
 		16A422042D1F17B7003683CD /* PracticeResultsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeResultsDecoder.swift; sourceTree = "<group>"; };
 		16A422062D1F2277003683CD /* QualyResultsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualyResultsDecoder.swift; sourceTree = "<group>"; };
@@ -267,6 +253,17 @@
 		16BD5B402D1C434B00B13974 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		16C030C42D072DE4000C258E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		16C030C62D08192C000C258E /* DependencyFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryMock.swift; sourceTree = "<group>"; };
+		16CEC0CD2D463E6000EF668E /* constructors-championship.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constructors-championship.json"; sourceTree = "<group>"; };
+		16CEC0CE2D463E6000EF668E /* drivers-championship.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "drivers-championship.json"; sourceTree = "<group>"; };
+		16CEC0CF2D463E6000EF668E /* fp1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp1.json; sourceTree = "<group>"; };
+		16CEC0D02D463E6000EF668E /* fp2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp2.json; sourceTree = "<group>"; };
+		16CEC0D12D463E6000EF668E /* fp3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fp3.json; sourceTree = "<group>"; };
+		16CEC0D22D463E6000EF668E /* qualy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = qualy.json; sourceTree = "<group>"; };
+		16CEC0D32D463E6000EF668E /* race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
+		16CEC0D42D463E6000EF668E /* sprint-race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sprint-race.json"; sourceTree = "<group>"; };
+		16CEC0E52D463EA100EF668E /* 1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
+		16CEC0E82D463F2900EF668E /* 2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 2024.json; sourceTree = "<group>"; };
+		16CEC0EB2D463F5900EF668E /* sprint-qualy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sprint-qualy.json"; sourceTree = "<group>"; };
 		16F4A41E2D240A5400F75700 /* FontSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizes.swift; sourceTree = "<group>"; };
 		16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeResultCardView.swift; sourceTree = "<group>"; };
 		544EC18E7C3166E270529048 /* Pods-F1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.release.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.release.xcconfig"; sourceTree = "<group>"; };
@@ -465,18 +462,17 @@
 		16692BDE2D2932D40097C1CC /* F1Connect */ = {
 			isa = PBXGroup;
 			children = (
-				16087C6A2D1A087600654DE0 /* 1.json */,
-				16A421E12D1EFBA6003683CD /* fp1.json */,
-				16A421E22D1EFBA6003683CD /* fp2.json */,
-				16A421E32D1EFBA6003683CD /* fp3.json */,
-				16A421F82D1F08F2003683CD /* sprint-qualy.json */,
-				16A421F92D1F08F2003683CD /* sprint-race.json */,
-				16A421E42D1EFBA6003683CD /* qualy.json */,
-				16A421E52D1EFBA6003683CD /* race.json */,
-				16A421DE2D1EECCF003683CD /* 2025.json */,
-				163C4D262CF8D7C200C62F43 /* 2024.json */,
-				163C4D292CF8D7C200C62F43 /* drivers-championship.json */,
-				163C4D272CF8D7C200C62F43 /* constructors-championship.json */,
+				16CEC0E82D463F2900EF668E /* 2024.json */,
+				16CEC0E52D463EA100EF668E /* 1.json */,
+				16CEC0CD2D463E6000EF668E /* constructors-championship.json */,
+				16CEC0CE2D463E6000EF668E /* drivers-championship.json */,
+				16CEC0CF2D463E6000EF668E /* fp1.json */,
+				16CEC0D02D463E6000EF668E /* fp2.json */,
+				16CEC0D12D463E6000EF668E /* fp3.json */,
+				16CEC0D22D463E6000EF668E /* qualy.json */,
+				16CEC0D32D463E6000EF668E /* race.json */,
+				16CEC0D42D463E6000EF668E /* sprint-race.json */,
+				16CEC0EB2D463F5900EF668E /* sprint-qualy.json */,
 			);
 			path = F1Connect;
 			sourceTree = "<group>";
@@ -789,19 +785,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				163C4D222CF8D7B300C62F43 /* Assets.xcassets in Resources */,
+				16CEC0EA2D463F2900EF668E /* 2024.json in Resources */,
 				163C4D242CF8D7B300C62F43 /* LaunchScreen.storyboard in Resources */,
-				16A421EB2D1EFBA6003683CD /* qualy.json in Resources */,
-				16A421EC2D1EFBA6003683CD /* fp2.json in Resources */,
-				16A421ED2D1EFBA6003683CD /* fp1.json in Resources */,
-				16A421FC2D1F08F2003683CD /* sprint-qualy.json in Resources */,
-				16A421FD2D1F08F2003683CD /* sprint-race.json in Resources */,
-				16A421EE2D1EFBA6003683CD /* race.json in Resources */,
-				16A421EF2D1EFBA6003683CD /* fp3.json in Resources */,
-				16A421E02D1EECCF003683CD /* 2025.json in Resources */,
-				163C4D332CF8D7C200C62F43 /* constructors-championship.json in Resources */,
-				163C4D352CF8D7C200C62F43 /* 2024.json in Resources */,
-				16087C6C2D1A087600654DE0 /* 1.json in Resources */,
-				163C4D362CF8D7C200C62F43 /* drivers-championship.json in Resources */,
+				16CEC0D52D463E6100EF668E /* race.json in Resources */,
+				16CEC0D62D463E6100EF668E /* constructors-championship.json in Resources */,
+				16CEC0E62D463EA100EF668E /* 1.json in Resources */,
+				16CEC0D72D463E6100EF668E /* fp1.json in Resources */,
+				16CEC0D82D463E6100EF668E /* fp2.json in Resources */,
+				16CEC0D92D463E6100EF668E /* fp3.json in Resources */,
+				16CEC0ED2D463F5900EF668E /* sprint-qualy.json in Resources */,
+				16CEC0DA2D463E6100EF668E /* drivers-championship.json in Resources */,
+				16CEC0DB2D463E6100EF668E /* sprint-race.json in Resources */,
+				16CEC0DC2D463E6100EF668E /* qualy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,18 +804,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A421FA2D1F08F2003683CD /* sprint-qualy.json in Resources */,
-				16A421FB2D1F08F2003683CD /* sprint-race.json in Resources */,
-				16087C6B2D1A087600654DE0 /* 1.json in Resources */,
-				163C4D2E2CF8D7C200C62F43 /* 2024.json in Resources */,
-				163C4D2F2CF8D7C200C62F43 /* constructors-championship.json in Resources */,
-				16A421DF2D1EECCF003683CD /* 2025.json in Resources */,
-				16A421E62D1EFBA6003683CD /* qualy.json in Resources */,
-				16A421E72D1EFBA6003683CD /* fp2.json in Resources */,
-				16A421E82D1EFBA6003683CD /* fp1.json in Resources */,
-				16A421E92D1EFBA6003683CD /* race.json in Resources */,
-				16A421EA2D1EFBA6003683CD /* fp3.json in Resources */,
-				163C4D312CF8D7C200C62F43 /* drivers-championship.json in Resources */,
+				16CEC0DD2D463E6100EF668E /* race.json in Resources */,
+				16CEC0EC2D463F5900EF668E /* sprint-qualy.json in Resources */,
+				16CEC0DE2D463E6100EF668E /* constructors-championship.json in Resources */,
+				16CEC0DF2D463E6100EF668E /* fp1.json in Resources */,
+				16CEC0E02D463E6100EF668E /* fp2.json in Resources */,
+				16CEC0E12D463E6100EF668E /* fp3.json in Resources */,
+				16CEC0E22D463E6100EF668E /* drivers-championship.json in Resources */,
+				16CEC0E32D463E6100EF668E /* sprint-race.json in Resources */,
+				16CEC0E72D463EA100EF668E /* 1.json in Resources */,
+				16CEC0E42D463E6100EF668E /* qualy.json in Resources */,
+				16CEC0E92D463F2900EF668E /* 2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
