@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SettingsViewController: BaseViewController {
+final class SettingsViewController: BaseViewController<SettingsPresenter>, SettingsPresentable {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ final class SettingsViewController: BaseViewController {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = DependencyFactoryMock()
+    let factory = DependencyFactoryWithMockData()
     let view = factory.makeSettingsViewController()
     return view
 }

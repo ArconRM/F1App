@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class RoundDetailsViewController: BaseViewController {
+final class RoundDetailsViewController: BaseViewController<RoundDetailsPresenter>, RoundDetailsPresentable {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ final class RoundDetailsViewController: BaseViewController {
             circuitCardView.topAnchor.constraint(equalTo: scrollContainerView.topAnchor, constant: 16),
             circuitCardView.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             circuitCardView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
-            
+
             loadingLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             loadingLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16)
         ])
@@ -183,7 +183,7 @@ final class RoundDetailsViewController: BaseViewController {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = DependencyFactoryMock()
+    let factory = DependencyFactoryWithMockData()
     let view = factory.makeRoundDetailsViewController(round: Round.mock)
     return view
 }

@@ -1,5 +1,5 @@
 //
-//  DependencyFactoryMock.swift
+//  DependencyFactoryWithMockData.swift
 //  F1App
 //
 //  Created by Artemiy MIROTVORTSEV on 10.12.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DependencyFactoryMock: DependencyFactory {
+final class DependencyFactoryWithMockData: DependencyFactory {
 
     func makeScheduleViewController() -> ScheduleViewController {
         let raceNetworkService = RacesNetworkServiceMock()
@@ -41,7 +41,7 @@ final class DependencyFactoryMock: DependencyFactory {
 
     func makeConstructorChampionshipViewController() -> ConstructorsChampionshipViewController {
         let standingsNetworkService = StandingsNetworkServiceMock()
-        let presenter = ConstructorChampionshipPresenter(standingsNetworkService: standingsNetworkService)
+        let presenter = ConstructorsChampionshipPresenter(standingsNetworkService: standingsNetworkService)
         let viewController = ConstructorsChampionshipViewController(presenter: presenter)
         presenter.view = viewController
         return viewController

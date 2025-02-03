@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ConstructorsChampionshipEntry {
+struct ConstructorsChampionshipEntry: Equatable {
     var points: Int
     var position: Int
     var team: Team

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class ScheduleViewController: BaseViewController {
+final class ScheduleViewController: BaseViewController<SchedulePresenter>, SchedulePresentable {
 
     var coordinator: ScheduleViewCoordinator?
 
@@ -184,13 +184,13 @@ final class ScheduleViewController: BaseViewController {
     private let separator = Separator()
 
     // MARK: - Data Methods
-    func loadedCurrentRace(round: Round?) {
+    func loadedNextRace(_ round: Round?) {
         if round != nil {
             currentRaceCard.configure(round: round!)
         }
     }
 
-    func loadedAllRaces(races: [Round?]) {
+    func loadedAllRaces(_ races: [Round?]) {
         if races.isEmpty {
             loadingLabel.text = "Полного расписания пока нет"
         } else {
@@ -219,7 +219,7 @@ extension ScheduleViewController: UITableViewSelectionDelegate {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = DependencyFactoryMock()
+    let factory = DependencyFactoryWithMockData()
     let view = factory.makeScheduleViewController()
     return view
 }

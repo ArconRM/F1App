@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Round {
+struct Round: Equatable {
     var raceId: String?
     var raceName: String?
     var laps: Int?

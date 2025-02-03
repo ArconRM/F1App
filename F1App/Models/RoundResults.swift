@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RoundResults {
+struct RoundResults: Equatable {
     var fp1Results: [PracticeDriverResult]
     var fp2Results: [PracticeDriverResult]
     var fp3Results: [PracticeDriverResult]

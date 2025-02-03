@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Circuit: Codable {
+struct Circuit: Equatable {
     var circuitId: String
     var name: String
     var country: String

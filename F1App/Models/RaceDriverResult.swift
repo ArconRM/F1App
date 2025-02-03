@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RaceDriverResult {
+struct RaceDriverResult: Equatable {
     var position: String
     var grid: Int?
     var points: Int

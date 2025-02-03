@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Driver: Codable {
+struct Driver: Equatable {
     var driverId: String?
     var name: String
     var surname: String
@@ -27,7 +27,7 @@ struct Driver: Codable {
             name: "Name",
             surname: "Surname",
             nationality: "Russia",
-            birthday: Date.now,
+            birthday: Date.distantPast,
             number: 69,
             shortName: "HUY"
         )

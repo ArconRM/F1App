@@ -1,5 +1,5 @@
 //
-//  DecodingTests.swift
+//  DecodingF1ConnectTests.swift
 //  F1AppTests
 //
 //  Created by Artemiy MIROTVORTSEV on 28.12.2024.
@@ -8,18 +8,33 @@
 import XCTest
 @testable import F1App
 
-final class DecodingTests: XCTestCase {
-    let circuitDecoder = CircuitDecoderF1Connect()
-    let driversDecoder = DriverDecoderF1Connect()
-    let teamDecoder = TeamDecoderF1Connect()
-    let raceDecoder = RaceDecoderF1Connect(circuitDecoder: CircuitDecoderF1Connect(), driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+final class DecodingF1ConnectTests: XCTestCase {
+    var circuitDecoder: CircuitDecoder!
+    var driversDecoder: DriverDecoder!
+    var teamDecoder: TeamDecoder!
+    var raceDecoder: RaceDecoder!
     
-    let driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-    let constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+    var driversChampionshipDecoder: DriversChampionshipDecoder!
+    var constructorsChampionshipDecoder: ConstructorsChampionshipDecoder!
     
-    let practiceResultDecoder = PracticeResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-    let qualyResultDecoder = QualyResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-    let raceResultDecoder = RaceResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+    var practiceResultDecoder: PracticeResultsDecoder!
+    var qualyResultDecoder: QualyResultsDecoder!
+    var raceResultDecoder: RaceResultsDecoder!
+    
+    override func setUp() {
+        circuitDecoder = CircuitDecoderF1Connect()
+        driversDecoder = DriverDecoderF1Connect()
+        teamDecoder = TeamDecoderF1Connect()
+        
+        raceDecoder = RaceDecoderF1Connect(circuitDecoder: CircuitDecoderF1Connect(), driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+        
+        driversChampionshipDecoder = DriversChampionshipDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+        constructorsChampionshipDecoder = ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+        
+        practiceResultDecoder = PracticeResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+        qualyResultDecoder = QualyResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+        raceResultDecoder = RaceResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+    }
     
     func testRaceDecoder() {
         if let path = Bundle.main.path(forResource: "1", ofType: "json") {

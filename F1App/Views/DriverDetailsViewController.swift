@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class DriverDetailsViewController: BaseViewController {
+final class DriverDetailsViewController: BaseViewController<DriverDetailsPresenter>, DriverDetailsPresentable {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ final class DriverDetailsViewController: BaseViewController {
     private let driverDetailsCardView = DriverDetailsCardView()
 
     // MARK: - Data Methods
-    func loadedDriverDetails(driver: Driver) {
+    func loadedDriverDetails(_ driver: Driver) {
         nameTitleLabel.text = driver.fullName
         driverDetailsCardView.configure(driver: driver)
     }
@@ -78,7 +78,7 @@ final class DriverDetailsViewController: BaseViewController {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = DependencyFactoryMock()
+    let factory = DependencyFactoryWithMockData()
     let view = factory.makeDriverDetailsViewController(driver: Driver.mock)
     return view
 }

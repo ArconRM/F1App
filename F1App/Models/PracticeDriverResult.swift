@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PracticeDriverResult {
+struct PracticeDriverResult: Equatable {
     var position: Int
 
     var time: String

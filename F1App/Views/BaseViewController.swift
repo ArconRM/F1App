@@ -8,35 +8,15 @@
 import Foundation
 import UIKit
 
-class BaseViewController: UIViewController {
-    let presenter: any Presenter
+class BaseViewController<PresenterProtocol>: UIViewController where PresenterProtocol: Presenter {
+    let presenter: PresenterProtocol
 
-    init(presenter: any Presenter) {
+    init(presenter: PresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func showNetworkError(_ error: Error) {
-        let errorToShow: LocalizedError
-
-        if let networkError = error as? NetworkError {
-            errorToShow = networkError
-
-        } else if let serializationError = error as? SerializationError {
-            errorToShow = serializationError
-
-        } else {
-            errorToShow = NetworkError.unexpectedError(error.localizedDescription)
-        }
-
-        print(errorToShow)
-
-        let alert = UIAlertController(title: errorToShow.errorDescription, message: errorToShow.failureReason, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }

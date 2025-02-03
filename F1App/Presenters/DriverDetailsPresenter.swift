@@ -8,7 +8,7 @@
 import Foundation
 
 class DriverDetailsPresenter: Presenter {
-    typealias View = DriverDetailsViewController
+    typealias View = DriverDetailsPresentable
 
     var driver: Driver
     weak var view: View?
@@ -18,6 +18,6 @@ class DriverDetailsPresenter: Presenter {
     }
 
     func viewDidLoad() {
-        self.view?.loadedDriverDetails(driver: driver)
+        self.view?.loadedDriverDetails(driver)
     }
 }

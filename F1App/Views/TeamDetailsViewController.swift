@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class TeamDetailsViewController: BaseViewController {
+final class TeamDetailsViewController: BaseViewController<TeamDetailsPresenter>, TeamDetailsPresentable {
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ final class TeamDetailsViewController: BaseViewController {
     private let teamDetailsCardView = TeamDetailsCardView()
 
     // MARK: - Data Methods
-    func loadedTeamDetails(team: Team) {
+    func loadedTeamDetails(_ team: Team) {
         nameTitleLabel.text = team.teamName
         teamDetailsCardView.configure(team: team)
     }
@@ -78,7 +78,7 @@ final class TeamDetailsViewController: BaseViewController {
 // MARK: - Preview
 @available(iOS 17, *)
 #Preview {
-    let factory = DependencyFactoryMock()
+    let factory = DependencyFactoryWithMockData()
     let view = factory.makeTeamDetailsViewController(team: Team.mock)
     return view
 }

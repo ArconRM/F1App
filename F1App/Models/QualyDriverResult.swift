@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QualyDriverResult {
+struct QualyDriverResult: Equatable {
     var position: Int
 
     var q1Time: String?

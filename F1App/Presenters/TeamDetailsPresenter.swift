@@ -8,7 +8,7 @@
 import Foundation
 
 final class TeamDetailsPresenter: Presenter {
-    typealias View = TeamDetailsViewController
+    typealias View = TeamDetailsPresentable
 
     var team: Team
     weak var view: View?
@@ -18,6 +18,6 @@ final class TeamDetailsPresenter: Presenter {
     }
 
     func viewDidLoad() {
-        self.view?.loadedTeamDetails(team: team)
+        self.view?.loadedTeamDetails(team)
     }
 }

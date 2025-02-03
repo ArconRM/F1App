@@ -8,7 +8,7 @@
 import Foundation
 
 final class SettingsPresenter: Presenter {
-    typealias View = SettingsViewController
+    typealias View = SettingsPresentable
 
     weak var view: View?
 

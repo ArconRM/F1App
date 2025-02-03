@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class ConstructorChampionshipPresenter: Presenter {
-    typealias View = ConstructorsChampionshipViewController
+final class ConstructorsChampionshipPresenter: Presenter {
+    typealias View = ConstructorsChampionshipPresentable
 
     private let standingsNetworkService: StandingsNetworkService
 

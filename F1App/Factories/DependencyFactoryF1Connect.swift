@@ -75,7 +75,7 @@ final class DependencyFactoryF1Connect: DependencyFactory {
             constructorsChampionshipDecoder: constructorsChampionshipDecoder
         )
 
-        let presenter = ConstructorChampionshipPresenter(standingsNetworkService: standingsNetworkService)
+        let presenter = ConstructorsChampionshipPresenter(standingsNetworkService: standingsNetworkService)
 
         let viewController = ConstructorsChampionshipViewController(presenter: presenter)
         presenter.view = viewController

@@ -8,10 +8,9 @@
 import Foundation
 
 protocol Presenter {
-    associatedtype View: BaseViewController
+    associatedtype View
 
     var view: View? { get set }
 
     func viewDidLoad()
-
 }

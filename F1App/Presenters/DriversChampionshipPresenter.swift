@@ -8,7 +8,7 @@
 import Foundation
 
 final class DriversChampionshipPresenter: Presenter {
-    typealias View = DriversChampionshipViewController
+    typealias View = DriversChampionshipPresentable
 
     private let standingsNetworkService: StandingsNetworkService
 

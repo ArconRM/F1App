@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DriversChampionshipEntry {
+struct DriversChampionshipEntry: Equatable {
     var points: Int
     var position: Int
     var driver: Driver

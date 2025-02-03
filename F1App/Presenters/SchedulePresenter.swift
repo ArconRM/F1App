@@ -8,7 +8,7 @@
 import Foundation
 
 final class SchedulePresenter: Presenter {
-    typealias View = ScheduleViewController
+    typealias View = SchedulePresentable
 
     private let raceNetworkService: RacesNetworkService
 
@@ -27,7 +27,7 @@ final class SchedulePresenter: Presenter {
         raceNetworkService.fetchNextSeasonRace(resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let race):
-                self?.view?.loadedCurrentRace(round: race)
+                self?.view?.loadedNextRace(race)
             case .failure(let error):
                 self?.view?.showNetworkError(error)
             }
@@ -38,7 +38,7 @@ final class SchedulePresenter: Presenter {
         raceNetworkService.fetchSeasonRaces(year: 2024, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let races):
-                self?.view?.loadedAllRaces(races: self?.sortRaces(races) ?? [])
+                self?.view?.loadedAllRaces(self?.sortRaces(races) ?? [])
             case .failure(let error):
                 self?.view?.showNetworkError(NetworkError.fetchError(error.localizedDescription))
             }

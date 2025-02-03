@@ -1,5 +1,5 @@
 //
-//  NetworkServicesTests.swift
+//  NetworkServicesF1ConnectAPITests.swift
 //  F1AppTests
 //
 //  Created by Artemiy MIROTVORTSEV on 26.11.2024.
@@ -8,31 +8,38 @@
 import XCTest
 @testable import F1App
 
-final class NetworkServicesTests: XCTestCase {
-    private let raceNetworkService = RacesNetworkServiceImpl(
-        urlSource: UrlSourceF1Connect(),
-        raceDecoder: RaceDecoderF1Connect(
-            circuitDecoder: CircuitDecoderF1Connect(),
-            driverDecoder: DriverDecoderF1Connect(),
-            teamDecoder: TeamDecoderF1Connect()
+final class NetworkServicesF1ConnectAPITests: XCTestCase {
+    var raceNetworkService: RacesNetworkService!
+    var standingsNetworkService: StandingsNetworkService!
+    var roundResultsNetworkService: RoundResultsNetworkService!
+    
+    override func setUp() {
+        super.setUp()
+        raceNetworkService = RacesNetworkServiceImpl(
+            urlSource: UrlSourceF1Connect(),
+            raceDecoder: RaceDecoderF1Connect(
+                circuitDecoder: CircuitDecoderF1Connect(),
+                driverDecoder: DriverDecoderF1Connect(),
+                teamDecoder: TeamDecoderF1Connect()
+            )
         )
-    )
-    
-    private let standingsNetworkService = StandingsNetworkServiceImpl(
-        urlSource: UrlSourceF1Connect(),
-        driversChampionshipDecoder: DriversChampionshipDecoderF1Connect(
-            driverDecoder: DriverDecoderF1Connect(),
-            teamDecoder: TeamDecoderF1Connect()
-        ),
-        constructorsChampionshipDecoder: ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
-    )
-    
-    private let roundResultsNetworkService = RoundResultsNetworkServiceImpl(
-        urlSource: UrlSourceF1Connect(),
-        practiceResultDecoder: PracticeResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),
-        qualyResultDecoder: QualyResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),
-        raceResultDecoder: RaceResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
-    )
+        
+        standingsNetworkService = StandingsNetworkServiceImpl(
+            urlSource: UrlSourceF1Connect(),
+            driversChampionshipDecoder: DriversChampionshipDecoderF1Connect(
+                driverDecoder: DriverDecoderF1Connect(),
+                teamDecoder: TeamDecoderF1Connect()
+            ),
+            constructorsChampionshipDecoder: ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
+        )
+        
+        roundResultsNetworkService = RoundResultsNetworkServiceImpl(
+            urlSource: UrlSourceF1Connect(),
+            practiceResultDecoder: PracticeResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),
+            qualyResultDecoder: QualyResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),
+            raceResultDecoder: RaceResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect())
+        )
+    }
     
     func testFetchNextSeasonRace() {
         let didReceiveResponse = expectation(description: #function)
@@ -152,6 +159,6 @@ final class NetworkServicesTests: XCTestCase {
             }
             didReceiveResponse.fulfill()
         }
-        wait(for: [didReceiveResponse], timeout: 10)
+        wait(for: [didReceiveResponse], timeout: 20)
     }
 }

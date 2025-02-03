@@ -8,7 +8,7 @@
 import Foundation
 
 final class RoundDetailsPresenter: Presenter {
-    typealias View = RoundDetailsViewController
+    typealias View = RoundDetailsPresentable
 
     private let roundResultsNetworkService: RoundResultsNetworkService
 
