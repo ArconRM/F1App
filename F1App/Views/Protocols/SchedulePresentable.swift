@@ -9,5 +9,6 @@ import Foundation
 
 protocol SchedulePresentable: AnyObject, ErrorPresentable {
     func loadedNextRace(_ round: Round?)
-    func loadedAllRaces(_ races: [Round?])
+    func loadedCurrentSeasonRaces(_ races: [Round?])
+    func loadedPrevSeasonRaces(_ races: [Round?])
 }

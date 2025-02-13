@@ -8,16 +8,13 @@
 import Foundation
 
 struct RoundResultsNetworkServiceMock: RoundResultsNetworkService {
-    private let driverDecoder: DriverDecoder
-    private let teamDecoder: TeamDecoder
-
     private let practiceResultDecoder: PracticeResultsDecoder
     private let qualyResultDecoder: QualyResultsDecoder
     private let raceResultDecoder: RaceResultsDecoder
 
     init() {
-        driverDecoder = DriverDecoderF1Connect()
-        teamDecoder = TeamDecoderF1Connect()
+        let driverDecoder = DriverDecoderF1Connect()
+        let teamDecoder = TeamDecoderF1Connect()
 
         practiceResultDecoder = PracticeResultDecoderF1Connect(driverDecoder: driverDecoder, teamDecoder: teamDecoder)
         qualyResultDecoder = QualyResultDecoderF1Connect(driverDecoder: driverDecoder, teamDecoder: teamDecoder)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DriversChampionshipTableViewDelegate: NSObject {
+final class DriversChampionshipTableViewDelegate: NSObject {
 
     static var rowHeight = DriversChampionshipTableViewCell.cellHeight
 

@@ -49,8 +49,13 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
         completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
         let seasonRacesUrl = urlSource.getSeasonRacesUrl(year: year)
+        
+        let config = URLSessionConfiguration.default
+        config.urlCache = URLCache.shared
+        config.requestCachePolicy = .useProtocolCachePolicy
+        let session = URLSession(configuration: config)
 
-        URLSession.shared.dataTask(with: seasonRacesUrl) { data, _, error in
+        session.dataTask(with: seasonRacesUrl) { data, _, error in
             guard error == nil else {
                 resultQueue.async { completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription))) }
                 return

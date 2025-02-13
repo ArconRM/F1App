@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-class ScheduleTableViewDelegate: NSObject {
+final class ScheduleTableViewDelegate: NSObject {
 
-    static var estimatedRowHeight = 145
+    private let estimatedRowHeightForNoWinnerCell: CGFloat = 100
+    private let estimatedRowHeightForWithWinnerCell: CGFloat = 160
 
     var items: [Round?] = []
     weak var selectionDelegate: UITableViewSelectionDelegate?
@@ -25,14 +26,10 @@ extension ScheduleTableViewDelegate: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if let item = items[indexPath.section], item.winner?.name != nil {
-//            return ScheduleTableViewCell.cellHeightFull
-//        } else {
-//            return ScheduleTableViewCell.cellHeightWithoutWinner
-//        }
-//    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return items[indexPath.section]?.winner?.name != nil ? estimatedRowHeightForWithWinnerCell : estimatedRowHeightForNoWinnerCell
+    }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1

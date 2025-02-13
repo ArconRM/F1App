@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ConstructorsChampionshipTableViewDelegate: NSObject {
+final class ConstructorsChampionshipTableViewDelegate: NSObject {
 
     static var rowHeight = ConstructorsChampionshipTableViewCell.cellHeight
 

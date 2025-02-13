@@ -62,6 +62,8 @@
 		1670B48D2D16DB3F00400899 /* TeamDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */; };
 		1670B48F2D16FE9300400899 /* DriversChampionshipDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */; };
 		1670B4912D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */; };
+		1673EC562D5E280600FEE9B1 /* 2025.json in Resources */ = {isa = PBXBuildFile; fileRef = 1673EC552D5E280600FEE9B1 /* 2025.json */; };
+		1673EC572D5E280600FEE9B1 /* 2025.json in Resources */ = {isa = PBXBuildFile; fileRef = 1673EC552D5E280600FEE9B1 /* 2025.json */; };
 		168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101732CFDAFDC00D51776 /* Coordinator.swift */; };
 		168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101752CFDAFF500D51776 /* AppCoordinator.swift */; };
 		168101782CFDB25B00D51776 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101772CFDB25B00D51776 /* ScheduleViewController.swift */; };
@@ -218,6 +220,7 @@
 		1670B48C2D16DB3F00400899 /* TeamDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDecoderF1Connect.swift; sourceTree = "<group>"; };
 		1670B48E2D16FE9300400899 /* DriversChampionshipDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipDecoder.swift; sourceTree = "<group>"; };
 		1670B4902D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipDecoderF1Connect.swift; sourceTree = "<group>"; };
+		1673EC552D5E280600FEE9B1 /* 2025.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 2025.json; sourceTree = "<group>"; };
 		168101732CFDAFDC00D51776 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		168101752CFDAFF500D51776 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168101772CFDB25B00D51776 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -408,12 +411,12 @@
 		163C4D112CF8D7B300C62F43 /* F1App */ = {
 			isa = PBXGroup;
 			children = (
+				163C4CFD2CF8D7B300C62F43 /* Models */,
 				1681017B2CFEFA0000D51776 /* Factories */,
 				163C4D072CF8D7B300C62F43 /* Networking */,
 				1681018F2D03234E00D51776 /* Presenters */,
-				168101712CFDAF6E00D51776 /* Coordinators */,
 				163C4D3D2CF8E6B100C62F43 /* Views */,
-				163C4CFD2CF8D7B300C62F43 /* Models */,
+				168101712CFDAF6E00D51776 /* Coordinators */,
 				16C030C32D072D9B000C258E /* Extensions */,
 				163C4D092CF8D7B300C62F43 /* Assets.xcassets */,
 				163C4D0A2CF8D7B300C62F43 /* Info.plist */,
@@ -435,8 +438,8 @@
 		163C4D2D2CF8D7C200C62F43 /* F1AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				16AFC5A22D4E7A6800D03C5C /* Mocks */,
 				163C4D2A2CF8D7C200C62F43 /* Assets */,
+				16AFC5A22D4E7A6800D03C5C /* Mocks */,
 				163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift */,
 				16A422122D1FF82F003683CD /* DecodingF1ConnectTests.swift */,
 				16AFC59F2D4E78F000D03C5C /* PresentersTests.swift */,
@@ -466,6 +469,7 @@
 		16692BDE2D2932D40097C1CC /* F1Connect */ = {
 			isa = PBXGroup;
 			children = (
+				1673EC552D5E280600FEE9B1 /* 2025.json */,
 				16CEC0E82D463F2900EF668E /* 2024.json */,
 				16CEC0E52D463EA100EF668E /* 1.json */,
 				16CEC0CD2D463E6000EF668E /* constructors-championship.json */,
@@ -805,6 +809,7 @@
 			files = (
 				163C4D222CF8D7B300C62F43 /* Assets.xcassets in Resources */,
 				16CEC0EA2D463F2900EF668E /* 2024.json in Resources */,
+				1673EC562D5E280600FEE9B1 /* 2025.json in Resources */,
 				163C4D242CF8D7B300C62F43 /* LaunchScreen.storyboard in Resources */,
 				16CEC0D52D463E6100EF668E /* race.json in Resources */,
 				16CEC0D62D463E6100EF668E /* constructors-championship.json in Resources */,
@@ -833,6 +838,7 @@
 				16CEC0E32D463E6100EF668E /* sprint-race.json in Resources */,
 				16CEC0E72D463EA100EF668E /* 1.json in Resources */,
 				16CEC0E42D463E6100EF668E /* qualy.json in Resources */,
+				1673EC572D5E280600FEE9B1 /* 2025.json in Resources */,
 				16CEC0E92D463F2900EF668E /* 2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

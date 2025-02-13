@@ -27,17 +27,17 @@ extension Date {
 
         return nil
     }
+    
+    func getYear() -> Int {
+        return Calendar.current.component(.year, from: self)
+    }
 
     func getHours() -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH"
-        return Int(dateFormatter.string(from: self)) ?? 0
+        return Calendar.current.component(.hour, from: self)
     }
 
     func getMinutes() -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
-        return Int(dateFormatter.string(from: self)) ?? 0
+        Calendar.current.component(.minute, from: self)
     }
 
     func getDayMonthString(divider: String = " ") -> String {

@@ -81,12 +81,12 @@ class ScheduleTableViewCell: UITableViewCell {
             curcuitLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 8),
             curcuitLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             curcuitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            curcuitLabel.heightAnchor.constraint(equalToConstant: 24),
+            curcuitLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 24),
 
             dateLabel.topAnchor.constraint(equalTo: curcuitLabel.bottomAnchor, constant: 16),
             dateLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            dateLabel.heightAnchor.constraint(equalToConstant: 20)
+            dateLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
         ])
 
         dateLabelBottomConstraint = dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
@@ -103,6 +103,24 @@ class ScheduleTableViewCell: UITableViewCell {
     private let winnerLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
 
     // MARK: - Data Methods
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        numberLabel.text = nil
+        headerLabel.text = nil
+        curcuitLabel.text = nil
+        dateLabel.text = nil
+        winnerLabel.text = nil
+        
+        numberLabel.layer.opacity = 1
+        headerLabel.layer.opacity = 1
+        curcuitLabel.layer.opacity = 1
+        dateLabel.layer.opacity = 1
+        winnerLabel.layer.opacity = 1
+        
+        winnerLabel.removeFromSuperview()
+        dateLabelBottomConstraint?.isActive = true
+    }
+    
     func configure(item: Round) {
         numberLabel.text = "\(item.roundNumber)"
 
@@ -136,8 +154,13 @@ class ScheduleTableViewCell: UITableViewCell {
             winnerLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             winnerLabel.leadingAnchor.constraint(equalTo: separator.trailingAnchor, constant: 16),
             winnerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            winnerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            winnerLabel.heightAnchor.constraint(equalToConstant: 50)
+            winnerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
+    }
+    
+    func removeWinnerLabel() {
+        winnerLabel.removeFromSuperview()
+        
+        dateLabelBottomConstraint?.isActive = true
     }
 }

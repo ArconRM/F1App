@@ -13,6 +13,8 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
     var coordinator: ScheduleViewCoordinator?
 
     private var scheduleTableViewDelegate: ScheduleTableViewDelegate?
+    
+    private var tableViewHeightAnchor: NSLayoutConstraint?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -63,6 +65,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         scrollContainerView.addSubview(nextRaceTitleLabel)
         scrollContainerView.addSubview(currentRaceCard)
         scrollContainerView.addSubview(separator)
+        scrollContainerView.addSubview(segmentedControl)
         scrollContainerView.addSubview(loadingLabel)
         scrollContainerView.addSubview(scheduleTitleLabel)
         scrollContainerView.addSubview(scheduleTableView)
@@ -100,8 +103,13 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
             separator.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
             separator.heightAnchor.constraint(equalToConstant: 1),
+            
+            segmentedControl.topAnchor.constraint(equalTo: separator.topAnchor, constant: 16),
+            segmentedControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            segmentedControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 30),
 
-            scheduleTitleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 16),
+            scheduleTitleLabel.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
             scheduleTitleLabel.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             scheduleTitleLabel.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
 
@@ -114,6 +122,9 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
             scheduleTableView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
             scheduleTableView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor)
         ])
+        
+        tableViewHeightAnchor = scheduleTableView.heightAnchor.constraint(equalToConstant: scheduleTableView.contentSize.height)
+        tableViewHeightAnchor?.isActive = true
     }
 
     // MARK: - UI Elements
@@ -124,6 +135,22 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         gradientView.opacity = 0.3
         return gradientView
     }()
+    
+    private let segmentedControl: UISegmentedControl = {
+        let now = Date()
+        let segmentItems = ["\(now.getYear())", "\(now.getYear() - 1)"]
+        let segmentedControl = UISegmentedControl(items: segmentItems)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
+        return segmentedControl
+    }()
+    
+    @objc private func segmentValueChanged(_ sender : UISegmentedControl) {
+        loadingLabel.isHidden = false
+        scheduleTableView.isHidden = true
+        presenter.handleSeasonSelectionChange(selectionIndex: sender.selectedSegmentIndex)
+    }
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -161,7 +188,6 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isScrollEnabled = false
 
-        tableView.estimatedRowHeight = CGFloat(ScheduleTableViewDelegate.estimatedRowHeight)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderTopPadding = 10
 
@@ -169,7 +195,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         tableView.backgroundColor = .clear
 
         tableView.layoutMargins = UIEdgeInsets.zero
-            tableView.separatorInset = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
 
         return tableView
     }()
@@ -190,19 +216,35 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         }
     }
 
-    func loadedAllRaces(_ races: [Round?]) {
+    func loadedCurrentSeasonRaces(_ races: [Round?]) {
         if races.isEmpty {
             loadingLabel.text = "Полного расписания пока нет"
         } else {
             loadingLabel.isHidden = true
             scheduleTableView.isHidden = false
-            scheduleTableViewDelegate?.setItems(items: races)
-
-            DispatchQueue.main.async {
-                self.scheduleTableView.reloadData()
-                self.scheduleTableView.layoutIfNeeded()
-                self.scheduleTableView.heightAnchor.constraint(equalToConstant: self.scheduleTableView.contentSize.height).isActive = true
-            }
+            
+            updateTableView(with: races)
+        }
+    }
+    
+    func loadedPrevSeasonRaces(_ races: [Round?]) {
+        if races.isEmpty {
+            loadingLabel.text = "Полного расписания пока нет"
+        } else {
+            loadingLabel.isHidden = true
+            scheduleTableView.isHidden = false
+            
+            updateTableView(with: races)
+        }
+    }
+    
+    private func updateTableView(with data: [Round?]) {
+        DispatchQueue.main.async {
+            self.scheduleTableViewDelegate?.setItems(items: data)
+            self.scheduleTableView.reloadData()
+            
+            self.scheduleTableView.layoutIfNeeded()
+            self.tableViewHeightAnchor?.constant = self.scheduleTableView.contentSize.height
         }
     }
 }
