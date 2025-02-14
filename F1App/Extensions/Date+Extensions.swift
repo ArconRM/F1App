@@ -27,7 +27,7 @@ extension Date {
 
         return nil
     }
-    
+
     func getYear() -> Int {
         return Calendar.current.component(.year, from: self)
     }

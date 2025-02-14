@@ -49,7 +49,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
         completionHandler: @escaping (Result<[Round?], any Error>) -> Void
     ) {
         let seasonRacesUrl = urlSource.getSeasonRacesUrl(year: year)
-        
+
         let config = URLSessionConfiguration.default
         config.urlCache = URLCache.shared
         config.requestCachePolicy = .useProtocolCachePolicy

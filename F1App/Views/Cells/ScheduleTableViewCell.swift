@@ -110,17 +110,17 @@ class ScheduleTableViewCell: UITableViewCell {
         curcuitLabel.text = nil
         dateLabel.text = nil
         winnerLabel.text = nil
-        
+
         numberLabel.layer.opacity = 1
         headerLabel.layer.opacity = 1
         curcuitLabel.layer.opacity = 1
         dateLabel.layer.opacity = 1
         winnerLabel.layer.opacity = 1
-        
+
         winnerLabel.removeFromSuperview()
         dateLabelBottomConstraint?.isActive = true
     }
-    
+
     func configure(item: Round) {
         numberLabel.text = "\(item.roundNumber)"
 
@@ -157,10 +157,10 @@ class ScheduleTableViewCell: UITableViewCell {
             winnerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
-    
+
     func removeWinnerLabel() {
         winnerLabel.removeFromSuperview()
-        
+
         dateLabelBottomConstraint?.isActive = true
     }
 }

@@ -22,7 +22,7 @@ final class SchedulePresenter: Presenter {
         loadNextRace()
         loadAllCurrentSeasonRaces()
     }
-    
+
     func handleSeasonSelectionChange(selectionIndex: Int) {
         switch selectionIndex {
         case 0:
@@ -55,7 +55,7 @@ final class SchedulePresenter: Presenter {
             }
         }
     }
-    
+
     private func loadAllPrevSeasonRaces() {
         raceNetworkService.fetchSeasonRaces(year: Date().getYear() - 1, resultQueue: .main) { [weak self] result in
             switch result {

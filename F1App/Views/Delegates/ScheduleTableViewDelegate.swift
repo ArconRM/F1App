@@ -26,7 +26,7 @@ extension ScheduleTableViewDelegate: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return items[indexPath.section]?.winner?.name != nil ? estimatedRowHeightForWithWinnerCell : estimatedRowHeightForNoWinnerCell
     }

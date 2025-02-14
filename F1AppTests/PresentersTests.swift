@@ -70,7 +70,7 @@ final class PresentersTests: XCTestCase {
         racesNetworkService.fetchSeasonRaces(year: 2025, resultQueue: .main) { result in
             switch result {
             case .success(let races):
-                XCTAssertEqual(self.scheduleView.allRaces, races)
+                XCTAssertEqual(self.scheduleView.currentSeasonRaces, races)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -80,6 +80,20 @@ final class PresentersTests: XCTestCase {
             switch result {
             case .success(let race):
                 XCTAssertEqual(self.scheduleView.nextRace, race)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+    }
+    
+    func testSchedulePresenterSelectionChanged() {
+        schedulePresenter.viewDidLoad()
+        schedulePresenter.handleSeasonSelectionChange(selectionIndex: 1)
+        
+        racesNetworkService.fetchSeasonRaces(year: 2024, resultQueue: .main) { result in
+            switch result {
+            case .success(let races):
+                XCTAssertEqual(self.scheduleView.prevSeasonRaces, races)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

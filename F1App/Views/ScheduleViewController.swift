@@ -13,7 +13,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
     var coordinator: ScheduleViewCoordinator?
 
     private var scheduleTableViewDelegate: ScheduleTableViewDelegate?
-    
+
     private var tableViewHeightAnchor: NSLayoutConstraint?
 
     // MARK: - Life Cycle
@@ -103,7 +103,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
             separator.leadingAnchor.constraint(equalTo: scrollContainerView.leadingAnchor, constant: 16),
             separator.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor, constant: -16),
             separator.heightAnchor.constraint(equalToConstant: 1),
-            
+
             segmentedControl.topAnchor.constraint(equalTo: separator.topAnchor, constant: 16),
             segmentedControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             segmentedControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
@@ -122,7 +122,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
             scheduleTableView.trailingAnchor.constraint(equalTo: scrollContainerView.trailingAnchor),
             scheduleTableView.bottomAnchor.constraint(equalTo: scrollContainerView.bottomAnchor)
         ])
-        
+
         tableViewHeightAnchor = scheduleTableView.heightAnchor.constraint(equalToConstant: scheduleTableView.contentSize.height)
         tableViewHeightAnchor?.isActive = true
     }
@@ -135,7 +135,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         gradientView.opacity = 0.3
         return gradientView
     }()
-    
+
     private let segmentedControl: UISegmentedControl = {
         let now = Date()
         let segmentItems = ["\(now.getYear())", "\(now.getYear() - 1)"]
@@ -145,8 +145,8 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         return segmentedControl
     }()
-    
-    @objc private func segmentValueChanged(_ sender : UISegmentedControl) {
+
+    @objc private func segmentValueChanged(_ sender: UISegmentedControl) {
         loadingLabel.isHidden = false
         scheduleTableView.isHidden = true
         presenter.handleSeasonSelectionChange(selectionIndex: sender.selectedSegmentIndex)
@@ -222,27 +222,27 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         } else {
             loadingLabel.isHidden = true
             scheduleTableView.isHidden = false
-            
+
             updateTableView(with: races)
         }
     }
-    
+
     func loadedPrevSeasonRaces(_ races: [Round?]) {
         if races.isEmpty {
             loadingLabel.text = "Полного расписания пока нет"
         } else {
             loadingLabel.isHidden = true
             scheduleTableView.isHidden = false
-            
+
             updateTableView(with: races)
         }
     }
-    
+
     private func updateTableView(with data: [Round?]) {
         DispatchQueue.main.async {
             self.scheduleTableViewDelegate?.setItems(items: data)
             self.scheduleTableView.reloadData()
-            
+
             self.scheduleTableView.layoutIfNeeded()
             self.tableViewHeightAnchor?.constant = self.scheduleTableView.contentSize.height
         }
