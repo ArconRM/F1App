@@ -35,13 +35,8 @@ struct ConstructorsChampionshipDecoderF1Connect: ConstructorsChampionshipDecoder
     }
 
     func decodeConstructorsChampionshipFromJson(_ json: [String: Any?]) throws -> ConstructorsChampionshipEntry {
-        guard let points = json["points"] as? Int else {
-            throw SerializationError.missing(key: "points")
-        }
-
-        guard let position = json["position"] as? Int else {
-            throw SerializationError.missing(key: "position")
-        }
+        let points = json["points"] as? Double ?? 0
+        let position = json["position"] as? Int
 
         guard let team = try teamDecoder.decodeTeam(from: json) else {
             throw SerializationError.invalid(key: "team")

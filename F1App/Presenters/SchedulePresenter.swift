@@ -20,18 +20,11 @@ final class SchedulePresenter: Presenter {
 
     func viewDidLoad() {
         loadNextRace()
-        loadAllCurrentSeasonRaces()
+        loadSeasonRaces(year: Int(Constants.availableSeasons[0]) ?? -1)
     }
 
-    func handleSeasonSelectionChange(selectionIndex: Int) {
-        switch selectionIndex {
-        case 0:
-            loadAllCurrentSeasonRaces()
-        case 1:
-            loadAllPrevSeasonRaces()
-        default:
-            return
-        }
+    func handleSeasonSelectionChange(year: Int?) {
+        loadSeasonRaces(year: year)
     }
 
     private func loadNextRace() {
@@ -45,22 +38,11 @@ final class SchedulePresenter: Presenter {
         }
     }
 
-    private func loadAllCurrentSeasonRaces() {
-        raceNetworkService.fetchSeasonRaces(year: Date().getYear(), resultQueue: .main) { [weak self] result in
+    private func loadSeasonRaces(year: Int?) {
+        raceNetworkService.fetchSeasonRaces(year: year, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let races):
                 self?.view?.loadedCurrentSeasonRaces(self?.sortRaces(races) ?? [])
-            case .failure(let error):
-                self?.view?.showNetworkError(NetworkError.fetchError(error.localizedDescription))
-            }
-        }
-    }
-
-    private func loadAllPrevSeasonRaces() {
-        raceNetworkService.fetchSeasonRaces(year: Date().getYear() - 1, resultQueue: .main) { [weak self] result in
-            switch result {
-            case .success(let races):
-                self?.view?.loadedPrevSeasonRaces(self?.sortRaces(races) ?? [])
             case .failure(let error):
                 self?.view?.showNetworkError(NetworkError.fetchError(error.localizedDescription))
             }

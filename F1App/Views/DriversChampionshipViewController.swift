@@ -51,8 +51,11 @@ final class DriversChampionshipViewController: BaseViewController<DriversChampio
 
     // MARK: - Setup View
     private func setupView() {
+        championshipTableView.isHidden = true
+
         view.addSubview(backgroundGradientView)
         view.addSubview(titleLabel)
+        view.addSubview(segmentedControl)
         view.addSubview(scrollView)
 
         scrollView.addSubview(scrollContainerView)
@@ -74,7 +77,12 @@ final class DriversChampionshipViewController: BaseViewController<DriversChampio
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 
-            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            segmentedControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            segmentedControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 30),
+
+            scrollView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -104,6 +112,22 @@ final class DriversChampionshipViewController: BaseViewController<DriversChampio
         gradientView.opacity = 0.3
         return gradientView
     }()
+
+    private let segmentedControl: UISegmentedControl = {
+        let segmentItems = Constants.availableSeasons
+        let segmentedControl = UISegmentedControl(items: segmentItems)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
+        return segmentedControl
+    }()
+
+    @objc private func segmentValueChanged(_ sender: UISegmentedControl) {
+        let year = Int(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "")
+        loadingLabel.isHidden = false
+        championshipTableView.isHidden = true
+        presenter.handleSeasonSelectionChange(year: year)
+    }
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -151,7 +175,8 @@ final class DriversChampionshipViewController: BaseViewController<DriversChampio
 
     // MARK: - Data Methods
     func loadedDriversChampionship(_ driversChampionship: [DriversChampionshipEntry?]) {
-        loadingLabel.removeFromSuperview()
+        loadingLabel.isHidden = true
+        championshipTableView.isHidden = false
 
         championshipTableViewDelegate?.setItems(items: driversChampionship)
 

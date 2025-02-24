@@ -49,13 +49,8 @@ struct CircuitDecoderF1Connect: CircuitDecoder {
             throw SerializationError.missing(key: "length")
         }
 
-        guard let lapRecord = json["lapRecord"] as? String else {
-            throw SerializationError.missing(key: "lapRecord")
-        }
-
-        guard let firstParticipationYear = json["firstParticipationYear"] as? Int else {
-            throw SerializationError.missing(key: "firstParticipationYear")
-        }
+        let lapRecord = json["lapRecord"] as? String
+        let firstParticipationYear = json["firstParticipationYear"] as? Int
 
         let corners = json["corners"] as? Int
         let url = json["url"] as? String

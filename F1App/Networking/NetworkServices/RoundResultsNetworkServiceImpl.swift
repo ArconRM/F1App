@@ -170,7 +170,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
     ) {
         let practiceResultsUrl = urlSource.getPracticeResultsUrl(year: year, practiceNumber: practiceNumber, roundNumber: roundNumber)
 
-        URLSession.shared.dataTask(with: practiceResultsUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: practiceResultsUrl) { data, _, error in
             guard error == nil else {
                 completionHandler(.failure(error!))
                 return
@@ -200,7 +200,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
         urlSource.getSprintQualyResultsUrl(year: year, roundNumber: roundNumber) :
         urlSource.getQualyResultsUrl(year: year, roundNumber: roundNumber)
 
-        URLSession.shared.dataTask(with: qualyResultsUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: qualyResultsUrl) { data, _, error in
             guard error == nil else {
                 completionHandler(.failure(error!))
                 return
@@ -230,7 +230,7 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
         urlSource.getSprintRaceResultsUrl(year: year, roundNumber: roundNumber) :
         urlSource.getRaceResultsUrl(year: year, roundNumber: roundNumber)
 
-        URLSession.shared.dataTask(with: raceResultsUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: raceResultsUrl) { data, _, error in
             guard error == nil else {
                 completionHandler(.failure(error!))
                 return

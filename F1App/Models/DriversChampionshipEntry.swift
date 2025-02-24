@@ -8,8 +8,8 @@
 import Foundation
 
 struct DriversChampionshipEntry: Equatable {
-    var points: Int
-    var position: Int
+    var points: Double
+    var position: Int?
     var driver: Driver
     var team: Team
 
@@ -23,6 +23,6 @@ struct DriversChampionshipEntry: Equatable {
     }
 
     static var mockArray: [Self] {
-        return stride(from: 0, to: 400, by: 50).map { .init(points: $0, position: $0 / 50, driver: Driver.mock, team: Team.mock) }
+        return stride(from: 0, to: 400, by: 50).map { .init(points: Double($0), position: $0 / 50, driver: Driver.mock, team: Team.mock) }
     }
 }

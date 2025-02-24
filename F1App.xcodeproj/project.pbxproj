@@ -76,6 +76,8 @@
 		1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */; };
 		1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681018D2D0320A000D51776 /* BaseViewController.swift */; };
 		168101922D0323A200D51776 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101912D0323A200D51776 /* Presenter.swift */; };
+		1688683F2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */; };
+		168868412D6C522200FCB6D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168868402D6C522200FCB6D1 /* Constants.swift */; };
 		1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0502D04346800C25292 /* SchedulePresenter.swift */; };
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
 		1695A0552D0436D400C25292 /* ConstructorsChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorsChampionshipPresenter.swift */; };
@@ -233,6 +235,8 @@
 		1681018B2D02FA8900D51776 /* RaceDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDecoderF1Connect.swift; sourceTree = "<group>"; };
 		1681018D2D0320A000D51776 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		168101912D0323A200D51776 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWithCacheEnabled.swift; sourceTree = "<group>"; };
+		168868402D6C522200FCB6D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1695A0502D04346800C25292 /* SchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePresenter.swift; sourceTree = "<group>"; };
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0542D0436D400C25292 /* ConstructorsChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsChampionshipPresenter.swift; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 				1670B47E2D149A4800400899 /* Colors.swift */,
 				16BD5B402D1C434B00B13974 /* GradientColors.swift */,
 				16F4A41E2D240A5400F75700 /* FontSizes.swift */,
+				168868402D6C522200FCB6D1 /* Constants.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 		168101862D02F8AA00D51776 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */,
 				163C4D002CF8D7B300C62F43 /* Protocols */,
 				16AFC5A32D4E7A6F00D03C5C /* MockData */,
 				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
@@ -938,6 +944,7 @@
 				1681018C2D02FA8900D51776 /* RaceDecoderF1Connect.swift in Sources */,
 				1681017A2CFDB31600D51776 /* DriversChampionshipViewController.swift in Sources */,
 				163C4D172CF8D7B300C62F43 /* Driver.swift in Sources */,
+				168868412D6C522200FCB6D1 /* Constants.swift in Sources */,
 				16692BE72D29408E0097C1CC /* DriverDetailsCardView.swift in Sources */,
 				16AFC5902D4E6D1D00D03C5C /* SchedulePresentable.swift in Sources */,
 				16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */,
@@ -945,6 +952,7 @@
 				168101922D0323A200D51776 /* Presenter.swift in Sources */,
 				163C4D182CF8D7B300C62F43 /* Team.swift in Sources */,
 				168101762CFDAFF500D51776 /* AppCoordinator.swift in Sources */,
+				1688683F2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift in Sources */,
 				16A422092D1F2DEB003683CD /* QualyResultDecoderF1Connect.swift in Sources */,
 				16AFC5982D4E74CB00D03C5C /* DriverDetailsPresentable.swift in Sources */,
 				16A422052D1F17B7003683CD /* PracticeResultsDecoder.swift in Sources */,

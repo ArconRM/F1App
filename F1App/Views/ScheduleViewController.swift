@@ -137,8 +137,7 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
     }()
 
     private let segmentedControl: UISegmentedControl = {
-        let now = Date()
-        let segmentItems = ["\(now.getYear())", "\(now.getYear() - 1)"]
+        let segmentItems = Constants.availableSeasons
         let segmentedControl = UISegmentedControl(items: segmentItems)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.selectedSegmentIndex = 0
@@ -147,9 +146,10 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
     }()
 
     @objc private func segmentValueChanged(_ sender: UISegmentedControl) {
+        let year = Int(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "")
         loadingLabel.isHidden = false
         scheduleTableView.isHidden = true
-        presenter.handleSeasonSelectionChange(selectionIndex: sender.selectedSegmentIndex)
+        presenter.handleSeasonSelectionChange(year: year)
     }
 
     private let scrollView: UIScrollView = {

@@ -79,7 +79,7 @@ class ConstructorsChampionshipTableViewCell: UITableViewCell {
 
     // MARK: - Data Methods
     func configure(item: ConstructorsChampionshipEntry) {
-        positionLabel.text = "\(item.position)"
+        positionLabel.text = item.position != nil ? "\(item.position!)" : "-"
         teamNameLabel.text = "\(item.team.teamName)"
         countryLabel.text = "\(item.team.country)"
         pointsLabel.text = "\(item.points)"

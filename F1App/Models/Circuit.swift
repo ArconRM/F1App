@@ -13,8 +13,8 @@ struct Circuit: Equatable {
     var country: String
     var city: String
     var length: String
-    var lapRecord: String
-    var firstParticipationYear: Int
+    var lapRecord: String?
+    var firstParticipationYear: Int?
     var numberOfCorners: Int?
     var url: String?
 

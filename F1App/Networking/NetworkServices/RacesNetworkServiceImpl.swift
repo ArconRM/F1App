@@ -23,7 +23,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
     ) {
         let nextSeasonRaceUrl = urlSource.getNextSeasonRaceUrl()
 
-        URLSession.shared.dataTask(with: nextSeasonRaceUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: nextSeasonRaceUrl) { data, _, error in
             guard error == nil else {
                 resultQueue.async { completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription))) }
                 return
@@ -50,12 +50,7 @@ struct RacesNetworkServiceImpl: RacesNetworkService {
     ) {
         let seasonRacesUrl = urlSource.getSeasonRacesUrl(year: year)
 
-        let config = URLSessionConfiguration.default
-        config.urlCache = URLCache.shared
-        config.requestCachePolicy = .useProtocolCachePolicy
-        let session = URLSession(configuration: config)
-
-        session.dataTask(with: seasonRacesUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: seasonRacesUrl) { data, _, error in
             guard error == nil else {
                 resultQueue.async { completionHandler(.failure(NetworkError.fetchError(error!.localizedDescription))) }
                 return

@@ -19,11 +19,15 @@ final class ConstructorsChampionshipPresenter: Presenter {
     }
 
     func viewDidLoad() {
-        loadConstructorsChampionship()
+        loadConstructorsChampionship(year: Int(Constants.availableSeasons[0]) ?? -1)
+    }
+    
+    func handleSeasonSelectionChange(year: Int?) {
+        loadConstructorsChampionship(year: year)
     }
 
-    private func loadConstructorsChampionship() {
-        standingsNetworkService.fetchConstructorsChampionship(year: nil, resultQueue: .main) { [weak self] result in
+    private func loadConstructorsChampionship(year: Int?) {
+        standingsNetworkService.fetchConstructorsChampionship(year: year, resultQueue: .main) { [weak self] result in
             switch result {
             case .success(let constructorsdriversChampionship):
                 self?.view?.loadedConstructorsChampionship(constructorsdriversChampionship)

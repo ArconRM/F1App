@@ -79,7 +79,7 @@ class DriversChampionshipTableViewCell: UITableViewCell {
 
     // MARK: - Data Methods
     func configure(item: DriversChampionshipEntry) {
-        positionLabel.text = "\(item.position)"
+        positionLabel.text = item.position != nil ? "\(item.position!)" : "-"
         fullNameLabel.text = "\(item.driver.fullName)"
         teamNameLabel.text = "\(item.team.teamName)"
         pointsLabel.text = "\(item.points)"

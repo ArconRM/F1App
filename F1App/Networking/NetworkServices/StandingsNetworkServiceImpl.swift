@@ -29,7 +29,7 @@ struct StandingsNetworkServiceImpl: StandingsNetworkService {
     ) {
         let driversChampionshipUrl = urlSource.getDriversChampionshipUrl(year: year)
 
-        URLSession.shared.dataTask(with: driversChampionshipUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: driversChampionshipUrl) { data, _, error in
             guard error == nil else {
                 resultQueue.async { completionHandler(.failure(error!)) }
                 return
@@ -56,7 +56,7 @@ struct StandingsNetworkServiceImpl: StandingsNetworkService {
     ) {
         let constructorsChampionshipUrl = urlSource.getConstructorsChampionshipUrl(year: year)
 
-        URLSession.shared.dataTask(with: constructorsChampionshipUrl) { data, _, error in
+        URLSessionWithCacheEnabled.shared.session.dataTask(with: constructorsChampionshipUrl) { data, _, error in
             guard error == nil else {
                 resultQueue.async { completionHandler(.failure(error!)) }
                 return
