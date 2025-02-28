@@ -21,7 +21,7 @@ final class ConstructorsChampionshipPresenter: Presenter {
     func viewDidLoad() {
         loadConstructorsChampionship(year: Int(Constants.availableSeasons[0]) ?? -1)
     }
-    
+
     func handleSeasonSelectionChange(year: Int?) {
         loadConstructorsChampionship(year: year)
     }

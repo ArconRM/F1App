@@ -95,19 +95,15 @@ class CircuitCardView: UIView {
         }
 
         if let cornersLabel = cornersHStackView.arrangedSubviews[1] as? UILabel {
-            if let corners = circuit.numberOfCorners {
-                cornersLabel.text = String(corners)
-            } else {
-                cornersLabel.text = "-"
-            }
+            cornersLabel.text = circuit.numberOfCorners != nil ? "\(circuit.numberOfCorners!)" : "-"
         }
 
         if let lapRecordLabel = lapRecordHStackView.arrangedSubviews[1] as? UILabel {
-            lapRecordLabel.text = circuit.lapRecord
+            lapRecordLabel.text = circuit.lapRecord ?? "-"
         }
 
         if let firstParticipationYearLabel = firstParticipationHStackView.arrangedSubviews[1] as? UILabel {
-            firstParticipationYearLabel.text = "\(circuit.firstParticipationYear)"
+            firstParticipationYearLabel.text = circuit.firstParticipationYear != nil ? "\(circuit.firstParticipationYear!)" : "-"
         }
     }
 }

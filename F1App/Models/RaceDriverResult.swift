@@ -10,7 +10,7 @@ import Foundation
 struct RaceDriverResult: Equatable {
     var position: String
     var grid: Int?
-    var points: Int
+    var points: Int?
 
     var totalTime: String?
 

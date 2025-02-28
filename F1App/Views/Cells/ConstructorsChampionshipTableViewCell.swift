@@ -82,6 +82,6 @@ class ConstructorsChampionshipTableViewCell: UITableViewCell {
         positionLabel.text = item.position != nil ? "\(item.position!)" : "-"
         teamNameLabel.text = "\(item.team.teamName)"
         countryLabel.text = "\(item.team.country)"
-        pointsLabel.text = "\(item.points)"
+        pointsLabel.text = String(format: "%g", item.points)
     }
 }

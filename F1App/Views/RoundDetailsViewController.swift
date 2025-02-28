@@ -62,7 +62,7 @@ final class RoundDetailsViewController: BaseViewController<RoundDetailsPresenter
             scrollContainerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollContainerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            scrollContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
             scrollContainerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             circuitCardView.topAnchor.constraint(equalTo: scrollContainerView.topAnchor, constant: 16),

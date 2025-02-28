@@ -80,7 +80,7 @@ class RaceResultCardView: UIView {
 
             let timeLabel = LabelFactory.createLabel(fontSize: FontSizes.body.rawValue, color: .appColor(.mainTextColor))
             timeLabel.text = raceDriverResult.totalTime
-            timeLabel.widthAnchor.constraint(equalToConstant: 90).isActive = true
+            timeLabel.widthAnchor.constraint(equalToConstant: 92).isActive = true
             timeLabel.textAlignment = .right
 
             hStackView.addArrangedSubview(positionLabel)

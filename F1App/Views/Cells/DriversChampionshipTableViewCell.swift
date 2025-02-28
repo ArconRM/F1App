@@ -82,6 +82,6 @@ class DriversChampionshipTableViewCell: UITableViewCell {
         positionLabel.text = item.position != nil ? "\(item.position!)" : "-"
         fullNameLabel.text = "\(item.driver.fullName)"
         teamNameLabel.text = "\(item.team.teamName)"
-        pointsLabel.text = "\(item.points)"
+        pointsLabel.text = String(format: "%g", item.points)
     }
 }

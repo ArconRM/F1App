@@ -48,11 +48,7 @@ struct RaceResultDecoderF1Connect: RaceResultsDecoder {
         }
 
         let grid = json["gridPosition"] as? Int ?? json["grid"] as? Int
-
-        guard let points = json["points"] as? Int else {
-            throw SerializationError.missing(key: "points")
-        }
-
+        let points = json["points"] as? Int
         let time = json["time"] as? String
 
         guard let driver = try driverDecoder.decodeDriver(from: json) else {

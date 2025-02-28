@@ -53,7 +53,7 @@ final class ConstructorsChampionshipViewController: BaseViewController<Construct
     // MARK: - Setup View
     private func setupView() {
         navigationController?.navigationBar.isHidden = true
-        
+
         championshipTableView.isHidden = true
 
         view.addSubview(backgroundGradientView)
@@ -79,7 +79,7 @@ final class ConstructorsChampionshipViewController: BaseViewController<Construct
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
+
             segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             segmentedControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             segmentedControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
@@ -115,7 +115,7 @@ final class ConstructorsChampionshipViewController: BaseViewController<Construct
         gradientView.opacity = 0.3
         return gradientView
     }()
-    
+
     private let segmentedControl: UISegmentedControl = {
         let segmentItems = Constants.availableSeasons
         let segmentedControl = UISegmentedControl(items: segmentItems)
