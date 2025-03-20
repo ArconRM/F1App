@@ -78,6 +78,7 @@
 		168101922D0323A200D51776 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168101912D0323A200D51776 /* Presenter.swift */; };
 		1688683F2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */; };
 		168868412D6C522200FCB6D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168868402D6C522200FCB6D1 /* Constants.swift */; };
+		168EEB502D799FBC00E00E5E /* RacesNetworkServiceAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168EEB4F2D799FBC00E00E5E /* RacesNetworkServiceAlamofire.swift */; };
 		1695A0512D04346800C25292 /* SchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0502D04346800C25292 /* SchedulePresenter.swift */; };
 		1695A0532D04348B00C25292 /* DriversChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */; };
 		1695A0552D0436D400C25292 /* ConstructorsChampionshipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1695A0542D0436D400C25292 /* ConstructorsChampionshipPresenter.swift */; };
@@ -145,6 +146,9 @@
 		16CEC0EA2D463F2900EF668E /* 2024.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0E82D463F2900EF668E /* 2024.json */; };
 		16CEC0EC2D463F5900EF668E /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0EB2D463F5900EF668E /* sprint-qualy.json */; };
 		16CEC0ED2D463F5900EF668E /* sprint-qualy.json in Resources */ = {isa = PBXBuildFile; fileRef = 16CEC0EB2D463F5900EF668E /* sprint-qualy.json */; };
+		16D0B21D2D8C8B7700902156 /* DependencyFactoryF1ConnectAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0B21C2D8C8B7700902156 /* DependencyFactoryF1ConnectAlamofire.swift */; };
+		16D0B2202D8C8BEB00902156 /* StandingsNetworkServiceAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0B21F2D8C8BEB00902156 /* StandingsNetworkServiceAlamofire.swift */; };
+		16D0B2222D8C8C2D00902156 /* RoundResultsNetworkServiceAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0B2212D8C8C2D00902156 /* RoundResultsNetworkServiceAlamofire.swift */; };
 		16F4A41F2D240A5400F75700 /* FontSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A41E2D240A5400F75700 /* FontSizes.swift */; };
 		16F4A4212D24397A00F75700 /* PracticeResultCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */; };
 		3568857A5B93615BB51739B5 /* Pods_F1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68ABB438BB860D5C844AE1 /* Pods_F1App.framework */; };
@@ -237,6 +241,7 @@
 		168101912D0323A200D51776 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWithCacheEnabled.swift; sourceTree = "<group>"; };
 		168868402D6C522200FCB6D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		168EEB4F2D799FBC00E00E5E /* RacesNetworkServiceAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesNetworkServiceAlamofire.swift; sourceTree = "<group>"; };
 		1695A0502D04346800C25292 /* SchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePresenter.swift; sourceTree = "<group>"; };
 		1695A0522D04348B00C25292 /* DriversChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipPresenter.swift; sourceTree = "<group>"; };
 		1695A0542D0436D400C25292 /* ConstructorsChampionshipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsChampionshipPresenter.swift; sourceTree = "<group>"; };
@@ -291,6 +296,9 @@
 		16CEC0E52D463EA100EF668E /* 1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
 		16CEC0E82D463F2900EF668E /* 2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 2024.json; sourceTree = "<group>"; };
 		16CEC0EB2D463F5900EF668E /* sprint-qualy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sprint-qualy.json"; sourceTree = "<group>"; };
+		16D0B21C2D8C8B7700902156 /* DependencyFactoryF1ConnectAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactoryF1ConnectAlamofire.swift; sourceTree = "<group>"; };
+		16D0B21F2D8C8BEB00902156 /* StandingsNetworkServiceAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNetworkServiceAlamofire.swift; sourceTree = "<group>"; };
+		16D0B2212D8C8C2D00902156 /* RoundResultsNetworkServiceAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultsNetworkServiceAlamofire.swift; sourceTree = "<group>"; };
 		16F4A41E2D240A5400F75700 /* FontSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizes.swift; sourceTree = "<group>"; };
 		16F4A4202D24397A00F75700 /* PracticeResultCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeResultCardView.swift; sourceTree = "<group>"; };
 		544EC18E7C3166E270529048 /* Pods-F1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1App.release.xcconfig"; path = "Target Support Files/Pods-F1App/Pods-F1App.release.xcconfig"; sourceTree = "<group>"; };
@@ -578,6 +586,7 @@
 			children = (
 				1681017C2CFEFA2A00D51776 /* Protocols */,
 				1681017F2CFEFBFA00D51776 /* DependencyFactoryF1Connect.swift */,
+				16D0B21C2D8C8B7700902156 /* DependencyFactoryF1ConnectAlamofire.swift */,
 				16C030C62D08192C000C258E /* DependencyFactoryWithMockData.swift */,
 			);
 			path = Factories;
@@ -597,9 +606,8 @@
 				1688683E2D6B8D8D00FCB6D1 /* URLSessionWithCacheEnabled.swift */,
 				163C4D002CF8D7B300C62F43 /* Protocols */,
 				16AFC5A32D4E7A6F00D03C5C /* MockData */,
-				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
-				16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */,
-				16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */,
+				168EEB4D2D799F8A00E00E5E /* URLSessionImpls */,
+				168EEB4E2D799F9D00E00E5E /* AlamofireImpls */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -650,6 +658,26 @@
 				168101912D0323A200D51776 /* Presenter.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		168EEB4D2D799F8A00E00E5E /* URLSessionImpls */ = {
+			isa = PBXGroup;
+			children = (
+				163C4D062CF8D7B300C62F43 /* RacesNetworkServiceImpl.swift */,
+				16087C772D1B54EB00654DE0 /* StandingsNetworkServiceImpl.swift */,
+				16A422142D20191B003683CD /* RoundResultsNetworkServiceImpl.swift */,
+			);
+			path = URLSessionImpls;
+			sourceTree = "<group>";
+		};
+		168EEB4E2D799F9D00E00E5E /* AlamofireImpls */ = {
+			isa = PBXGroup;
+			children = (
+				168EEB4F2D799FBC00E00E5E /* RacesNetworkServiceAlamofire.swift */,
+				16D0B21F2D8C8BEB00902156 /* StandingsNetworkServiceAlamofire.swift */,
+				16D0B2212D8C8C2D00902156 /* RoundResultsNetworkServiceAlamofire.swift */,
+			);
+			path = AlamofireImpls;
 			sourceTree = "<group>";
 		};
 		16AFC58E2D4E6D1100D03C5C /* Protocols */ = {
@@ -740,6 +768,7 @@
 				162532F92CEFBF8D00F9397F /* Frameworks */,
 				162532FA2CEFBF8D00F9397F /* Resources */,
 				16B678BB2CF7C14E006FA71B /* SwiftLint script */,
+				E777AD6C8D4B17B771CC6CAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -892,6 +921,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E777AD6C8D4B17B771CC6CAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-F1App/Pods-F1App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-F1App/Pods-F1App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-F1App/Pods-F1App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -906,6 +952,7 @@
 				163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */,
 				1670B47D2D1491F300400899 /* GradientView.swift in Sources */,
 				1670B46D2D11518900400899 /* ScheduleTableViewCell.swift in Sources */,
+				16D0B2202D8C8BEB00902156 /* StandingsNetworkServiceAlamofire.swift in Sources */,
 				162B5E4D2D1DB2A200D1E1B6 /* ConstructorsChampionshipEntry.swift in Sources */,
 				16AFC59C2D4E74E700D03C5C /* TeamDetailsPresentable.swift in Sources */,
 				16087C722D1B30F500654DE0 /* LabelFactory.swift in Sources */,
@@ -981,15 +1028,18 @@
 				16A421F72D1F080D003683CD /* RoundResults.swift in Sources */,
 				16A421F12D1EFD86003683CD /* PracticeDriverResult.swift in Sources */,
 				168101742CFDAFDC00D51776 /* Coordinator.swift in Sources */,
+				16D0B2222D8C8C2D00902156 /* RoundResultsNetworkServiceAlamofire.swift in Sources */,
 				1670B4872D16C9C500400899 /* DriversChampionshipEntry.swift in Sources */,
 				163C4D1C2CF8D7B300C62F43 /* UrlSourceF1Connect.swift in Sources */,
 				1670B4852D16C69400400899 /* DriverDecoder.swift in Sources */,
+				168EEB502D799FBC00E00E5E /* RacesNetworkServiceAlamofire.swift in Sources */,
 				1670B4812D149AE100400899 /* UIColor+AppColor.swift in Sources */,
 				16A421F32D1F051A003683CD /* QualyDriverResult.swift in Sources */,
 				16692BF12D2A91720097C1CC /* UITabBar+Blur.swift in Sources */,
 				16692BEF2D2949200097C1CC /* TeamDetailsCardView.swift in Sources */,
 				16A4220D2D1F31DF003683CD /* RaceResultDecoderF1Connect.swift in Sources */,
 				16AFC5922D4E722900D03C5C /* ErrorPresentable.swift in Sources */,
+				16D0B21D2D8C8B7700902156 /* DependencyFactoryF1ConnectAlamofire.swift in Sources */,
 				1681018E2D0320A000D51776 /* BaseViewController.swift in Sources */,
 				1670B4662D10431500400899 /* CellIdentifiers.swift in Sources */,
 				1670B4912D16FEC400400899 /* DriversChampionshipDecoderF1Connect.swift in Sources */,

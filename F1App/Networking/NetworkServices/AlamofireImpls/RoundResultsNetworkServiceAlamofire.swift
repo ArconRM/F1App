@@ -1,13 +1,14 @@
 //
-//  RoundResultsNetworkServiceImpl.swift
+//  RoundResultsNetworkServiceAlamofire.swift
 //  F1App
 //
-//  Created by Artemiy MIROTVORTSEV on 28.12.2024.
+//  Created by Artemiy MIROTVORTSEV on 20.03.2025.
 //
 
 import Foundation
+import Alamofire
 
-struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
+struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
     private let urlSource: UrlSource
 
     private let practiceResultDecoder: PracticeResultsDecoder
@@ -26,7 +27,6 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
         self.raceResultDecoder = raceResultDecoder
     }
 
-    // TODO: Мб как то получше придумать
     func fetchRoundResults(
         year: Int,
         roundNumber: Int,
@@ -170,24 +170,25 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
     ) {
         let practiceResultsUrl = urlSource.getPracticeResultsUrl(year: year, practiceNumber: practiceNumber, roundNumber: roundNumber)
 
-        URLSessionWithCacheEnabled.shared.session.dataTask(with: practiceResultsUrl) { data, _, error in
-            guard error == nil else {
-                completionHandler(.failure(error!))
-                return
-            }
+        AF.request(practiceResultsUrl).response { response in
+            switch response.result {
+            case .success(let data):
+                guard data != nil else {
+                    completionHandler(.success([]))
+                    return
+                }
 
-            guard data != nil else {
-                completionHandler(.success([]))
-                return
-            }
+                do {
+                    let practiceResults = try practiceResultDecoder.decodePracticeResults(from: data!, practiceNumber: practiceNumber)
+                    completionHandler(.success(practiceResults))
+                } catch let error {
+                   completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+                }
 
-            do {
-                let practiceResults = try practiceResultDecoder.decodePracticeResults(from: data!, practiceNumber: practiceNumber)
-                completionHandler(.success(practiceResults))
-            } catch let error {
-               completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
-        }.resume()
+        }
     }
 
     private func fetchQualyResults(
@@ -200,24 +201,25 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
         urlSource.getSprintQualyResultsUrl(year: year, roundNumber: roundNumber) :
         urlSource.getQualyResultsUrl(year: year, roundNumber: roundNumber)
 
-        URLSessionWithCacheEnabled.shared.session.dataTask(with: qualyResultsUrl) { data, _, error in
-            guard error == nil else {
-                completionHandler(.failure(error!))
-                return
-            }
+        AF.request(qualyResultsUrl).response { response in
+            switch response.result {
+            case .success(let data):
+                guard data != nil else {
+                    completionHandler(.success([]))
+                    return
+                }
 
-            guard data != nil else {
-                completionHandler(.success([]))
-                return
-            }
+                do {
+                    let qualyResults = try qualyResultDecoder.decodeQualyResults(from: data!, isSprint: isSprint)
+                    completionHandler(.success(qualyResults))
+                } catch let error {
+                    completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+                }
 
-            do {
-                let qualyResults = try qualyResultDecoder.decodeQualyResults(from: data!, isSprint: isSprint)
-                completionHandler(.success(qualyResults))
-            } catch let error {
-               completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
-        }.resume()
+        }
     }
 
     private func fetchRaceResults(
@@ -230,23 +232,24 @@ struct RoundResultsNetworkServiceImpl: RoundResultsNetworkService {
         urlSource.getSprintRaceResultsUrl(year: year, roundNumber: roundNumber) :
         urlSource.getRaceResultsUrl(year: year, roundNumber: roundNumber)
 
-        URLSessionWithCacheEnabled.shared.session.dataTask(with: raceResultsUrl) { data, _, error in
-            guard error == nil else {
-                completionHandler(.failure(error!))
-                return
-            }
+        AF.request(raceResultsUrl).response { response in
+            switch response.result {
+            case .success(let data):
+                guard data != nil else {
+                    completionHandler(.success([]))
+                    return
+                }
 
-            guard data != nil else {
-                completionHandler(.success([]))
-                return
-            }
+                do {
+                    let raceResults = try raceResultDecoder.decodeRaceResults(from: data!, isSprint: isSprint)
+                    completionHandler(.success(raceResults))
+                } catch let error {
+                    completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+                }
 
-            do {
-                let raceResults = try raceResultDecoder.decodeRaceResults(from: data!, isSprint: isSprint)
-                completionHandler(.success(raceResults))
-            } catch let error {
-               completionHandler(.failure(NetworkError.parserError(error.localizedDescription)))
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
-        }.resume()
+        }
     }
 }
