@@ -88,12 +88,12 @@ final class PresentersTests: XCTestCase {
     
     func testSchedulePresenterSelectionChanged() {
         schedulePresenter.viewDidLoad()
-        schedulePresenter.handleSeasonSelectionChange(selectionIndex: 1)
+        schedulePresenter.handleSeasonSelectionChange(year: 2024)
         
         racesNetworkService.fetchSeasonRaces(year: 2024, resultQueue: .main) { result in
             switch result {
             case .success(let races):
-                XCTAssertEqual(self.scheduleView.prevSeasonRaces, races)
+                XCTAssertEqual(self.scheduleView.currentSeasonRaces, races)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

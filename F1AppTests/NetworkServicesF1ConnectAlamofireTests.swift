@@ -1,21 +1,22 @@
 //
-//  NetworkServicesF1ConnectAPITests.swift
+//  NetworkServicesF1ConnectAlamofireTests.swift
 //  F1AppTests
 //
-//  Created by Artemiy MIROTVORTSEV on 26.11.2024.
+//  Created by Artemiy MIROTVORTSEV on 21.03.2025.
 //
 
-import XCTest
+import Foundation
 @testable import F1App
+import XCTest
 
-final class NetworkServicesF1ConnectAPITests: XCTestCase {
-    var raceNetworkService: RacesNetworkService!
-    var standingsNetworkService: StandingsNetworkService!
-    var roundResultsNetworkService: RoundResultsNetworkService!
+final class NetworkServicesF1ConnectAlamofireTests: XCTestCase {
+    var raceNetworkService: RacesNetworkServiceAlamofire!
+    var standingsNetworkService: StandingsNetworkServiceAlamofire!
+    var roundResultsNetworkService: RoundResultsNetworkServiceAlamofire!
     
     override func setUp() {
         super.setUp()
-        raceNetworkService = RacesNetworkServiceImpl(
+        raceNetworkService = RacesNetworkServiceAlamofire(
             urlSource: UrlSourceF1Connect(),
             raceDecoder: RaceDecoderF1Connect(
                 circuitDecoder: CircuitDecoderF1Connect(),
@@ -24,7 +25,7 @@ final class NetworkServicesF1ConnectAPITests: XCTestCase {
             )
         )
         
-        standingsNetworkService = StandingsNetworkServiceImpl(
+        standingsNetworkService = StandingsNetworkServiceAlamofire(
             urlSource: UrlSourceF1Connect(),
             driversChampionshipDecoder: DriversChampionshipDecoderF1Connect(
                 driverDecoder: DriverDecoderF1Connect(),
@@ -33,7 +34,7 @@ final class NetworkServicesF1ConnectAPITests: XCTestCase {
             constructorsChampionshipDecoder: ConstructorsChampionshipDecoderF1Connect(teamDecoder: TeamDecoderF1Connect())
         )
         
-        roundResultsNetworkService = RoundResultsNetworkServiceImpl(
+        roundResultsNetworkService = RoundResultsNetworkServiceAlamofire(
             urlSource: UrlSourceF1Connect(),
             practiceResultDecoder: PracticeResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),
             qualyResultDecoder: QualyResultDecoderF1Connect(driverDecoder: DriverDecoderF1Connect(), teamDecoder: TeamDecoderF1Connect()),

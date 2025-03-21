@@ -19,6 +19,7 @@
 		162B5E4D2D1DB2A200D1E1B6 /* ConstructorsChampionshipEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162B5E4C2D1DB2A200D1E1B6 /* ConstructorsChampionshipEntry.swift */; };
 		162B5E4F2D1DB41600D1E1B6 /* ConstructorsChampionshipDecoderF1Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162B5E4E2D1DB41600D1E1B6 /* ConstructorsChampionshipDecoderF1Connect.swift */; };
 		162B5E512D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162B5E502D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift */; };
+		163048A02D8D63D6002C09F1 /* NetworkServicesF1ConnectAlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630489F2D8D63D6002C09F1 /* NetworkServicesF1ConnectAlamofireTests.swift */; };
 		163C4D122CF8D7B300C62F43 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF52CF8D7B300C62F43 /* NetworkError.swift */; };
 		163C4D132CF8D7B300C62F43 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF62CF8D7B300C62F43 /* SerializationError.swift */; };
 		163C4D152CF8D7B300C62F43 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4CF92CF8D7B300C62F43 /* Round.swift */; };
@@ -34,7 +35,7 @@
 		163C4D202CF8D7B300C62F43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D0F2CF8D7B300C62F43 /* SceneDelegate.swift */; };
 		163C4D222CF8D7B300C62F43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D092CF8D7B300C62F43 /* Assets.xcassets */; };
 		163C4D242CF8D7B300C62F43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163C4D0C2CF8D7B300C62F43 /* LaunchScreen.storyboard */; };
-		163C4D322CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift */; };
+		163C4D322CF8D7C200C62F43 /* NetworkServicesF1ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectTests.swift */; };
 		16692BE12D293A920097C1CC /* DriversChampionshipViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */; };
 		16692BE32D293B2B0097C1CC /* DriverDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */; };
 		16692BE52D293BF80097C1CC /* DriverDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */; };
@@ -182,6 +183,7 @@
 		162B5E4E2D1DB41600D1E1B6 /* ConstructorsChampionshipDecoderF1Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsChampionshipDecoderF1Connect.swift; sourceTree = "<group>"; };
 		162B5E502D1DB44300D1E1B6 /* ConstructorsChampionshipDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsChampionshipDecoder.swift; sourceTree = "<group>"; };
 		162ED6D52D081E7600DF9A04 /* RacesNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesNetworkServiceMock.swift; sourceTree = "<group>"; };
+		1630489F2D8D63D6002C09F1 /* NetworkServicesF1ConnectAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesF1ConnectAlamofireTests.swift; sourceTree = "<group>"; };
 		163C4CF52CF8D7B300C62F43 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		163C4CF62CF8D7B300C62F43 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		163C4CF92CF8D7B300C62F43 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 		163C4D0A2CF8D7B300C62F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		163C4D0B2CF8D7B300C62F43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		163C4D0F2CF8D7B300C62F43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesF1ConnectAPITests.swift; sourceTree = "<group>"; };
+		163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesF1ConnectTests.swift; sourceTree = "<group>"; };
 		16692BE02D293A920097C1CC /* DriversChampionshipViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversChampionshipViewCoordinator.swift; sourceTree = "<group>"; };
 		16692BE22D293B2B0097C1CC /* DriverDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsViewController.swift; sourceTree = "<group>"; };
 		16692BE42D293BF80097C1CC /* DriverDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -453,9 +455,10 @@
 			children = (
 				163C4D2A2CF8D7C200C62F43 /* Assets */,
 				16AFC5A22D4E7A6800D03C5C /* Mocks */,
-				163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift */,
+				163C4D2B2CF8D7C200C62F43 /* NetworkServicesF1ConnectTests.swift */,
 				16A422122D1FF82F003683CD /* DecodingF1ConnectTests.swift */,
 				16AFC59F2D4E78F000D03C5C /* PresentersTests.swift */,
+				1630489F2D8D63D6002C09F1 /* NetworkServicesF1ConnectAlamofireTests.swift */,
 			);
 			path = F1AppTests;
 			sourceTree = "<group>";
@@ -1068,7 +1071,8 @@
 			files = (
 				16A422132D1FF82F003683CD /* DecodingF1ConnectTests.swift in Sources */,
 				16AFC5A02D4E78F000D03C5C /* PresentersTests.swift in Sources */,
-				163C4D322CF8D7C200C62F43 /* NetworkServicesF1ConnectAPITests.swift in Sources */,
+				163C4D322CF8D7C200C62F43 /* NetworkServicesF1ConnectTests.swift in Sources */,
+				163048A02D8D63D6002C09F1 /* NetworkServicesF1ConnectAlamofireTests.swift in Sources */,
 				16B5D1352D4F726C00A8563F /* DependencyFactoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

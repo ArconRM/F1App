@@ -11,7 +11,6 @@ class ScheduleViewMock: SchedulePresentable {
     
     var nextRace: Round?
     var currentSeasonRaces: [Round?]?
-    var prevSeasonRaces: [Round?]?
     var currentError: (any Error)?
     
     func loadedNextRace(_ round: Round?) {
@@ -20,10 +19,6 @@ class ScheduleViewMock: SchedulePresentable {
     
     func loadedCurrentSeasonRaces(_ races: [Round?]) {
         currentSeasonRaces = races
-    }
-    
-    func loadedPrevSeasonRaces(_ races: [Round?]) {
-        prevSeasonRaces = races
     }
     
     func showNetworkError(_ error: any Error) {
