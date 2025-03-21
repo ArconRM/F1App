@@ -39,7 +39,6 @@ class RaceScheduleCardView: UIView {
 
     private func setupInitalConstraints() {
         NSLayoutConstraint.activate([
-
             roundLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

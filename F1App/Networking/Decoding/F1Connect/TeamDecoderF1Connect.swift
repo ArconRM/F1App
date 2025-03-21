@@ -49,9 +49,6 @@ struct TeamDecoderF1Connect: TeamDecoder {
 
     private func decodeTeamFromJson(_ json: [String: Any?]) throws -> Team {
 
-//        guard let teamId = json["teamId"] as? String else {
-//            throw SerializationError.missing(key: "teamId")
-//        }
         let teamId = json["teamId"] as? String
 
         guard let teamName = json["teamName"] as? String else {
