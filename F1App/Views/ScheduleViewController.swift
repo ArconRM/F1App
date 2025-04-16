@@ -227,17 +227,6 @@ final class ScheduleViewController: BaseViewController<SchedulePresenter>, Sched
         }
     }
 
-    func loadedPrevSeasonRaces(_ races: [Round?]) {
-        if races.isEmpty {
-            loadingLabel.text = "Полного расписания пока нет"
-        } else {
-            loadingLabel.isHidden = true
-            scheduleTableView.isHidden = false
-
-            updateTableView(with: races)
-        }
-    }
-
     private func updateTableView(with data: [Round?]) {
         DispatchQueue.main.async {
             self.scheduleTableViewDelegate?.setItems(items: data)

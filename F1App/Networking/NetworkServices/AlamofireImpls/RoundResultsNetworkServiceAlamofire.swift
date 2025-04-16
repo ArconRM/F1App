@@ -34,7 +34,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
         completionHandler: @escaping (Result<RoundResults, any Error>) -> Void
     ) {
         let dispatchGroup = DispatchGroup()
-        var errors = [String]()
+        var errors = [any Error]()
 
         var fp1Results = [PracticeDriverResult]()
         var fp2Results = [PracticeDriverResult]()
@@ -55,7 +55,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     fp1Results = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -69,7 +69,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     fp2Results = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -83,7 +83,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     fp3Results = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -97,7 +97,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     sprintQualyResults = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -111,7 +111,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     sprintRaceResults = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -125,7 +125,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     qualyResults = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 
@@ -139,7 +139,7 @@ struct RoundResultsNetworkServiceAlamofire: RoundResultsNetworkService {
                 case .success(let results):
                     raceResults = results
                 case .failure(let error):
-                    errors.append(error.localizedDescription)
+                    errors.append(error)
                 }
             }
 

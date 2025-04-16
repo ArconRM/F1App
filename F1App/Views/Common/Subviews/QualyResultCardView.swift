@@ -151,7 +151,7 @@ class QualyResultCardView: UIView {
         }
 
         for driverQ3Result in qualyResults.filter( { $0.q3Time != nil }).sorted(by: { $0.q3Time! < $1.q3Time! }) {
-            q3ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 3, position: driverQ3Result.position, qualyDriverResult: driverQ3Result))
+            q3ResultsVStack.addArrangedSubview(setupResultsHStackView(qualyNumber: 3, position: driverQ3Result.position ?? 20, qualyDriverResult: driverQ3Result))
         }
     }
 

@@ -10,7 +10,7 @@ import Foundation
 struct PracticeDriverResult: Equatable {
     var position: Int
 
-    var time: String
+    var time: String?
 
     var driver: Driver
     var team: Team

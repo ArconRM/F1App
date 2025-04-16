@@ -38,9 +38,7 @@ struct PracticeResultDecoderF1Connect: PracticeResultsDecoder {
     }
 
     private func decodePracticeDriverResultFromJson(_ json: [String: Any?], position: Int) throws -> PracticeDriverResult {
-        guard let time = json["time"] as? String else {
-            throw SerializationError.missing(key: "time")
-        }
+        let time = json["time"] as? String
 
         guard let driver = try driverDecoder.decodeDriver(from: json) else {
             throw SerializationError.invalid(key: "driver")

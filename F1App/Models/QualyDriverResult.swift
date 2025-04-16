@@ -8,7 +8,7 @@
 import Foundation
 
 struct QualyDriverResult: Equatable {
-    var position: Int
+    var position: Int?
 
     var q1Time: String?
     var q2Time: String?

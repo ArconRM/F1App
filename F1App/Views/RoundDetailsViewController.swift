@@ -52,7 +52,7 @@ final class RoundDetailsViewController: BaseViewController<RoundDetailsPresenter
 
             raceNameTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             raceNameTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            raceNameTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            raceNameTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
             scrollView.topAnchor.constraint(equalTo: raceNameTitleLabel.bottomAnchor, constant: 16),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

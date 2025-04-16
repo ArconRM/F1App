@@ -38,9 +38,7 @@ struct QualyResultDecoderF1Connect: QualyResultsDecoder {
     }
 
     private func decodeQualyDriverResultFromJson(_ json: [String: Any?], isSprint: Bool) throws -> QualyDriverResult {
-        guard let position = json["gridPosition"] as? Int else {
-            throw SerializationError.missing(key: "position")
-        }
+        let position = json["gridPosition"] as? Int
 
         let q1Time = (json[isSprint ? "sq1" : "q1"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
 

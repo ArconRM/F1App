@@ -12,7 +12,7 @@ enum NetworkError: Error, LocalizedError {
     case fetchError(String)
     case parserError(String)
     case unexpectedError(String)
-    case multipleErrors([String])
+    case multipleErrors([any Error])
 
     var errorDescription: String? {
         switch self {
@@ -40,7 +40,7 @@ enum NetworkError: Error, LocalizedError {
         case .unexpectedError(let error):
             return "Неизвестная ошибка при получении данных с API. Ошибка: \(error)."
         case .multipleErrors(let errors):
-            return "При получении данных с API случилось больно дохуя ошибок: \(errors.count)"
+            return "При получении данных с API случилось несколько ошибок: \(errors.count)"
         }
     }
 }
